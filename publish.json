@@ -1,0 +1,6 @@
+{
+    "name": "basetest",
+    "modules": [
+        "system"
+    ]
+}

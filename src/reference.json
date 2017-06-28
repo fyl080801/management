@@ -1,0 +1,17 @@
+{
+  "resources": {
+    "js": ["./resources/js/*.js"],
+    "css": ["./resources/css/*.css"],
+    "images": [
+      "./resources/images/*.jpg",
+      "./resources/images/*.png"
+    ]
+  },
+  "bootstrap": {
+    "css": [
+      "./bower_components/bootstrap/dist/css/bootstrap.min.css",
+      "./bower_components/bootstrap/dist/css/bootstrap.min.css.map"
+    ],
+    "fonts": ["./bower_components/bootstrap/dist/fonts/*"]
+  }
+}
