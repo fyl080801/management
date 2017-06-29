@@ -94,10 +94,46 @@
             shim: {
                 deps: ['modules.manageui.module']
             }
+        },
+
+        // third plugin
+        'metisMenu': {
+            path: 'js/metisMenu',
+            shim: {
+                deps: ['api-check']
+            }
+        },
+        'api-check': {
+            path: 'js/api-check'
+        },
+        'jquery-slimscroll': {
+            path: 'js/jquery.slimscroll',
+            shim: {
+                deps: ['app']
+            }
+        },
+        'pace': {
+            path: 'js/pace'
+        },
+        'contabs': {
+            path: 'js/contabs.min'
+        },
+        'hplus': {
+            path: 'js/hplus.min',
+            shim: {
+                deps: ['layer']
+            }
+        },
+        'layer': {
+            path: 'js/layer.min'
         }
     },
     requires: [
         'modules.manageui.module'
     ],
-    noDebugs: []
+    noDebugs: [
+        'contabs',
+        'hplus',
+        'layer'
+    ]
 });

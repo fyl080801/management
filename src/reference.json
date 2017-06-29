@@ -1,7 +1,10 @@
 {
   "resources": {
     "js": ["./resources/js/*.js"],
-    "css": ["./resources/css/*.css"],
+    "css": [
+      "./resources/css/*.css",
+      "./resources/css/patterns/*"
+    ],
     "images": [
       "./resources/images/*.jpg",
       "./resources/images/*.png"
@@ -13,5 +16,42 @@
       "./bower_components/bootstrap/dist/css/bootstrap.min.css.map"
     ],
     "fonts": ["./bower_components/bootstrap/dist/fonts/*"]
+  },
+  "metisMenu": {
+    "js": [
+      "./bower_components/metisMenu/dist/metisMenu.js",
+      "./bower_components/metisMenu/dist/metisMenu.min.js"
+    ],
+    "css": [
+      "./bower_components/metisMenu/dist/metisMenu.min.css"
+    ]
+  },
+  "api-check": {
+    "js": [
+      "./bower_components/api-check/dist/api-check.js",
+      "./bower_components/api-check/dist/api-check.min.js"
+    ]
+  },
+  "jquery-slimscroll": {
+    "js": [
+      "./bower_components/jquery-slimscroll/jquery.slimscroll.js",
+      "./bower_components/jquery-slimscroll/jquery.slimscroll.min.js"
+    ]
+  },
+  "pace": {
+    "js": [
+      "./bower_components/pace/pace.js",
+      "./bower_components/pace/pace.min.js"
+    ]
+  },
+  "font-awesome": {
+    "css": ["./bower_components/font-awesome/css/*.css"],
+    "fonts": ["./bower_components/font-awesome/fonts/*"]
+  },
+  "animate.css": {
+    "css": [
+      "./bower_components/animate.css/animate.css",
+      "./bower_components/animate.css/animate.min.css"
+    ]
   }
 }
