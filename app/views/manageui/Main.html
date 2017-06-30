@@ -1,12 +1,21 @@
 <div ng-controller="modules.manageui.controllers.main as me">
-    <div class="manage-menu">
+    <div class="manage-nav">
         <div class="panel-body nav-header">
-            <img class="img-circle" width="64px" height="64px" />
+            <div class="pull-left">
+                <img class="img-circle" src="../../images/profile_small.jpg" width="64px" height="64px" />
+            </div>
+            <div class="container-fluid manage-info">
+                <div class="form-group text-left">
+                    <div>
+                        <a><strong>用户名</strong></a>
+                    </div>
+                    <div>
+                        <a class="text-muted">超级管理员 <i class="caret"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
         <ul class="metismenu nav">
-            <li>
-                <a href="#"><i class="fa fa-home"></i> <span>主页</span></a>
-            </li>
             <li>
                 <a href="#"><i class="fa fa-cogs"></i> <span>系统设置</span></a>
                 <ul class="nav nav-second-level" aria-expanded="false">
@@ -22,8 +31,35 @@
             </li>
         </ul>
     </div>
-    <div>
-        <div class="navbar navbar-default navbar-fixed-top manage-nav"></div>
-        <div class="manage-content"></div>
+    <div class="manage-content">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-form navbar-left">
+                <button class="btn btn-success"><i class="fa fa-bars"></i></button>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href=""><i class="fa fa-envelope"></i></a></li>
+                <li><a></a></li>
+            </ul>
+        </div>
+        <div class="tab">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation"><a href=""><i class="glyphicon glyphicon-th-list"></i></a></li>
+                <li role="presentation" class="active"><a href="#" data-target="#home" data-toggle="tab"><i class="glyphicon glyphicon-home"></i> 首页</a></li>
+                <li role="presentation" ng-repeat="tab in me.tabs">
+                    <a href="#" data-target="#{{tab.Link}}" data-toggle="tab">{{tab.Title}}
+                        &nbsp;<button type="button" class="close" aria-label="Close" ng-click="me.close($index)"><span aria-hidden="true">&times;</span></button></a>
+                </li>
+                <li role="presentation" class="pull-right"><a href="" ng-click="me.logout()"><i class="glyphicon glyphicon-log-out"></i> 退出</a></li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <div ng-include="'views/manageui/Home.html'"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="{{tab.Link}}" ng-repeat="tab in me.tabs">
+                <iframe ng-if="tab.Type==='iframe'" ng-src="{{tab.Page}}"></iframe>
+                <div ng-if="tab.Type===''||tab.Type==='template'" ng-include="{{tab.Page}}"></div>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,72 +1,98 @@
-.manage-menu {
+.manage-nav {
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
-    width: 200px;
+    width: 220px;
     background-color: #2f4050;
 }
 
-.manage-nav {
-    margin-left: 200px
+.manage-bar {
+    margin-left: 220px
 }
 
 .manage-content {
     position: absolute;
-    margin-left: 200px;
-    top: 70px;
+    left: 220px;
+    top: 0;
+    bottom: 0;
     right: 0;
-    bottom: 40px;
+}
+
+.manage-info {
+    margin-left: 70px;
+}
+
+.manage-content .navbar {
+    margin-left: 220px;
+}
+
+.manage-content .tab {
+    margin-top: 50px;
+    border-bottom: solid 2px #2f4050
+}
+
+.manage-content .tab .nav .active>a {
+    background: #2f4050;
+    color: #dfe4ed;
+}
+
+.text-muted {
+    color: #8095a8;
 }
 
 .nav-header {
     background: url(../images/header-profile.png) no-repeat
 }
 
-.nav>li>a {
+.nav-header a {
+    color: #dfe4ed;
+}
+
+.manage-nav .nav>li>a {
     color: #a7b1c2;
     font-weight: 600;
     padding: 14px 20px 14px 25px
 }
 
-.nav>li>a:focus,
-.nav>li>a:hover {
+.manage-nav .nav>li>a:focus,
+.manage-nav .nav>li>a:hover {
     background-color: #293846;
     color: #fff
 }
 
-.nav>li>a i {
+.manage-nav .nav>li>a i {
     margin-right: 6px
 }
 
-.nav>li.active {
+.manage-nav .nav>li.active {
     border-left: 4px solid #19aa8d;
     background: #293846
 }
 
-.nav.nav-second-level>li.active {
+.manage-nav .nav.nav-second-level>li.active {
     border: none
 }
 
-.nav>li>.nav-second-level li a {
+.manage-nav .nav>li>.nav-second-level li a {
     font-size: 12px;
     border-radius: 0 2px 2px 0
 }
 
-.nav-second-level li,
-.nav-third-level li {
+.manage-nav .nav-second-level li,
+.manage-nav .nav-third-level li {
     border-bottom: none!important
 }
 
-.nav-second-level li a {
+.manage-nav .nav-second-level li a {
     padding: 7px 15px 7px 10px;
     padding-left: 52px
 }
 
-.nav-second-level li:last-child {
+.manage-nav .nav-second-level li:last-child {
     margin-bottom: 10px
 }
 
-.nav-third-level li a {
+.manage-nav .nav-third-level li a {
     padding-left: 62px
 }
