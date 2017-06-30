@@ -4,6 +4,7 @@
     top: 0;
     bottom: 0;
     width: 200px;
+    background-color: #2f4050;
 }
 
 .manage-nav {
@@ -16,4 +17,56 @@
     top: 70px;
     right: 0;
     bottom: 40px;
+}
+
+.nav-header {
+    background: url(../images/header-profile.png) no-repeat
+}
+
+.nav>li>a {
+    color: #a7b1c2;
+    font-weight: 600;
+    padding: 14px 20px 14px 25px
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+    background-color: #293846;
+    color: #fff
+}
+
+.nav>li>a i {
+    margin-right: 6px
+}
+
+.nav>li.active {
+    border-left: 4px solid #19aa8d;
+    background: #293846
+}
+
+.nav.nav-second-level>li.active {
+    border: none
+}
+
+.nav>li>.nav-second-level li a {
+    font-size: 12px;
+    border-radius: 0 2px 2px 0
+}
+
+.nav-second-level li,
+.nav-third-level li {
+    border-bottom: none!important
+}
+
+.nav-second-level li a {
+    padding: 7px 15px 7px 10px;
+    padding-left: 52px
+}
+
+.nav-second-level li:last-child {
+    margin-bottom: 10px
+}
+
+.nav-third-level li a {
+    padding-left: 62px
 }
