@@ -61,7 +61,7 @@ define('modules.manageui.module', [
                     .state('main', {
                         url: '/main',
                         templateUrl: 'views/manageui/Main.html',
-                        dependencies: ['metisMenu', 'jquery-slimscroll', 'pace', 'contabs', 'hplus', 'modules.manageui.requires'],
+                        dependencies: ['metisMenu', 'modules.manageui.requires'],
                         data: {
                             title: '管理系统'
                         }
