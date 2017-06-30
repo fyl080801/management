@@ -12,7 +12,7 @@ define('modules.manageui.controllers.main', [
         function ($scope, $state, $appEnvironment, $element, sessionService) {
             var me = this;
 
-            $element.find('[side-menu]').metisMenu();
+            $element.find('.metismenu').metisMenu();
         }
     ]);
 });

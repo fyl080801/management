@@ -1,0 +1,19 @@
+.manage-menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+}
+
+.manage-nav {
+    margin-left: 200px
+}
+
+.manage-content {
+    position: absolute;
+    margin-left: 200px;
+    top: 70px;
+    right: 0;
+    bottom: 40px;
+}
