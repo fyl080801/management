@@ -16,7 +16,7 @@ define('modules.manageui.controllers.main', [
 
             this.links = linkManager.tree();
 
-            this.tabs = {};
+            this.tabs = [];
 
             this.logout = function () {
                 popupService
@@ -36,22 +36,22 @@ define('modules.manageui.controllers.main', [
 
             this.tabOpen = function (tab) {
                 if (!tab.target) return;
-                if (!me.tabs[tab.tab]) {
-                    me.tabs[tab.tab] = tab;
+                if (!checkAdded(tab)) {
+                    me.tabs.push(tab);
                 }
             };
 
             this.tabActive = function (tab) {
-                if (!me.tabs[tab.tab]) return;
+                if (!checkAdded(tab)) return;
                 $('[role="tablist"] a[data-target="#' + tab.tab + '"]').tab('show');
             };
 
-            this.tabClose = function (tab) {
-                var added = me.tabs[tab.tab];
+            this.tabClose = function (idx) {
+                var added = me.tabs[idx];
                 if (added.tabState === $state.current.name && added.tabStateParams === $state.current.tabStateParams) {
                     $state.back();
                 }
-                delete me.tabs[tab.tab];
+                me.tabs.splice(idx, 1);
             };
 
             this.tabAdded();
@@ -69,11 +69,32 @@ define('modules.manageui.controllers.main', [
                 if (toState.target) {
                     me.tabActive(toState);
                 }
-                if (Object.getOwnPropertyNames(me.tabs) <= 0) {
+                if (me.tabs.length <= 0) {
                     $('[role="tablist"] a[data-target="#tab_home"]').tab('show');
                 }
             });
 
+            function checkAdded(tab) {
+                var added = false;
+                $.each(me.tabs, function (idx, tabItem) {
+                    if (tabItem.tab === tab.tab) {
+                        added = true;
+                        return false;
+                    }
+                });
+                return added;
+            }
+
+            function getAdded(tab) {
+                var added;
+                $.each(me.tabs, function (idx, tabItem) {
+                    if (tabItem.tab === tab.tab) {
+                        added = tabItem;
+                        return false;
+                    }
+                });
+                return added;
+            }
             // if (!$appEnvironment.session) {
             //     sessionService
             //         .checkSession()

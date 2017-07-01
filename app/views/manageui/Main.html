@@ -52,7 +52,7 @@
                     <!--tabs-->
                     <li role="presentation" ng-repeat="tab in me.tabs">
                         <a href="#" data-target="#{{tab.tab}}" data-toggle="tab" state="{{tab.tabState}}" state-params="{{tab.tabStateParams}}">{{tab.title}}
-                        &nbsp;<button type="button" class="close" aria-label="Close" ng-click="me.tabClose(tab)"><span aria-hidden="true">&times;</span></button></a>
+                        &nbsp;<button type="button" class="close" aria-label="Close" ng-click="me.tabClose($index)"><span aria-hidden="true">&times;</span></button></a>
                     </li>
                     <!---->
                     <li role="presentation" class="pull-right"><a href="" ng-click="me.logout()"><i class="glyphicon glyphicon-log-out"></i> 退出</a></li>
@@ -63,7 +63,7 @@
                     <div ng-include="'views/room/Home.html'"></div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="{{tab.tab}}" ng-repeat="tab in me.tabs" ng-init="me.tabAdded(tab)">
-                    <iframe ng-if="tab.target==='iframe'" ng-src="{{tab.Page}}"></iframe>
+                    <iframe ng-if="tab.target==='iframe'" ng-src="{{tab.src}}" frameborder="0" width="100%" height="100%" scrolling="auto"></iframe>
                     <div ng-if="tab.target==='tab'" ui-view="{{tab.tab}}"></div>
                 </div>
             </div>

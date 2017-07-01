@@ -25,7 +25,9 @@ define('modules.room.module', [
                 $stateProvider
                     .state('main.roominfo_manage', {
                         target: 'iframe',
-                        url: 'www.baidu.com'
+                        title: '信息管理',
+                        url: '/roominfo_manage',
+                        src: 'test.html'
                     });
             }
         ])
@@ -53,7 +55,7 @@ define('modules.room.module', [
                     .add({
                         id: 'roommanage.infomanage',
                         text: '信息管理',
-                        href: '#/aaaa'
+                        href: '#/main/roominfo_manage'
                     });
             }
         ]);

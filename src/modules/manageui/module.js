@@ -14,6 +14,16 @@ define('modules.manageui.module', [
         .module('modules.manageui', [
             'ui.router',
             'modules.manageui.configs'
+        ])
+        .config([
+            '$sceDelegateProvider',
+            function ($sceDelegateProvider) {
+                $sceDelegateProvider
+                    .resourceUrlWhitelist([
+                        'self',
+                        'http://www.baidu.com/**'
+                    ]);
+            }
         ]);
     // .run([
     //     '$rootScope',
