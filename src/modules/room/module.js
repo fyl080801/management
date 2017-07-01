@@ -11,6 +11,25 @@ define('modules.room.module', [
             'modules.manageui'
         ])
         .config([
+            '$stateProvider',
+            function ($stateProvider) {
+                $stateProvider
+                    .state('main.roominfo_search', {
+                        target: 'tab',
+                        title: '信息查询',
+                        url: '/roominfo_search',
+                        templateUrl: 'views/room/manage/Search.html',
+                        dependencies: ['modules.room.requires']
+                    });
+
+                $stateProvider
+                    .state('main.roominfo_manage', {
+                        target: 'iframe',
+                        url: 'www.baidu.com'
+                    });
+            }
+        ])
+        .config([
             'modules.manageui.configs.linkManagerProvider',
             function (linkManagerProvider) {
                 linkManagerProvider
@@ -29,7 +48,11 @@ define('modules.room.module', [
                     .add({
                         id: 'roommanage.search',
                         text: '信息查询',
-                        icon: 'glyphicon glyphicon-cog',
+                        href: '#/main/roominfo_search'
+                    })
+                    .add({
+                        id: 'roommanage.infomanage',
+                        text: '信息管理',
                         href: '#/aaaa'
                     });
             }

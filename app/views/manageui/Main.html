@@ -39,27 +39,33 @@
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href=""><i class="fa fa-envelope"></i></a></li>
-                <!--<li><a></a></li>-->
+                <li><a></a></li>
             </ul>
         </div>
-        <div class="tab">
-            <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation"><a href=""><i class="glyphicon glyphicon-th-list"></i></a></li>
-                <li role="presentation" class="active"><a href="#" data-target="#home" data-toggle="tab"><i class="glyphicon glyphicon-home"></i> 首页</a></li>
-                <li role="presentation" ng-repeat="tab in me.tabs">
-                    <a href="#" data-target="#{{tab.Link}}" data-toggle="tab">{{tab.Title}}
-                        &nbsp;<button type="button" class="close" aria-label="Close" ng-click="me.close($index)"><span aria-hidden="true">&times;</span></button></a>
-                </li>
-                <li role="presentation" class="pull-right"><a href="" ng-click="me.logout()"><i class="glyphicon glyphicon-log-out"></i> 退出</a></li>
-            </ul>
-        </div>
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home">
-                <div ng-include="'views/manageui/Home.html'"></div>
+        <div>
+            <div class="tab">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation"><a href=""><i class="glyphicon glyphicon-th-list"></i></a></li>
+                    <li role="presentation" class="active">
+                        <a href="#" data-target="#tab_home" data-toggle="tab" state="main" state-params=""><i class="glyphicon glyphicon-home"></i> 首页</a>
+                    </li>
+                    <!--tabs-->
+                    <li role="presentation" ng-repeat="tab in me.tabs">
+                        <a href="#" data-target="#{{tab.tab}}" data-toggle="tab" state="{{tab.tabState}}" state-params="{{tab.tabStateParams}}">{{tab.title}}
+                        &nbsp;<button type="button" class="close" aria-label="Close" ng-click="me.tabClose(tab)"><span aria-hidden="true">&times;</span></button></a>
+                    </li>
+                    <!---->
+                    <li role="presentation" class="pull-right"><a href="" ng-click="me.logout()"><i class="glyphicon glyphicon-log-out"></i> 退出</a></li>
+                </ul>
             </div>
-            <div role="tabpanel" class="tab-pane" id="{{tab.Link}}" ng-repeat="tab in me.tabs">
-                <iframe ng-if="tab.Type==='iframe'" ng-src="{{tab.Page}}"></iframe>
-                <div ng-if="tab.Type===''||tab.Type==='template'" ng-include="{{tab.Page}}"></div>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="tab_home">
+                    <div ng-include="'views/room/Home.html'"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="{{tab.tab}}" ng-repeat="tab in me.tabs" ng-init="me.tabAdded(tab)">
+                    <iframe ng-if="tab.target==='iframe'" ng-src="{{tab.Page}}"></iframe>
+                    <div ng-if="tab.target==='tab'" ui-view="{{tab.tab}}"></div>
+                </div>
             </div>
         </div>
     </div>

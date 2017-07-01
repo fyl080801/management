@@ -13,7 +13,7 @@ define('modules.manageui.directives.ngRepeated', [
 
             return {
                 link: _link
-            }
+            };
         }
     ]);
 });
