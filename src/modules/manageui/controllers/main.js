@@ -8,12 +8,11 @@ define('modules.manageui.controllers.main', [
         '$state',
         '$appEnvironment',
         '$element',
+        'modules.manageui.configs.linkManager',
         'app.services.popupService',
         'modules.manageui.services.sessionService',
-        function ($scope, $state, $appEnvironment, $element, popupService, sessionService) {
+        function ($scope, $state, $appEnvironment, $element, linkManager, popupService, sessionService) {
             var me = this;
-
-            $element.find('.metismenu').metisMenu();
 
             this.tabs = [{
                 Title: 'aaa',
@@ -26,6 +25,8 @@ define('modules.manageui.controllers.main', [
                 Link: 'dsdsdsd'
             }];
 
+            this.links = linkManager.tree();
+
             this.close = function (idx) {
                 me.tabs.splice(idx, 1);
             };
@@ -37,6 +38,20 @@ define('modules.manageui.controllers.main', [
                         $state.go('login');
                     });
             };
+
+
+            // if (!$appEnvironment.session) {
+            //     sessionService
+            //         .checkSession()
+            //         .authenticated(function () {
+            //             me.links = linkManager.tree();
+            //         })
+            //         .unAuthenticated(function () {
+            //             $state.go('login');
+            //         });
+            // } else {
+            //     me.links = linkManager.tree();
+            // }
         }
     ]);
 });

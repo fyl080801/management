@@ -87,12 +87,21 @@
         'modules.manageui.module': {
             path: 'js/modules'
         },
+        'modules.room.module': {
+            path: 'js/modules'
+        },
 
         // requires
         'modules.manageui.requires': {
             path: 'js/module.manageui',
             shim: {
                 deps: ['modules.manageui.module']
+            }
+        },
+        'modules.room.requires': {
+            path: 'js/module.room',
+            shim: {
+                deps: ['modules.room.module']
             }
         },
 
@@ -129,7 +138,8 @@
         }
     },
     requires: [
-        'modules.manageui.module'
+        'modules.manageui.module',
+        'modules.room.module'
     ],
     noDebugs: [
         'contabs',

@@ -1,0 +1,7 @@
+<li>
+    <a ng-if="sysLinkItem.href===undefined" href=""><i class="{{sysLinkSection.icon}}"></i> <span>{{sysLinkSection.text}}</span></a>
+    <a ng-if="sysLinkItem.href!==undefined" ng-href="{{sysLinkItem.href}}"><i class="{{sysLinkSection.icon}}"></i> <span>{{sysLinkSection.text}}</span></a>
+    <ul class="nav nav-second-level" aria-expanded="false" ng-if="sysLinkSection.links.length">
+        <li sys-link-item="linkItem" ng-repeat="linkItem in sysLinkSection.links track by $index"></li>
+    </ul>
+</li>

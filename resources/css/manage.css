@@ -37,6 +37,15 @@
     color: #dfe4ed;
 }
 
+.manage-content .tab .nav .active>a>button.close {
+    color: #fff;
+}
+
+.manage-content .tab .nav .active>a>button.close:focus,
+.manage-content .tab .nav .active>a>button.close:hover {
+    color: #fff;
+}
+
 .text-muted {
     color: #8095a8;
 }
