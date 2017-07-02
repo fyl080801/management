@@ -130,3 +130,8 @@
 .manage-nav .nav-third-level li a {
     padding-left: 62px
 }
+
+.arrow {
+    float: right;
+    margin-top: 2px;
+}
