@@ -98,7 +98,7 @@ define('modules.manageui.configs.tab', [
                                     deferred: tabResultDeferred,
                                     content: tplAndVars[0],
                                     tabTemplateUrl: tabOptions.tabTemplateUrl,
-                                    tabkey: tabOptions.tabkey ? tabOptions.tabkey : '',
+                                    tabkey: tabOptions.id ? tabOptions.id.split('.').join('_') : '',
                                     text: tabOptions.text,
                                     icon: tabOptions.icon,
                                     src: tabOptions.src

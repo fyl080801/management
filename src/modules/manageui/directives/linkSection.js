@@ -11,13 +11,13 @@ define('modules.manageui.directives.linkSection', [
 
             var _controller = function ($scope, $element, $attrs, $tab, $tabStore) {
                 $scope.openLink = function (link) {
-                    if ($tabStore[link.tabkey] !== undefined) {
-                        $tabStore[link.tabkey].active();
+                    if ($tabStore[link.id] !== undefined) {
+                        $tabStore[link.id].active();
                     } else {
-                        $tabStore[link.tabkey] = $tab.open(link);
-                        $tabStore[link.tabkey].result
+                        $tabStore[link.id] = $tab.open(link);
+                        $tabStore[link.id].result
                             .then(function () {
-                                delete $tabStore[link.tabkey];
+                                delete $tabStore[link.id];
                             });
                     }
                 };
