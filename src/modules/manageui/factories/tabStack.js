@@ -10,8 +10,6 @@ define('modules.manageui.factories.tabStack', [
             var $tabStack = {};
 
             function removeTab(tabInstance) {
-                // var tabTailElement = $('[role="tablist"] li[tail="true"]');
-                // var tabHostElement = $('.tab-content');
                 var tab = openedTabs.get(tabInstance).value;
 
                 openedTabs.remove(tabInstance);

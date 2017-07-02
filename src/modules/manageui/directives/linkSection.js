@@ -9,9 +9,17 @@ define('modules.manageui.directives.linkSection', [
 
             };
 
-            var _controller = function ($scope, $element, $attrs, $tab) {
+            var _controller = function ($scope, $element, $attrs, $tab, $tabStore) {
                 $scope.openLink = function (link) {
-                    $tab.open(link);
+                    if ($tabStore[link.tabkey] !== undefined) {
+                        $tabStore[link.tabkey].active();
+                    } else {
+                        $tabStore[link.tabkey] = $tab.open(link);
+                        $tabStore[link.tabkey].result
+                            .then(function () {
+                                delete $tabStore[link.tabkey];
+                            });
+                    }
                 };
             };
 
@@ -22,7 +30,7 @@ define('modules.manageui.directives.linkSection', [
                 restrict: 'AE',
                 replace: true,
                 link: _link,
-                controller: ['$scope', '$element', '$attrs', '$tab', _controller],
+                controller: ['$scope', '$element', '$attrs', '$tab', '$tabStore', _controller],
                 templateUrl: 'templates/controls/LinkSection.html'
             };
         }

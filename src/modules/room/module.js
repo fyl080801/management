@@ -10,27 +10,6 @@ define('modules.room.module', [
             'ui.router',
             'modules.manageui'
         ])
-        // .config([
-        //     '$stateProvider',
-        //     function ($stateProvider) {
-        //         $stateProvider
-        //             .state('main.roominfo_search', {
-        //                 target: 'tab',
-        //                 title: '信息查询',
-        //                 url: '/roominfo_search',
-        //                 templateUrl: 'views/room/manage/Search.html',
-        //                 dependencies: ['modules.room.requires']
-        //             });
-
-        //         $stateProvider
-        //             .state('main.roominfo_manage', {
-        //                 target: 'iframe',
-        //                 title: '信息管理',
-        //                 url: '/roominfo_manage',
-        //                 src: 'test.html'
-        //             });
-        //     }
-        // ])
         .config([
             'modules.manageui.configs.linkManagerProvider',
             function (linkManagerProvider) {
@@ -38,7 +17,10 @@ define('modules.room.module', [
                     .add({
                         id: 'roomstate',
                         text: '房态显示',
-                        icon: 'glyphicon glyphicon-cog'
+                        icon: 'glyphicon glyphicon-cog',
+                        tabkey: 'roommanage_display',
+                        templateUrl: 'views/room/manage/Search.html',
+                        dependencies: ['modules.room.requires']
                     });
 
                 linkManagerProvider

@@ -1,7 +1,7 @@
 /**
  * Created by fyl08 on 2017/2/15.
  */
-define('modules.manageui.configs.appStates', [
+define('modules.manageui.configs.provide', [
     'modules.manageui.configs'
 ], function (configs) {
     'use strict';
@@ -10,6 +10,7 @@ define('modules.manageui.configs.appStates', [
         '$provide',
         function ($provide) {
             $provide.constant('$appStates', {});
+            $provide.constant('$tabStore', {});
         }
     ]);
 });
