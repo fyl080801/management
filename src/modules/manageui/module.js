@@ -4,6 +4,7 @@ define('modules.manageui.module', [
     'modules.manageui.configs.state',
     'modules.manageui.configs.routes',
     'modules.manageui.configs.linkManager',
+    'modules.manageui.configs.tab',
     'modules.manageui.configs.httpConfig'
 ], function (application) {
     'use strict';
