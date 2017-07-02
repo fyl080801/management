@@ -57,6 +57,15 @@
     border-bottom: solid 2px #2f4050
 }
 
+.manage-content .tab .nav>li>a {
+    overflow: hidden;
+    height: 42px;
+}
+
+.manage-content .tab .nav>li>a>button {
+    margin-left: 10px;
+}
+
 .manage-content .tab .nav .active>a {
     background: #2f4050;
     color: #dfe4ed;

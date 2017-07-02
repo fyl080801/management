@@ -39,12 +39,12 @@ define('modules.manageui.factories.tabStack', [
                     tabScope: tab.scope
                 });
 
-                var tabTailElement = $('[role="tablist"] li[tail="true"]');
+                var tabTailElement = $('[role="tablist"] .tail');
                 var tabHostElement = $('.tab-content');
 
                 var tabElement = angular.element('<li role="presentation">' +
-                    '<a href="" data-target="#' + tab.tabkey + '" data-toggle="tab"></i> ' + tab.text +
-                    '&nbsp;<button type="button" class="close" aria-label="Close" ng-click="$close()"><span aria-hidden="true">&times;</span></button></a>' +
+                    '<a href="" data-target="#' + tab.tabkey + '" data-toggle="tab"><i class="' + tab.icon + '"></i> <span>' + tab.text +
+                    '</span>&nbsp;<button type="button" class="close pull-right" aria-label="Close" ng-click="$close()"><span aria-hidden="true">&times;</span></button></a>' +
                     '</li>');
                 tabElement.attr({
                     'index': openedTabs.length() - 1

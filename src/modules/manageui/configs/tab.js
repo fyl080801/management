@@ -100,6 +100,7 @@ define('modules.manageui.configs.tab', [
                                     tabTemplateUrl: tabOptions.tabTemplateUrl,
                                     tabkey: tabOptions.tabkey ? tabOptions.tabkey : '',
                                     text: tabOptions.text,
+                                    icon: tabOptions.icon,
                                     src: tabOptions.src
                                 });
 
