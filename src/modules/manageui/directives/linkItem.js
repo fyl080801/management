@@ -9,8 +9,11 @@ define('modules.manageui.directives.linkItem', [
 
             };
 
-            var _controller = function ($scope, $element, $attrs) {
+            var _controller = function ($scope, $element, $attrs, $tab) {
                 $('.metismenu').metisMenu();
+                $scope.openLink = function (link) {
+                    $tab.open(link);
+                };
             };
 
             return {
@@ -21,7 +24,7 @@ define('modules.manageui.directives.linkItem', [
                 replace: true,
                 transclude: true,
                 link: _link,
-                controller: ['$scope', '$element', '$attrs', _controller],
+                controller: ['$scope', '$element', '$attrs', '$tab', _controller],
                 templateUrl: 'templates/controls/LinkItem.html'
             };
         }

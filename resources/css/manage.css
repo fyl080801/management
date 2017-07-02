@@ -27,6 +27,31 @@
     margin-left: 220px;
 }
 
+.manage-content .tab-content {
+    position: absolute;
+    top: 94px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.manage-content .tab-content .tab-pane {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.manage-content .tab-content .tab-pane>div,
+.manage-content .tab-content .tab-pane>iframe {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
 .manage-content .tab {
     margin-top: 50px;
     border-bottom: solid 2px #2f4050

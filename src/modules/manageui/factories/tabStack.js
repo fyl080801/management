@@ -45,7 +45,7 @@ define('modules.manageui.factories.tabStack', [
                 var tabHostElement = $('.tab-content');
 
                 var tabElement = angular.element('<li role="presentation">' +
-                    '<a href="" data-target="#' + tab.tabkey + '" data-toggle="tab"></i> ' + tab.title +
+                    '<a href="" data-target="#' + tab.tabkey + '" data-toggle="tab"></i> ' + tab.text +
                     '&nbsp;<button type="button" class="close" aria-label="Close" ng-click="$close()"><span aria-hidden="true">&times;</span></button></a>' +
                     '</li>');
                 tabElement.attr({

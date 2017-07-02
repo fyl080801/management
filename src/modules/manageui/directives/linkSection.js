@@ -9,8 +9,10 @@ define('modules.manageui.directives.linkSection', [
 
             };
 
-            var _controller = function ($scope, $element, $attrs) {
-
+            var _controller = function ($scope, $element, $attrs, $tab) {
+                $scope.openLink = function (link) {
+                    $tab.open(link);
+                };
             };
 
             return {
@@ -20,7 +22,7 @@ define('modules.manageui.directives.linkSection', [
                 restrict: 'AE',
                 replace: true,
                 link: _link,
-                controller: ['$scope', '$element', '$attrs', _controller],
+                controller: ['$scope', '$element', '$attrs', '$tab', _controller],
                 templateUrl: 'templates/controls/LinkSection.html'
             };
         }

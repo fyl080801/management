@@ -10,6 +10,7 @@ define('modules.room.controllers.test', [
         '$element',
         function ($scope, $state, $appEnvironment, $element) {
             var me = this;
+
         }
     ]);
 });

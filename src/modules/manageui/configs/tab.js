@@ -32,6 +32,19 @@ define('modules.manageui.configs.tab', [
                             return promisesArr;
                         }
 
+                        function resolveDependencies(dependencies) {
+                            if (typeof (dependencies) === 'string') {
+                                dependencies = [dependencies];
+                            }
+                            return ['$q', function ($q) {
+                                var defer = $q.defer();
+                                require(dependencies, function () {
+                                    defer.resolve(arguments);
+                                });
+                                return defer.promise;
+                            }];
+                        }
+
                         $tab.open = function (tabOptions) {
                             var tabResultDeferred = $q.defer();
                             var tabOpenedDeferred = $q.defer();
@@ -52,10 +65,7 @@ define('modules.manageui.configs.tab', [
 
                             tabOptions = angular.extend({}, $tabProvider.options, tabOptions);
                             tabOptions.resolve = tabOptions.resolve || {};
-
-                            // if (!tabOptions.template && !tabOptions.templateUrl) {
-                            //     throw new Error('no template');
-                            // }
+                            tabOptions.resolve['$deps'] = resolveDependencies(tabOptions.dependencies);
 
                             var templateAndResolvePromise =
                                 $q.all([getTemplatePromise(tabOptions)].concat(getResolvePromises(tabOptions.resolve)));
@@ -69,7 +79,7 @@ define('modules.manageui.configs.tab', [
                                 var ctrlInstance, ctrlLocals = {};
                                 var resolveIter = 1;
 
-                                //controllers
+                                // controllers
                                 if (tabOptions.controller) {
                                     ctrlLocals.$scope = tabScope;
                                     ctrlLocals.$tabInstance = tabInstance;
@@ -89,7 +99,7 @@ define('modules.manageui.configs.tab', [
                                     content: tplAndVars[0],
                                     tabTemplateUrl: tabOptions.tabTemplateUrl,
                                     tabkey: tabOptions.tabkey ? tabOptions.tabkey : '',
-                                    title: tabOptions.title,
+                                    text: tabOptions.text,
                                     src: tabOptions.src
                                 });
 
