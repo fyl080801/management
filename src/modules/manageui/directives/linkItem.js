@@ -6,11 +6,10 @@ define('modules.manageui.directives.linkItem', [
     module.directive('sysLinkItem', [
         function () {
             var _link = function ($scope, $element, $attrs, $ctrl) {
-
+                
             };
 
             var _controller = function ($scope, $element, $attrs, $tab, $tabStore) {
-                $('.metismenu').metisMenu();
                 $scope.openLink = function (link) {
                     if ($tabStore[link.id] !== undefined) {
                         $tabStore[link.id].active();

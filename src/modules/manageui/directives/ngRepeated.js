@@ -4,14 +4,22 @@ define('modules.manageui.directives.ngRepeated', [
     'use strict';
 
     module.directive('ngRepeated', [
-        function () {
+        '$timeout',
+        function ($timeout) {
             var _link = function (scope, element, attr) {
                 if (scope.$last === true) {
-                    eval(attr.ngRepeated);
+                    $timeout(function () {
+                        scope.$emit('ngRepeated');
+                    });
                 }
+
+                // if (scope.$last === true) {
+                //     eval(attr.ngRepeated);
+                // }
             };
 
             return {
+                restrict: 'A',
                 link: _link
             };
         }

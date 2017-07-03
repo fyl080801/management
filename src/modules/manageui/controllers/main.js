@@ -16,6 +16,10 @@ define('modules.manageui.controllers.main', [
         function ($scope, $state, $appEnvironment, $element, $location, $tab, linkManager, popupService, sessionService) {
             var me = this;
 
+            $scope.$on('ngRepeated', function () {
+                $('.metismenu').metisMenu();
+            });
+
             this.links = linkManager.tree();
 
             this.logout = function () {
