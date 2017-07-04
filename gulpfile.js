@@ -185,7 +185,7 @@ gulp.task('start', function () {
         .pipe(webserver({
             fallback: '/',
             livereload: false,
-            port: 7999,
+            port: 7998,
             directoryListing: false,
             open: false
         }));
