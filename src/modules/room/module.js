@@ -1,5 +1,6 @@
 define('modules.room.module', [
-    'app.application'
+    'app.application',
+    'ng-table'
 ], function (application) {
     'use strict';
 
@@ -8,6 +9,7 @@ define('modules.room.module', [
     return angular
         .module('modules.room', [
             'ui.router',
+            'ngTable',
             'modules.manageui'
         ])
         .config([
@@ -104,6 +106,12 @@ define('modules.room.module', [
                         id: 'systemSettings',
                         text: '系统设置',
                         icon: 'glyphicon glyphicon-cog'
+                    })
+                    .add({
+                        id: 'systemSettings_role',
+                        text: '人员类别管理',
+                        templateUrl: 'views/room/personal/Roles.html',
+                        dependencies: ['modules.room.requires']
                     })
                     .add({
                         id: 'systemSettings_identity',

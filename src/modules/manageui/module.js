@@ -5,7 +5,8 @@ define('modules.manageui.module', [
     'modules.manageui.configs.routes',
     'modules.manageui.configs.linkManager',
     'modules.manageui.configs.tab',
-    'modules.manageui.configs.httpConfig'
+    'modules.manageui.configs.httpConfig',
+    'ng-table'
 ], function (application) {
     'use strict';
 
@@ -14,6 +15,7 @@ define('modules.manageui.module', [
     return angular
         .module('modules.manageui', [
             'ui.router',
+            'ngTable',
             'modules.manageui.configs'
         ])
         .config([

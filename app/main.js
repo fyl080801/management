@@ -135,6 +135,12 @@
         },
         'layer': {
             path: 'js/layer.min'
+        },
+        'ng-table': {
+            path: 'js/ng-table',
+            shim: {
+                deps: ['app']
+            }
         }
     },
     requires: [

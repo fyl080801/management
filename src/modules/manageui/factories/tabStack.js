@@ -14,7 +14,7 @@ define('modules.manageui.factories.tabStack', [
 
                 openedTabs.remove(tabInstance);
 
-                removeAfter(tab.tabDomEl, tab.tabContentDomEl, tab.tabScope, function () {
+                removeAfter(tab.tabDomEl, tab.tabContentDomEl, tab.scriptDomEl, tab.tabScope, function () {
                     tab.tabScope.$destroy();
                     var top = $tabStack.getTop();
                     if (top) {
@@ -25,9 +25,11 @@ define('modules.manageui.factories.tabStack', [
                 });
             }
 
-            function removeAfter(tabEl, contentEl, scope, done) {
+            function removeAfter(tabEl, contentEl, scriptEl, scope, done) {
                 tabEl.remove();
                 contentEl.remove();
+                if (scriptEl)
+                    scriptEl.remove();
                 if (done) {
                     done();
                 }
@@ -55,18 +57,23 @@ define('modules.manageui.factories.tabStack', [
 
                 var tabContentElement = angular.element('<div role="tabpanel" class="tab-pane" id="' + tab.tabkey + '"></div>');
                 var tabContentDomEl;
+                var scriptDomEl;
                 if (tab.src) {
                     tabContentElement.html('<iframe src="' + tab.src + '" frameborder="0" width="100%" height="100%" scrolling="auto"></iframe>');
                     tabContentDomEl = tabContentElement;
                     tabHostElement.append(tabContentDomEl);
                 } else {
                     tabContentElement.html(tab.content);
+                    scriptDomEl = tabContentElement.find('script');
+                    tabHostElement.append(scriptDomEl);
                     tabContentDomEl = $compile(tabContentElement)(tab.scope)
                     tabHostElement.append(tabContentDomEl);
                 }
 
                 openedTabs.top().value.tabDomEl = tabDomEl;
                 openedTabs.top().value.tabContentDomEl = tabContentDomEl;
+                if (scriptDomEl)
+                    openedTabs.top().value.scriptDomEl = scriptDomEl;
 
                 $tabStack.active(tabInstance);
             };

@@ -144,3 +144,11 @@
     float: right;
     margin-top: 2px;
 }
+
+.ng-table th {
+    text-align: left !important;
+}
+
+.ng-table-pager {
+    display: none !important;
+}
