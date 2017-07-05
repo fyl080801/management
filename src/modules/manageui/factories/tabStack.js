@@ -42,7 +42,7 @@ define('modules.manageui.factories.tabStack', [
                 });
 
                 var tabTailElement = $('[role="tablist"] .tail');
-                var tabHostElement = $('.tab-content');
+                var tabHostElement = $('.manage-content .manage-tab .tab-content').eq(0);
 
                 var tabElement = angular.element('<li role="presentation">' +
                     '<a href="" data-target="#' + tab.tabkey + '" data-toggle="tab"><i class="' + tab.icon + '"></i> <span>' + tab.text +

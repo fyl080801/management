@@ -33,7 +33,7 @@ define('modules.room.module', [
                     .add({
                         id: 'roommanage_search',
                         text: '信息查询',
-                        templateUrl: 'views/room/manage/Search.html',
+                        templateUrl: 'views/room/manage/EventLog.html',
                         dependencies: ['modules.room.requires']
                     })
                     .add({
@@ -111,6 +111,12 @@ define('modules.room.module', [
                         id: 'systemSettings_role',
                         text: '人员类别管理',
                         templateUrl: 'views/room/personal/Roles.html',
+                        dependencies: ['modules.room.requires']
+                    })
+                    .add({
+                        id: 'systemSettings_user',
+                        text: '人员管理',
+                        templateUrl: 'views/room/personal/Users.html',
                         dependencies: ['modules.room.requires']
                     })
                     .add({

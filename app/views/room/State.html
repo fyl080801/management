@@ -1,31 +1,43 @@
-<div class="container-fluid" ng-controller="modules.room.controllers.state as me">
+<div class="container-fluid roomstate" ng-controller="modules.room.controllers.state as me">
     <div class="row">&nbsp;</div>
     <div class="col-md-2" ng-repeat="room in me.rooms">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 {{room.Temperature}} ℃
             </div>
-            <div class="panel-body text-center">
-                <h2>{{room.No}}</h2>
+            <div class="panel-body text-center roomnum">
+                <span><strong>{{room.No}}</strong></span>
             </div>
-            <div class="row">
+            <div class="panel-body row state">
                 <div class="col-sm-4">
-                    <h2><i class="glyphicon glyphicon-home"></i></h2>
+                    <div class="statebg">
+                        <img src="images/DoorClose.png" />
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                    <h2><i class="glyphicon glyphicon-home"></i></h2>
+                    <div class="statebg">
+                        <img src="images/normal.png" />
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                    <h2><i class="glyphicon glyphicon-home"></i></h2>
+                    <div class="statebg">
+                        <img src="images/call.png" />
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                    <h2><i class="glyphicon glyphicon-home"></i></h2>
+                    <div class="statebg">
+                        <img src="images/lease.png" />
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                    <h2><i class="glyphicon glyphicon-home"></i></h2>
+                    <div class="statebg">
+                        <img src="images/SosColor.png" />
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                    <h2><i class="glyphicon glyphicon-home"></i></h2>
+                    <div class="statebg">
+                        <img src="images/safeboxGrey.png" />
+                    </div>
                 </div>
             </div>
         </div>

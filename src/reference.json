@@ -7,7 +7,8 @@
     ],
     "images": [
       "./resources/images/*.jpg",
-      "./resources/images/*.png"
+      "./resources/images/*.png",
+      "./resources/images/room/*"
     ]
   },
   "bootstrap": {
