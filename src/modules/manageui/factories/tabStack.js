@@ -41,19 +41,19 @@ define('modules.manageui.factories.tabStack', [
                     tabScope: tab.scope
                 });
 
-                var tabTailElement = $('[role="tablist"] .tail');
+                var tabTailElement = $('[role="tablist"] [head="true"]');
                 var tabHostElement = $('.manage-content .manage-tab .tab-content').eq(0);
 
                 var tabElement = angular.element('<li role="presentation">' +
-                    '<a href="" data-target="#' + tab.tabkey + '" data-toggle="tab"><i class="' + tab.icon + '"></i> <span>' + tab.text +
-                    '</span>&nbsp;<button type="button" class="close pull-right" aria-label="Close" ng-click="$close()"><span aria-hidden="true">&times;</span></button></a>' +
+                    '<a href="" data-target="#' + tab.tabkey + '" data-toggle="tab" style="padding-right: 40px"><i class="' + tab.icon + '"></i> <span>' + tab.text +
+                    '</span><button type="button" class="close pull-right" aria-label="Close" style="position: absolute; right:15px" ng-click="$close()"><span aria-hidden="true">&times;</span></button></a>' +
                     '</li>');
                 tabElement.attr({
                     'index': openedTabs.length() - 1
                 });
                 var tabDomEl = $compile(tabElement)(tab.scope);
 
-                tabTailElement.before(tabDomEl);
+                tabTailElement.after(tabDomEl);
 
                 var tabContentElement = angular.element('<div role="tabpanel" class="tab-pane" id="' + tab.tabkey + '"></div>');
                 var tabContentDomEl;

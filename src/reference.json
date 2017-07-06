@@ -54,5 +54,11 @@
       "./bower_components/animate.css/animate.css",
       "./bower_components/animate.css/animate.min.css"
     ]
+  },
+  "jquery-ui": {
+    "js": [
+      "./bower_components/jquery-ui/jquery-ui.js",
+      "./bower_components/jquery-ui/jquery-ui.min.js"
+    ]
   }
 }

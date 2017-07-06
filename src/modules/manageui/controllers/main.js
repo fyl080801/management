@@ -30,6 +30,12 @@ define('modules.manageui.controllers.main', [
                     });
             };
 
+            $('[role="tablist"]').sortable({
+                items: 'li:not(.ui-state-disabled)',
+                axis: 'x'
+            });
+            $('[role="tablist"]').disableSelection();
+
             // if (!$appEnvironment.session) {
             //     sessionService
             //         .checkSession()

@@ -141,6 +141,12 @@
             shim: {
                 deps: ['app']
             }
+        },
+        'jquery-ui': {
+            path: 'js/jquery-ui',
+            shim: {
+                deps: ['app']
+            }
         }
     },
     requires: [

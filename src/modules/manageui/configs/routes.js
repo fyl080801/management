@@ -50,7 +50,7 @@ define('modules.manageui.configs.routes', [
                 .state('main', {
                     url: '/main',
                     templateUrl: 'views/manageui/Main.html',
-                    dependencies: ['metisMenu', 'modules.manageui.requires'],
+                    dependencies: ['jquery-ui', 'metisMenu', 'modules.manageui.requires'],
                     data: {
                         title: '管理系统'
                     }
