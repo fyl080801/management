@@ -90,18 +90,27 @@
         'modules.room.module': {
             path: 'js/modules'
         },
+        'modules.setting.module': {
+            path: 'js/modules'
+        },
 
         // requires
         'modules.manageui.requires': {
             path: 'js/module.manageui',
             shim: {
-                deps: ['modules.manageui.module']
+                deps: ['modules.manageui.module', 'modules.setting.requires']
             }
         },
         'modules.room.requires': {
             path: 'js/module.room',
             shim: {
                 deps: ['modules.room.module']
+            }
+        },
+        'modules.setting.requires': {
+            path: 'js/module.setting',
+            shim: {
+                deps: ['modules.setting.module']
             }
         },
 
