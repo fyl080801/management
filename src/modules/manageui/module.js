@@ -1,5 +1,6 @@
 define('modules.manageui.module', [
     'app.application',
+    'modules.manageui.configs.factories',
     'modules.manageui.configs.provide',
     'modules.manageui.configs.state',
     'modules.manageui.configs.routes',

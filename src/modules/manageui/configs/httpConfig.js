@@ -8,7 +8,8 @@ define('modules.manageui.configs.httpConfig', [
 
     configs.config([
         '$provide',
-        function ($provide) {
+        '$httpProvider',
+        function ($provide, $httpProvider) {
             $provide.decorator('app.factories.httpDataHandler', [
                 '$delegate',
                 function ($delegate) {
@@ -28,6 +29,8 @@ define('modules.manageui.configs.httpConfig', [
                     return $delegate;
                 }
             ]);
+
+            $httpProvider.interceptors.push('modules.manageui.configs.factories.httpSession');
         }
     ]);
 });
