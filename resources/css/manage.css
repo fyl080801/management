@@ -35,17 +35,19 @@
     left: 0;
 }
 
-.manage-content .tab-content .tab-pane {
-    position: relative;
+.manage-content .manage-tab-content {
+    margin-top: 44px;
+    position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
 }
 
-.manage-content .tab-content .tab-pane>div,
-.manage-content .tab-content .tab-pane>iframe {
-    position: relative;
+.manage-content .manage-tab-content .manage-tab-pane>div,
+.manage-content .manage-tab-content .manage-tab-pane>iframe {
+    position: absolute;
+    height: 100%;
     top: 0;
     bottom: 0;
     right: 0;
@@ -85,6 +87,13 @@
 .manage-content .tab .nav .active>a>button.close:focus,
 .manage-content .tab .nav .active>a>button.close:hover {
     color: #fff;
+}
+
+.manage-content .tab-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .text-muted {
@@ -158,6 +167,10 @@
 
 .ng-table-pager {
     display: none !important;
+}
+
+.roomstate .state {
+    padding: 0 18px;
 }
 
 .roomstate .state .statebg {

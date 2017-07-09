@@ -9,7 +9,12 @@ define('modules.setting.services.request', [
     module.service('modules.setting.services.request', [
         function () {
             this.login = '';
-            this.logout = "";
+            this.logout = '';
+
+            this.roleList = '/data/roleList.json';
+            this.userList = '/data/userList.json';
+
+            this.roomList = '/data/roomList.json';
         }
     ]);
 });

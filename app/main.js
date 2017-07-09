@@ -104,7 +104,7 @@
         'modules.room.requires': {
             path: 'js/module.room',
             shim: {
-                deps: ['modules.room.module']
+                deps: ['modules.room.module', 'modules.setting.requires']
             }
         },
         'modules.setting.requires': {
@@ -160,7 +160,8 @@
     },
     requires: [
         'modules.manageui.module',
-        'modules.room.module'
+        'modules.room.module',
+        'modules.setting.module'
     ],
     noDebugs: [
         'contabs',

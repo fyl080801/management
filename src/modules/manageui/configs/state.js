@@ -30,7 +30,6 @@ define('modules.manageui.configs.state', [
                             delete $tabStore[idx];
                         });
                     }
-                    console.log($tabStore);
                 });
             }
         ]);

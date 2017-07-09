@@ -55,7 +55,7 @@ define('modules.manageui.factories.tabStack', [
 
                 tabTailElement.after(tabDomEl);
 
-                var tabContentElement = angular.element('<div role="tabpanel" class="tab-pane" id="' + tab.tabkey + '"></div>');
+                var tabContentElement = angular.element('<div role="tabpanel" class="tab-pane manage-tab-pane" id="' + tab.tabkey + '"></div>');
                 var tabContentDomEl;
                 var scriptDomEl;
                 if (tab.src) {

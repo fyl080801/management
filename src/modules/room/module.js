@@ -60,8 +60,9 @@ define('modules.room.module', [
                     })
                     .add({
                         id: 'roomsettings_build',
-                        text: '房间楼栋',
-                        src: 'test.html'
+                        text: '楼栋管理',
+                        templateUrl: 'views/room/manage/Build.html',
+                        dependencies: ['modules.room.requires']
                     })
                     .add({
                         id: 'roomsettings_no',

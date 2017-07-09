@@ -1,0 +1,64 @@
+<div class="container-fluid row panel-body" ng-controller="modules.room.controllers.build as me">
+    <div class="col-md-12">
+        <form class="panel panel-default">
+            <div class="panel-heading">
+                <strong>楼栋</strong>
+            </div>
+            <table ng-table="me.buildTable" class="table table-striped table-hover">
+                <colgroup>
+                    <col width="100px" />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                </colgroup>
+                <tr ng-repeat="row in me.builds">
+                    <td title="'序号'"></td>
+                    <td title="'楼栋名称'"></td>
+                    <td title="'楼层数'"></td>
+                    <td title="'地下室层数'"></td>
+                    <td title="'操作'"></td>
+                </tr>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td><input type="text" class="form-control" placeholder="输入楼栋名" required /></td>
+                        <td><input type="number" class="form-control" placeholder="输入数字" required min="1" /></td>
+                        <td><input type="number" class="form-control" placeholder="输入数字" required min="0" /></td>
+                        <td>
+                            <button class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+    <!--<div class="col-md-6">
+        <form class="panel panel-default">
+            <div class="panel-heading">
+                <strong>楼层</strong>
+            </div>
+            <table ng-table="me.floorTable" class="table table-striped table-hover">
+                <colgroup>
+                    <col width="100px" />
+                    <col />
+                    <col />
+                </colgroup>
+                <tr ng-repeat="row in me.floors">
+                    <td title="'序号'"></td>
+                    <td title="'楼层'"></td>
+                    <td title="'操作'"></td>
+                </tr>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td><input type="tel" class="form-control" required /></td>
+                        <td>
+                            <button class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>-->
+</div>
