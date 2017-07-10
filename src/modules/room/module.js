@@ -50,23 +50,24 @@ define('modules.room.module', [
                 linkManagerProvider
                     .add({
                         id: 'roomsettings',
-                        text: '房间设置',
+                        text: '房间管理',
                         icon: 'glyphicon glyphicon-credit-card'
                     })
                     .add({
-                        id: 'roomsettings_category',
-                        text: '房间类型',
-                        src: 'test.html'
-                    })
-                    .add({
                         id: 'roomsettings_build',
-                        text: '楼栋管理',
+                        text: '楼栋',
                         templateUrl: 'views/room/manage/Build.html',
                         dependencies: ['modules.room.requires']
                     })
                     .add({
+                        id: 'roomsettings_category',
+                        text: '房间类型',
+                        templateUrl: 'views/room/manage/RoomTypes.html',
+                        dependencies: ['modules.room.requires']
+                    })
+                    .add({
                         id: 'roomsettings_no',
-                        text: '房间编号',
+                        text: '房间设置',
                         src: 'test.html'
                     })
                     .add({
