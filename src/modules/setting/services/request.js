@@ -8,13 +8,13 @@ define('modules.setting.services.request', [
 
     module.service('modules.setting.services.request', [
         function () {
-            this.login = '';
-            this.logout = '';
+            this.登录 = '';
+            this.退出 = '';
 
-            this.roleList = '/data/roleList.json';
-            this.userList = '/data/userList.json';
+            this.人员类别列表 = '/data/roleList.json';
+            this.人员列表 = '/data/userList.json';
 
-            this.roomList = '/data/roomList.json';
+            this.房间状态列表 = '/data/roomList.json';
         }
     ]);
 });
