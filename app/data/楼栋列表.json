@@ -1,0 +1,13 @@
+{
+    "Data": [{
+        "Id": 1,
+        "BuildName": "aaaa",
+        "Floors": 15,
+        "BaseFloors": 3
+    }, {
+        "Id": 2,
+        "BuildName": "aaaa",
+        "Floors": 15,
+        "BaseFloors": 3
+    }]
+}

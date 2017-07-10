@@ -55,7 +55,7 @@ define('modules.room.controllers.roles', [
             httpService
                 .get(request.人员类别列表)
                 .then(function (result) {
-                    me.list = result;
+                    me.list = result.Data;
                 });
         }
     ]);

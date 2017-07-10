@@ -1,0 +1,9 @@
+{
+    "Data": [{
+        "Number": "001",
+        "Temperature": 20,
+        "DoorState": 0
+
+    }],
+    "Total": 200
+}

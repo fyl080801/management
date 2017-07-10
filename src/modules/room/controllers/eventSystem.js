@@ -9,6 +9,7 @@ define('modules.room.controllers.eventSystem', [
         'modules.setting.services.request',
         function ($scope, NgTableParams, request) {
             var me = this;
+
             this.list = [];
 
             this.tableParams = new NgTableParams();
