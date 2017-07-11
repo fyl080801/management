@@ -17,6 +17,7 @@ define('modules.setting.services.request', [
             this.楼栋列表 = '/data/楼栋列表.json';
             this.楼栋明细 = '/data/楼栋明细.json';
             this.房间状态列表 = '/data/房间状态列表.json';
+            this.房间类型列表 = '/data/房间类型列表.json';
         }
     ]);
 });

@@ -5,6 +5,8 @@ define('modules.room.requires', [
     'modules.room.controllers.users',
     'modules.room.controllers.home',
     'modules.room.controllers.state',
+    'modules.room.controllers.roomType',
+    'modules.room.controllers.roomTypeForm',
     'modules.room.controllers.eventSystem',
     'modules.room.controllers.eventRoom'
 ], function () {
