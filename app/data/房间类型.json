@@ -1,0 +1,41 @@
+{
+    "Id": 1,
+    "Name": "aaaaa",
+    "Lines": [{
+        "Number": 1,
+        "Name": "灯光1",
+        "Group": "灯光"
+    }, {
+        "Number": 1,
+        "Name": "灯光2",
+        "Group": "灯光"
+    }, {
+        "Number": 1,
+        "Name": "调光1",
+        "Group": "调光"
+    }, {
+        "Number": 1,
+        "Name": "调光2",
+        "Group": "调光"
+    }, {
+        "Number": 1,
+        "Name": "调光3",
+        "Group": "调光"
+    }, {
+        "Number": 1,
+        "Name": "窗帘控制",
+        "Group": "窗帘"
+    }, {
+        "Number": 1,
+        "Name": "新风控制1",
+        "Group": "新风"
+    }, {
+        "Number": 1,
+        "Name": "保险柜控制",
+        "Group": "保险柜"
+    }, {
+        "Number": 1,
+        "Name": "新风控制2",
+        "Group": "新风"
+    }]
+}

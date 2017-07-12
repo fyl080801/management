@@ -34,7 +34,18 @@ define('modules.room.controllers.roomType', [
             };
 
             this.edit = function (id) {
+                httpService
+                    .get(request.房间类型)
+                    .then(function (result) {
+                        $modal
+                            .open({
+                                templateUrl: 'views/room/manage/RoomTypeForm.html',
+                                data: result
+                            }).result
+                            .then(function (data) {
 
+                            });
+                    });
             };
 
             this.drop = function (id) {

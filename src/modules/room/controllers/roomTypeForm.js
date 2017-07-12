@@ -7,9 +7,9 @@ define('modules.room.controllers.roomTypeForm', [
         '$scope',
         'NgTableParams',
         function ($scope, NgTableParams) {
-            this.tableParams = new NgTableParams();
+            $scope.table = new NgTableParams();
 
-            this.list = [];
+            $scope.data = $.extend({}, $scope.$data);
         }
     ]);
 });
