@@ -8,7 +8,8 @@ define('modules.room.requires', [
     'modules.room.controllers.roomType',
     'modules.room.controllers.roomTypeForm',
     'modules.room.controllers.eventSystem',
-    'modules.room.controllers.eventRoom'
+    'modules.room.controllers.eventRoom',
+    'modules.room.factories.enumerate'
 ], function () {
     'use strict';
 

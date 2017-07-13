@@ -26,7 +26,10 @@ define('modules.room.controllers.roomType', [
             this.add = function () {
                 $modal
                     .open({
-                        templateUrl: 'views/room/manage/RoomTypeForm.html'
+                        templateUrl: 'views/room/manage/RoomTypeForm.html',
+                        data: {
+                            Lines: []
+                        }
                     }).result
                     .then(function () {
 
