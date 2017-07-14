@@ -21,7 +21,6 @@ define('modules.room.controllers.build', [
                 $modal
                     .open({
                         templateUrl: 'views/room/manage/BuildForm.html',
-                        size: 'sm',
                         data: {}
                     }).result
                     .then(function (data) {
@@ -36,7 +35,6 @@ define('modules.room.controllers.build', [
                         $modal
                             .open({
                                 templateUrl: 'views/room/manage/BuildForm.html',
-                                size: 'sm',
                                 data: result
                             }).result
                             .then(function (data) {
@@ -50,7 +48,7 @@ define('modules.room.controllers.build', [
                     .confirm('是否删除？')
                     .ok(function () {
 
-                    })
+                    });
             };
 
             httpService

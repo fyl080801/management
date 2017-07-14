@@ -50,15 +50,10 @@ define('modules.room.controllers.roomTypeForm', [
                 me.current = {};
             };
 
-            this.removeLine = function (id) {
-                $.each($scope.data.Lines, function (idx, item) {
-                    if (item.Id === id) {
-                        $scope.data.Lines.splice(idx, 1);
-                        return false;
-                    }
-                });
+            this.removeLine = function (idx) {
+                $scope.data.Lines.splice(idx, 1);
                 $scope.table.reload();
-            }
+            };
 
             this.groups = {};
 
