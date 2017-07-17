@@ -167,7 +167,7 @@ define('app.configs.dependencyLoader', [
             $stateProvider.state = function (state, config) {
                 if (config.dependencies) {
                     var resolve = config.resolve || {};
-                    resolve['$deps'] = resolveDependencies(config.dependencies);
+                    resolve.$deps = resolveDependencies(config.dependencies);
                     config.resolve = resolve;
                 }
                 return stateFn(state, config);
@@ -205,7 +205,7 @@ define('app.configs.http', [
             // 禁用httpget缓存
             $httpProvider.defaults.headers.get['If-Modified-Since'] = 'Mon, 26 Jul 1997 05:00:00 GMT';
             $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
-            $httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
+            $httpProvider.defaults.headers.get.Pragma = 'no-cache';
 
             // http请求处理
             $httpProvider.interceptors.push('app.factories.httpState');
@@ -303,35 +303,7 @@ define('app.configs.rootScope', [
                 '$delegate',
                 '$appEnvironment',
                 function ($delegate, $appEnvironment) {
-                    $delegate.$data = {};
-                    $delegate.$handlers = {};
-                    $delegate.$stores = {};
                     $delegate.$appEnvironment = $appEnvironment;
-
-                    $delegate.addHandler = function (name, fn) {
-                        $delegate.$handlers[name] = fn;
-                    };
-
-                    $delegate.getHandler = function (name) {
-                        return $delegate.$handlers[name];
-                    };
-
-                    $delegate.setData = function (data) {
-                        $delegate.$data = data;
-                    };
-
-                    $delegate.getValue = function (name) {
-                        return $delegate.$data[name];
-                    };
-
-                    $delegate.setValue = function (name, value) {
-                        $delegate.$data[name] = value;
-                    };
-
-                    $delegate.addStore = function (name, store) {
-                        $delegate.$stores[name] = store;
-                    };
-
                     return $delegate;
                 }
             ]);
@@ -453,7 +425,7 @@ define('app.factories.httpState', [
                     };
                     return err;
                 }
-            }
+            };
         }
     ]);
 });
@@ -521,38 +493,54 @@ define('app.services.httpService', [
         function ($http, $q, $modal, $appConfig, httpDataHandler) {
             var me = this;
 
-            me.resolveUrl = function (url) {
-                return url.indexOf('http://') === 0 ? url : $appConfig.serverUrl + url;
+            this.resolveUrl = function (url) {
+                return (url.indexOf('http://') === 0 || url.indexOf('https://') === 0) ? url : $appConfig.serverUrl + url;
             };
 
-            me.get = function (url) {
+            this.get = function (url) {
                 var defer = $q.defer();
                 $http({
                     method: 'get',
                     url: me.resolveUrl(url),
-                    withCredentials: true
-                })
-                    .then(function (response) {
-                        httpDataHandler.doResponse(response, defer);
-                    }, function (response) {
-                        httpDataHandler.doError(response, defer);
-                    });
+                    withCredentials: false
+                }).then(function (response) {
+                    httpDataHandler.doResponse(response, defer);
+                }, function (response) {
+                    httpDataHandler.doError(response, defer);
+                });
                 return defer.promise;
             };
 
-            me.post = function (url, params) {
+            this.post = function (url, params) {
                 var defer = $q.defer();
                 $http({
                     method: 'post',
                     data: params,
                     url: me.resolveUrl(url),
-                    withCredentials: true
-                })
-                    .then(function (response) {
-                        httpDataHandler.doResponse(response, defer);
-                    }, function (response) {
-                        httpDataHandler.doError(response, defer);
-                    });
+                    withCredentials: false,
+                    headers: {
+                        'Content-Type': 'application/json;charset=UTF-8'
+                    }
+                }).then(function (response) {
+                    httpDataHandler.doResponse(response, defer);
+                }, function (response) {
+                    httpDataHandler.doError(response, defer);
+                });
+                return defer.promise;
+            };
+
+            this.jsonp = function (url, params) {
+                var defer = $q.defer();
+                $http({
+                    method: 'jsonp',
+                    data: params,
+                    url: me.resolveUrl(url),
+                    withCredentials: false
+                }).then(function (response) {
+                    httpDataHandler.doResponse(response, defer);
+                }, function (response) {
+                    httpDataHandler.doError(response, defer);
+                });
                 return defer.promise;
             };
         }

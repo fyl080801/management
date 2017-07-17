@@ -32,23 +32,24 @@ define('modules.manageui.services.sessionService', [
                 };
 
                 httpService
-                    .post('/Account/Login', {
-                        Username: username,
-                        Password: password
+                    .post('/pa/v1/login', {
+                        loginName: username,
+                        pwd: password
                     })
                     .then(function (result) {
-                        if (result && result.success) {
-                            me
-                                .checkSession()
-                                .authenticated(function (session) {
-                                    defered.resolve();
-                                })
-                                .unAuthenticated(function () {
-                                    defered.reject();
-                                });
-                        } else {
-                            defered.reject();
-                        }
+                        console.log(result);
+                        // if (result && result.success) {
+                        //     me
+                        //         .checkSession()
+                        //         .authenticated(function (session) {
+                        //             defered.resolve();
+                        //         })
+                        //         .unAuthenticated(function () {
+                        //             defered.reject();
+                        //         });
+                        // } else {
+                        //     defered.reject();
+                        // }
                     }, function (result) {
                         defered.reject(result);
                     });

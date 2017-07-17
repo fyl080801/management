@@ -13,7 +13,7 @@ define('modules.manageui.controllers.login', [
             var me = this;
 
             this.login = function () {
-                $state.go('main');
+                sessionService.login(me.Username, me.Password);
             }
 
             this.register = function () {
