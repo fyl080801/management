@@ -37,19 +37,18 @@ define('modules.manageui.services.sessionService', [
                         pwd: password
                     })
                     .then(function (result) {
-                        console.log(result);
-                        // if (result && result.success) {
-                        //     me
-                        //         .checkSession()
-                        //         .authenticated(function (session) {
-                        //             defered.resolve();
-                        //         })
-                        //         .unAuthenticated(function () {
-                        //             defered.reject();
-                        //         });
-                        // } else {
-                        //     defered.reject();
-                        // }
+                        if ($appEnvironment.session.Status === 'Logined') {
+                            me
+                                .checkSession()
+                                .authenticated(function (session) {
+                                    // 写用户信息
+                                    $appEnvironment.user = result;
+                                    defered.resolve();
+                                })
+                                .unAuthenticated(function () {
+                                    defered.reject();
+                                });
+                        }
                     }, function (result) {
                         defered.reject(result);
                     });

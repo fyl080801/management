@@ -88,7 +88,7 @@ define('modules.manageui.configs.linkManager', [
                         } else {
                             throw ('菜单排序异常');
                         }
-                    }
+                    };
                 }
             }
         ]);

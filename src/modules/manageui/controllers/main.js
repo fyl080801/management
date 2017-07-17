@@ -7,18 +7,14 @@ define('modules.manageui.controllers.main', [
         '$scope',
         '$state',
         '$appEnvironment',
-        '$element',
         '$location',
         '$tab',
+        '$modal',
         'modules.manageui.configs.linkManager',
         'app.services.popupService',
         'modules.manageui.services.sessionService',
-        function ($scope, $state, $appEnvironment, $element, $location, $tab, linkManager, popupService, sessionService) {
+        function ($scope, $state, $appEnvironment, $location, $tab, $modal, linkManager, popupService, sessionService) {
             var me = this;
-
-            $scope.$on('ngRepeated', function () {
-                $('.metismenu').metisMenu();
-            });
 
             this.links = linkManager.tree();
 
@@ -29,6 +25,22 @@ define('modules.manageui.controllers.main', [
                         $state.go('login');
                     });
             };
+
+            this.showUser = function () {
+                $modal
+                    .open({
+                        templateUrl: 'views/manageui/UserDetails.html',
+                        data: {
+                            Id: $appEnvironment.user.Id
+                        }
+                    });
+            };
+
+            $scope.$appEnvironment = $appEnvironment;
+
+            $scope.$on('ngRepeated', function () {
+                $('.metismenu').metisMenu();
+            });
 
             $('[role="tablist"]').sortable({
                 items: 'li:not(.ui-state-disabled)',

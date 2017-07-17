@@ -5,15 +5,14 @@ define('modules.room.controllers.eventSystem', [
 
     module.controller('modules.room.controllers.eventSystem', [
         '$scope',
-        'NgTableParams',
+        'modules.manageui.factories.tableParameter',
         'modules.setting.services.request',
-        function ($scope, NgTableParams, request) {
+        function ($scope, tableParameter, request) {
             var me = this;
 
             this.list = [];
 
-            this.tableParams = new NgTableParams();
-
+            this.tableParams = new tableParameter({});
         }
     ]);
 });

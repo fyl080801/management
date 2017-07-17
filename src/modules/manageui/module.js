@@ -28,5 +28,14 @@ define('modules.manageui.module', [
                         'http://www.baidu.com/**'
                     ]);
             }
+        ])
+        .run([
+            '$appEnvironment',
+            function ($appEnvironment) {
+                $appEnvironment.user = {
+                    Username: '未知用户',
+                    Rolename: '未知类别'
+                };
+            }
         ]);
 });

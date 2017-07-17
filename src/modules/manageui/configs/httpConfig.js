@@ -12,18 +12,45 @@ define('modules.manageui.configs.httpConfig', [
         function ($provide, $httpProvider) {
             $provide.decorator('app.factories.httpDataHandler', [
                 '$delegate',
-                function ($delegate) {
-                    var responseFn = $delegate.doResponse;
-                    var errorFn = $delegate.doError;
+                '$rootScope',
+                '$modal',
+                '$appEnvironment',
+                function ($delegate, $rootScope, $modal, $appEnvironment) {
+                    function errorModal(response, $rootScope, $modal) {
+                        var scope = $rootScope.$new();
+                        scope.$data = {};
+                        if (response.data.Message) {
+                            scope.$data.text = response.data.Message;
+                        } else {
+                            scope.$data.text = '发生错误！';
+                        }
+                        $modal.open({
+                            templateUrl: 'templates/modal/Error.html',
+                            scope: scope
+                        });
+                    }
 
                     $delegate.doResponse = function (response, defer) {
-                        // 准备处理会话过期事件
-                        responseFn(response, defer);
+                        response.data = response.data ? response.data : {};
+                        $appEnvironment.session = response.data.Session ? response.data.Session : {
+                            Status: 'NoLogin',
+                            Version: null
+                        };
+                        if (response.data.Success === false) {
+                            $delegate.doError(response, defer);
+                        } else {
+                            defer.resolve(response.data.Data ? response.data.Data : response.data);
+                        }
                     };
 
                     $delegate.doError = function (response, defer) {
-                        // 处理会话过期
-                        errorFn(response, defer);
+                        response.data = response.data ? response.data : {};
+                        $appEnvironment.session = response.data.Session ? response.data.Session : {
+                            Status: 'NoLogin',
+                            Version: null
+                        };
+                        errorModal(response, $rootScope, $modal);
+                        defer.reject(response.data.Message ? response.data.Message : response.data);
                     };
 
                     return $delegate;

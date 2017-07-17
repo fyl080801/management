@@ -7,6 +7,14 @@ define('modules.manageui.factories.tableParameter', [
         'NgTableParams',
         'app.services.httpService',
         function (NgTableParams, httpService) {
+
+            /**
+             * 创建table参数
+             * @param {*} settings.count 分页大小
+             * @param {*} settings.counts 分页数组
+             * @param {*} settings.url 请求地址
+             * @param {*} settings.data 参数
+             */
             function tableParameter(settings) {
                 settings = settings ? settings : {};
                 return new NgTableParams({
@@ -14,8 +22,9 @@ define('modules.manageui.factories.tableParameter', [
                 }, {
                     counts: settings.counts ? settings.counts : [10, 25, 50],
                     getData: function (params) {
+                        if (!settings.url) return;
                         return httpService
-                            .post('', $.extend({
+                            .post(settings.url, $.extend({
                                 PageIndex: params.page(),
                                 PageSize: params.count() //,
                                 // Order: 'asc',

@@ -13,20 +13,17 @@ define('modules.manageui.controllers.login', [
             var me = this;
 
             this.login = function () {
-                sessionService.login(me.Username, me.Password);
-            }
+                $state.go('main');
+                // sessionService
+                //     .login(me.Username, me.Password)
+                //     .success(function () {
+                //         $state.go('main');
+                //     });
+            };
 
             this.register = function () {
                 $state.go('register');
             };
-
-            // this.login = function () {
-            //     sessionService
-            //         .login(me.username, me.password)
-            //         .success(function () {
-            //             $state.go('main');
-            //         });
-            // };
         }
     ]);
 });
