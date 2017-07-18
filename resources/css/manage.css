@@ -184,7 +184,7 @@
     width: 100%
 }
 
-.roomstate .roomnum {
+.roomstate .roomnum a {
     font-size: 40px;
     color: orange;
 }

@@ -10,7 +10,9 @@ define('modules.room.requires', [
     'modules.room.controllers.roomTypeForm',
     'modules.room.controllers.eventSystem',
     'modules.room.controllers.eventRoom',
-    'modules.room.factories.enumerate'
+    'modules.room.factories.enumerate',
+    'modules.room.filters.imagePath',
+    'modules.room.filters.roomStatus'
 ], function () {
     'use strict';
 
