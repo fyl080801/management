@@ -1,0 +1,26 @@
+.layout {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.loginbg {
+    background-image: url('../images/login-bg.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.layout .loginwindow {
+    margin: 0 auto 0 auto;
+    width: 80%;
+    top: 10%;
+}
+
+.mobile-title {
+    position: absolute;
+    left: 0;
+    right: 0;
+}

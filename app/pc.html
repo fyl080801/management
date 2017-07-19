@@ -11,17 +11,20 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/metisMenu.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/ng-table.min.css" rel="stylesheet"/>
-    <link href="css/manage.css" rel="stylesheet"/>
+    <link href="css/ng-table.min.css" rel="stylesheet" />
+    <link href="css/manage.css" rel="stylesheet" />
 </head>
 
 <body ui-view style="overflow:hidden">
-    <script id="app"
-        src="js/require.min.js" 
-        data-main="main.js" 
-        data-args="v=2.0.0" 
-        data-debug="true" 
-        data-server="">
+    <script>
+        window.required = [
+            'modules.manageui.module',
+            'modules.room.module',
+            'modules.mobileui.module',
+            'modules.setting.module'
+        ];
+    </script>
+    <script id="app" src="js/require.min.js" data-main="main.js" data-args="v=2.0.0" data-debug="true" data-server="">
     </script>
 </body>
 

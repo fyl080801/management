@@ -13,6 +13,12 @@ define('modules.room.module', [
             'modules.manageui'
         ])
         .config([
+            '$urlRouterProvider',
+            function ($urlRouterProvider) {
+                $urlRouterProvider.otherwise('/login');
+            }
+        ])
+        .config([
             'modules.manageui.configs.linkManagerProvider',
             function (linkManagerProvider) {
                 linkManagerProvider

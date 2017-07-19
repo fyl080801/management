@@ -1,7 +1,7 @@
 /**
  * Created by fyl08 on 2016/12/22.
  */
-(function (app, options) {
+(function (app, references, options) {
     'use strict';
 
     var requires = ['app.application'],
@@ -21,8 +21,8 @@
         };
 
     initBrowserPatch(config);
-    initReference(requires, config, options.references);
-    initModules(requires, options);
+    initReference(requires, config, references);
+    initModules(requires, options.required);
     initDebug(config, options.noDebugs);
     startup(requires, config);
 
@@ -55,9 +55,9 @@
         }
     }
 
-    function initModules(requires, options) {
-        for (var idx in options.requires) {
-            requires.push(options.requires[idx]);
+    function initModules(requires, required) {
+        for (var idx in required) {
+            requires.push(required[idx]);
         }
     }
 
@@ -77,92 +77,96 @@
 
     function initBrowserPatch(config) {
         if (document.getElementsByTagName('html')[0].getAttribute('data-html-type') === 'no-js lte-ie8')
-            config.shim['app'] = {
+            config.shim.app = {
                 deps: ['patch']
             };
     }
 })(document.getElementById('app'), {
-    references: {
-        // modules
-        'modules.manageui.module': {
-            path: 'js/modules'
-        },
-        'modules.room.module': {
-            path: 'js/modules'
-        },
-        'modules.setting.module': {
-            path: 'js/modules'
-        },
+    // modules
+    'modules.manageui.module': {
+        path: 'js/modules'
+    },
+    'modules.room.module': {
+        path: 'js/modules'
+    },
+    'modules.setting.module': {
+        path: 'js/modules'
+    },
+    'modules.mobileui.module': {
+        path: 'js/modules'
+    },
 
-        // requires
-        'modules.manageui.requires': {
-            path: 'js/module.manageui',
-            shim: {
-                deps: ['modules.manageui.module', 'modules.setting.requires']
-            }
-        },
-        'modules.room.requires': {
-            path: 'js/module.room',
-            shim: {
-                deps: ['modules.room.module', 'modules.setting.requires']
-            }
-        },
-        'modules.setting.requires': {
-            path: 'js/module.setting',
-            shim: {
-                deps: ['modules.setting.module']
-            }
-        },
-
-        // third plugin
-        'metisMenu': {
-            path: 'js/metisMenu',
-            shim: {
-                deps: ['api-check']
-            }
-        },
-        'api-check': {
-            path: 'js/api-check'
-        },
-        'jquery-slimscroll': {
-            path: 'js/jquery.slimscroll',
-            shim: {
-                deps: ['app']
-            }
-        },
-        'pace': {
-            path: 'js/pace'
-        },
-        'contabs': {
-            path: 'js/contabs.min'
-        },
-        'hplus': {
-            path: 'js/hplus.min',
-            shim: {
-                deps: ['layer']
-            }
-        },
-        'layer': {
-            path: 'js/layer.min'
-        },
-        'ng-table': {
-            path: 'js/ng-table',
-            shim: {
-                deps: ['app']
-            }
-        },
-        'jquery-ui': {
-            path: 'js/jquery-ui',
-            shim: {
-                deps: ['app']
-            }
+    // requires
+    'modules.manageui.requires': {
+        path: 'js/module.manageui',
+        shim: {
+            deps: ['modules.manageui.module', 'modules.setting.requires']
         }
     },
-    requires: [
-        'modules.manageui.module',
-        'modules.room.module',
-        'modules.setting.module'
-    ],
+    'modules.room.requires': {
+        path: 'js/module.room',
+        shim: {
+            deps: ['modules.room.module', 'modules.setting.requires']
+        }
+    },
+    'modules.setting.requires': {
+        path: 'js/module.setting',
+        shim: {
+            deps: ['modules.setting.module']
+        }
+    },
+    'modules.mobileui.requires': {
+        path: 'js/module.mobileui',
+        shim: {
+            deps: ['modules.mobileui.module']
+        }
+    },
+
+    // third plugin
+    'metisMenu': {
+        path: 'js/metisMenu',
+        shim: {
+            deps: ['api-check']
+        }
+    },
+    'api-check': {
+        path: 'js/api-check'
+    },
+    'jquery-slimscroll': {
+        path: 'js/jquery.slimscroll',
+        shim: {
+            deps: ['app']
+        }
+    },
+    'pace': {
+        path: 'js/pace'
+    },
+    'contabs': {
+        path: 'js/contabs.min'
+    },
+    'hplus': {
+        path: 'js/hplus.min',
+        shim: {
+            deps: ['layer']
+        }
+    },
+    'layer': {
+        path: 'js/layer.min'
+    },
+    'ng-table': {
+        path: 'js/ng-table',
+        shim: {
+            deps: ['app']
+        }
+    },
+    'jquery-ui': {
+        path: 'js/jquery-ui',
+        shim: {
+            deps: ['app']
+        }
+    }
+}, {
+    required: window.required,
     noDebugs: [
         'contabs',
         'hplus',

@@ -7,8 +7,6 @@ define('modules.manageui.configs.routes', [
         '$urlRouterProvider',
         '$stateProvider',
         function ($urlRouterProvider, $stateProvider) {
-            $urlRouterProvider.otherwise('/login');
-
             $stateProvider
                 .state('session', {
                     url: '/session',
