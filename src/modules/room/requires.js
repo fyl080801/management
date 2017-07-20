@@ -3,6 +3,7 @@ define('modules.room.requires', [
     'modules.room.controllers.build',
     'modules.room.controllers.buildForm',
     'modules.room.controllers.roles',
+    'modules.room.controllers.rooms',
     'modules.room.controllers.users',
     'modules.room.controllers.home',
     'modules.room.controllers.state',

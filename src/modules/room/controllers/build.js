@@ -13,8 +13,6 @@ define('modules.room.controllers.build', [
         function ($scope, $modal, NgTableParams, request, popupService, httpService) {
             var me = this;
 
-            this.list = [];
-
             this.tableParams = new NgTableParams();
 
             this.add = function () {
@@ -54,7 +52,7 @@ define('modules.room.controllers.build', [
             httpService
                 .get(request.楼栋列表)
                 .then(function (result) {
-                    me.list = result.Data;
+                    $scope.$globalStore.builds = result.Data;
                 });
         }
     ]);

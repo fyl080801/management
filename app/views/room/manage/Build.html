@@ -12,7 +12,7 @@
             <col />
             <col width="64px" />
         </colgroup>
-        <tr ng-repeat="row in me.list">
+        <tr ng-repeat="row in $globalStore.builds">
             <td title="'序号'">{{row.Id}}</td>
             <td title="'楼栋名称'">{{row.BuildName}}</td>
             <td title="'楼层数'">{{row.Floors}}</td>
