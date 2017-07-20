@@ -34,7 +34,7 @@ define('modules.room.controllers.roles', [
                     }).result
                     .then(function (result) {
 
-                    })
+                    });
             };
 
             this.authorize = function (id) {
