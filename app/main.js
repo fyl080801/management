@@ -33,7 +33,8 @@
                 angular.bootstrap(document, ['app.application']);
                 angular.element(document).find('html')
                     .attr('id', 'ng-app')
-                    .attr('ng-app', 'app.application');
+                    .attr('ng-app', 'app.application')
+                    .attr('data-index', app.getAttribute('data-index'));
             });
         });
     }

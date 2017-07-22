@@ -17,8 +17,20 @@ define('modules.room.module', [
         ])
         .config([
             '$urlRouterProvider',
-            function ($urlRouterProvider) {
+            '$stateProvider',
+            function ($urlRouterProvider, $stateProvider) {
                 $urlRouterProvider.otherwise('/login');
+
+                $stateProvider
+                    .state('main.roomhome', {
+                        url: '/roomhome',
+                        dependencies: ['modules.room.requires'],
+                        views: {
+                            'home': {
+                                templateUrl: 'views/room/Home.html'
+                            }
+                        }
+                    });
             }
         ])
         .run([

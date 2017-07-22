@@ -8,9 +8,17 @@ define('modules.room.controllers.home', [
         '$state',
         '$appEnvironment',
         '$element',
-        'modules.room.services.sessionService',
-        function ($scope, $state, $appEnvironment, $element, sessionService) {
+        function ($scope, $state, $appEnvironment, $element) {
             var me = this;
+
+            $element.find('.widget-column')
+                .sortable({
+                    connectWith: '.widget-column',
+                    handle: '.panel-heading',
+                    cancel: ".widget-toggle",
+                    placeholder: 'widget-placeholder ui-corner-all'
+                });
+            $element.disableSelection();
         }
     ]);
 });
