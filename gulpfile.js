@@ -1,5 +1,4 @@
 /// <binding Clean='clean' />
-'use strict';
 
 var appRoot = './app',
     bowerRoot = './bower_components',
