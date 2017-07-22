@@ -155,10 +155,10 @@ gulp.task('pack_modules', function () {
     }
 
     var publishModule = [];
-    for (var idx in config.modules) {
-        publishModule.push('./src/modules/' + config.modules[idx] + '/module.js');
-        publishModule.push('./src/modules/' + config.modules[idx] + '/configs.js');
-        publishModule.push('./src/modules/' + config.modules[idx] + '/configs/**/*.js');
+    for (var mod in config.modules) {
+        publishModule.push('./src/modules/' + config.modules[mod] + '/module.js');
+        publishModule.push('./src/modules/' + config.modules[mod] + '/configs.js');
+        publishModule.push('./src/modules/' + config.modules[mod] + '/configs/**/*.js');
     }
 
     gulp.src(publishModule.length > 0 ? publishModule : packs)
