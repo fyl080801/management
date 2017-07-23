@@ -20,6 +20,8 @@ define('modules.setting.services.request', [
             this.房间类型列表 = '/data/房间类型列表.json';
             this.房间类型 = '/data/房间类型.json';
             this.房间状态 = '/data/房间状态.json';
+
+            this.身份表示列表 = '/data/身份表示列表.json';
         }
     ]);
 });

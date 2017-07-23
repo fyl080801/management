@@ -60,5 +60,12 @@
       "./bower_components/jquery-ui/jquery-ui.js",
       "./bower_components/jquery-ui/jquery-ui.min.js"
     ]
+  },
+  "ui-switch": {
+    "js": [
+      "./bower_components/angular-ui-switch/angular-ui-switch.js",
+      "./bower_components/angular-ui-switch/angular-ui-switch.min.js"
+    ],
+    "css": ["./bower_components/angular-ui-switch/angular-ui-switch.min.css"]
   }
 }

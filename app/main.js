@@ -165,6 +165,24 @@
         shim: {
             deps: ['app']
         }
+    },
+    'fastclick': {
+        path: 'js/fastclick'
+    },
+    'transitionize': {
+        path: 'js/transitionize'
+    },
+    'switchery': {
+        path: 'js/switchery',
+        shim: {
+            deps: ['fastclick', 'transitionize']
+        }
+    },
+    'ui-switch': {
+        path: 'js/angular-ui-switch',
+        shim: {
+            deps: ['app']
+        }
     }
 }, {
     required: window.required,

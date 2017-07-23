@@ -112,28 +112,15 @@ define('modules.room.configs.menus', [
                 })
                 .add({
                     id: 'systemSettings_identity',
-                    text: '身份设置',
-                    src: 'test.html'
+                    text: '身份识别设置',
+                    templateUrl: 'views/room/settings/Identity.html',
+                    dependencies: ['modules.room.requires']
                 })
                 .add({
-                    id: 'systemSettings_icon',
-                    text: '图标设置',
-                    src: 'test.html'
-                })
-                .add({
-                    id: 'systemSettings_call',
-                    text: '呼叫设置',
-                    src: 'test.html'
-                })
-                .add({
-                    id: 'systemSettings_interface',
-                    text: '接口设置',
-                    src: 'test.html'
-                })
-                .add({
-                    id: 'systemSettings_theme',
-                    text: '主题选择',
-                    src: 'test.html'
+                    id: 'systemSettings_params',
+                    text: '客房参数',
+                    templateUrl: 'views/room/settings/Parameters.html',
+                    dependencies: ['modules.room.requires']
                 });
 
             linkManagerProvider

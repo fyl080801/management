@@ -2,6 +2,7 @@ define('modules.room.module', [
     'app.application',
     'modules.room.configs.menus',
     'modules.room.configs.provide',
+    'ui-switch',
     'ng-table'
 ], function (application) {
     'use strict';
@@ -11,6 +12,7 @@ define('modules.room.module', [
     return angular
         .module('modules.room', [
             'ui.router',
+            'uiSwitch',
             'ngTable',
             'modules.manageui',
             'modules.room.configs'

@@ -96,6 +96,15 @@
     right: 0;
 }
 
+.manage-content .content {
+    overflow: auto;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
 .text-muted {
     color: #8095a8;
 }
