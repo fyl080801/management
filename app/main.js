@@ -183,6 +183,12 @@
         shim: {
             deps: ['app']
         }
+    },
+    'cropper': {
+        path: 'js/cropper',
+        shim: {
+            deps: ['app']
+        }
     }
 }, {
     required: window.required,

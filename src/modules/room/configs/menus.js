@@ -57,11 +57,6 @@ define('modules.room.configs.menus', [
                     text: '房间设置',
                     templateUrl: 'views/room/manage/Room.html',
                     dependencies: ['modules.room.requires']
-                })
-                .add({
-                    id: 'roomsettings_mode',
-                    text: '设备模式',
-                    src: 'test.html'
                 });
 
             linkManagerProvider

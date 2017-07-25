@@ -13,6 +13,7 @@ define('modules.room.requires', [
     'modules.room.controllers.eventRoom',
     'modules.room.controllers.identitySettings',
     'modules.room.controllers.parameterSettings',
+    'modules.room.controllers.roomForm',
     'modules.room.factories.enumerate',
     'modules.room.filters.imagePath',
     'modules.room.filters.roomStatus'

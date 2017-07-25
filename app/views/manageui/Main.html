@@ -2,7 +2,7 @@
     <div class="manage-nav">
         <div class="panel-body nav-header">
             <div class="pull-left">
-                <img class="img-circle" src="./images/profile_small.jpg" width="64px" height="64px" />
+                <a href="" ng-click="me.editPicture()"><img class="img-circle" src="./images/profile_small.jpg" width="64px" height="64px" /></a>
             </div>
             <div class="container-fluid manage-info">
                 <div class="form-group text-left">
@@ -13,7 +13,7 @@
                         <a href="" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{$appEnvironment.user.Rolename}} <i class="caret"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="" ng-click="me.showUser()">个人资料</a></li>
-                            <li><a href="">修改头像</a></li>
+                            <li><a href="" ng-click="me.editPicture()">修改头像</a></li>
                             <li><a href="">锁定</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="" ng-click="me.logout()">退出</a></li>

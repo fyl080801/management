@@ -67,5 +67,12 @@
       "./bower_components/angular-ui-switch/angular-ui-switch.min.js"
     ],
     "css": ["./bower_components/angular-ui-switch/angular-ui-switch.min.css"]
+  },
+  "cropper": {
+    "js": [
+      "./bower_components/cropper/dist/cropper.js",
+      "./bower_components/cropper/dist/cropper.min.js"
+    ],
+    "css": ["./bower_components/cropper/dist/cropper.min.css"]
   }
 }

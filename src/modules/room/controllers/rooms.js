@@ -20,6 +20,17 @@ define('modules.room.controllers.rooms', [
                 $scope.current.BuildName = build.BuildName;
                 $scope.current.Floor = floor;
             };
+
+            this.add = function () {
+                $modal
+                    .open({
+                        templateUrl: 'views/room/manage/RoomForm.html',
+                        data: {}
+                    }).result
+                    .then(function (data) {
+
+                    });
+            };
         }
     ]);
 });

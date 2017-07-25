@@ -30,9 +30,17 @@ define('modules.manageui.controllers.main', [
                 $modal
                     .open({
                         templateUrl: 'views/manageui/UserDetails.html',
+                        size: 'sm',
                         data: {
                             Id: $appEnvironment.user.Id
                         }
+                    });
+            };
+
+            this.editPicture = function () {
+                $modal
+                    .open({
+                        templateUrl: 'views/manageui/UserPicture.html'
                     });
             };
 

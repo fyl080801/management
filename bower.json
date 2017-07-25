@@ -33,6 +33,7 @@
     "font-awesome": "^4.7.0",
     "animate.css": "^3.5.2",
     "jquery-ui": "^1.12.1",
-    "angular-ui-switch": "^0.1.1"
+    "angular-ui-switch": "^0.1.1",
+    "cropper": "^2.3.4"
   }
 }

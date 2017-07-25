@@ -13,7 +13,7 @@ define('modules.room.controllers.roomType', [
         function ($scope, $modal, NgTableParams, request, httpService, popupService) {
             var me = this;
 
-            this.list = []
+            this.list = [];
 
             this.current = {};
 
