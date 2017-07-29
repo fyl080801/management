@@ -74,17 +74,17 @@ define('modules.room.configs.menus', [
                 .add({
                     id: 'rcusettings_parameters',
                     text: '参数设置',
-                    src: 'test.html'
+                    templateUrl: 'views/room/rcu/RCU.html'
                 })
                 .add({
                     id: 'rcusettings_time',
                     text: '时间设置',
-                    src: 'test.html'
+                    templateUrl: 'views/room/rcu/RCU.html'
                 })
                 .add({
                     id: 'rcusettings_resetupdate',
                     text: '复位升级',
-                    src: 'test.html'
+                    templateUrl: 'views/room/rcu/RCU.html'
                 });
 
             linkManagerProvider
@@ -127,22 +127,17 @@ define('modules.room.configs.menus', [
                 .add({
                     id: 'help_register',
                     text: '注册信息',
-                    src: 'test.html'
+                    templateUrl: 'views/help/Register.html'
                 })
                 .add({
                     id: 'help_tl',
                     text: '图例说明',
-                    src: 'test.html'
+                    templateUrl: 'views/help/Legend.html'
                 })
                 .add({
                     id: 'help_help',
                     text: '使用帮助',
-                    src: 'test.html'
-                })
-                .add({
-                    id: 'help_interface',
-                    text: '接口说明',
-                    src: 'test.html'
+                    templateUrl: 'views/help/Document.html'
                 });
         }
     ]);
