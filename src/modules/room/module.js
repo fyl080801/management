@@ -30,6 +30,9 @@ define('modules.room.module', [
                         views: {
                             'home': {
                                 templateUrl: 'views/room/Home.html'
+                            },
+                            'bar': {
+                                templateUrl: 'views/room/Bar.html'
                             }
                         }
                     });

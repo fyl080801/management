@@ -8,6 +8,7 @@ define('modules.manageui.requires', [
     'modules.manageui.factories.tabStack',
     'modules.manageui.factories.tableParameter',
     'modules.manageui.services.sessionService',
+    'modules.manageui.services.tabService',
     'modules.manageui.controllers.main',
     'modules.manageui.controllers.session',
     'modules.manageui.controllers.login'

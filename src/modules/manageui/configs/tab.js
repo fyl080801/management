@@ -65,7 +65,7 @@ define('modules.manageui.configs.tab', [
 
                             tabOptions = angular.extend({}, $tabProvider.options, tabOptions);
                             tabOptions.resolve = tabOptions.resolve || {};
-                            tabOptions.resolve['$deps'] = resolveDependencies(tabOptions.dependencies);
+                            tabOptions.resolve.$deps = resolveDependencies(tabOptions.dependencies);
 
                             var templateAndResolvePromise =
                                 $q.all([getTemplatePromise(tabOptions)].concat(getResolvePromises(tabOptions.resolve)));

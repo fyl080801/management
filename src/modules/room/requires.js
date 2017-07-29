@@ -1,9 +1,12 @@
 define('modules.room.requires', [
+    'modules.room.services.messageService',
     'modules.room.controllers.test',
+    'modules.room.controllers.bar',
     'modules.room.controllers.build',
     'modules.room.controllers.buildForm',
     'modules.room.controllers.roles',
     'modules.room.controllers.rooms',
+    'modules.room.controllers.message',
     'modules.room.controllers.users',
     'modules.room.controllers.home',
     'modules.room.controllers.state',

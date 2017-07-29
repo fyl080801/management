@@ -105,6 +105,10 @@
     right: 0;
 }
 
+.content-body {
+    margin-top: 50px;
+}
+
 .text-muted {
     color: #8095a8;
 }
@@ -241,6 +245,20 @@
     top: 4px;
 }
 
+.message-workplace {
+    position: relative;
+    height: 100%;
+}
+
+.message-workplace .message-column {
+    overflow: auto;
+    position: absolute;
+    top: 77px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 .bs-callout {
     padding: 10px 15px;
     margin: 0 0 15px 0;
@@ -251,19 +269,19 @@
 }
 
 .bs-callout-danger {
-    border-left-color: #f2dede;
+    border-left-color: #d9534f;
 }
 
 .bs-callout-warning {
-    border-left-color: #fcf8e3;
+    border-left-color: #f0ad4e;
 }
 
 .bs-callout-info {
-    border-left-color: #d9edf7;
+    border-left-color: #5bc0de;
 }
 
 .bs-callout-success {
-    border-left-color: #dff0d8;
+    border-left-color: #449d44;
 }
 
 .bs-callout-primary {
@@ -271,13 +289,21 @@
 }
 
 .badge-warning {
-    background-color: orange;
+    background-color: #f0ad4e;
 }
 
 .badge-success {
-    background-color: green;
+    background-color: #449d44;
 }
 
 .badge-danger {
-    background-color: red;
+    background-color: #d9534f;
+}
+
+.badge-info {
+    background-color: #5bc0de;
+}
+
+.badge-primary {
+    background-color: #337ab7;
 }

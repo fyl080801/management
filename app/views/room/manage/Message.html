@@ -1,26 +1,83 @@
-<div>
+<div ng-controller="modules.room.controllers.message as me">
     <div class="navbar navbar-default navbar-static-top" style="margin: 0">
         <div class="container-fluid">
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse">
                 <form class="navbar-form navbar-left" style="padding-left: 0">
-                    <button class="btn btn-default">全部</button>
+                    <button class="btn btn-default" ng-click="service.activeAll()">全部</button>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-primary">登记 <span class="badge">4</span></button>
-                        <button type="button" class="btn btn-default">房态 <span class="badge">4</span></button>
-                        <button type="button" class="btn btn-default">信息 <span class="badge">4</span></button>
-                        <button type="button" class="btn btn-default">呼叫 <span class="badge">4</span></button>
+                        <button type="button" class="btn btn-default" ng-class="{'active':service.actives.checkIn, 'btn-success':service.actives.checkIn}"
+                            ng-click="service.active('checkIn')"><i class="fa fa-address-card fa-fw"></i> 登记</button>
+                        <button type="button" class="btn btn-default" ng-class="{'active':service.actives.room, 'btn-primary':service.actives.room}"
+                            ng-click="service.active('room')"><i class="fa fa-bed fa-fw" aria-hidden="true"></i> 房态</button>
+                        <button type="button" class="btn btn-default" ng-class="{'active':service.actives.message, 'btn-info':service.actives.message}"
+                            ng-click="service.active('message')"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i> 信息</button>
+                        <button type="button" class="btn btn-default" ng-class="{'active':service.actives.call, 'btn-warning':service.actives.call}"
+                            ng-click="service.active('call')"><i class="fa fa-bell fa-fw" aria-hidden="true"></i> 呼叫</button>
                     </div>
                 </form>
-                <!-- <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> 保存</button>
-                    </div>
-                </form> -->
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </div>
-    <div></div>
+    <div class="container-fluid row content content-body">
+        <div class="col-md-8 message-workplace">
+            <h4 class="page-header"><i class="glyphicon glyphicon-edit"></i> <label>待处理</label></h4>
+            <div class="panel-body row message-column messagestore">
+
+                <div class="col-md-4">
+                    <div class="panel panel-info">
+                        <div class="panel-body bg-info">
+                            aaa
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4 message-workplace">
+            <h4 class="page-header"><i class="glyphicon glyphicon-bookmark"></i> <label>已标记</label></h4>
+            <div class="panel-body message-column">
+
+                <div class="bs-callout bs-callout-warning">
+                    <label>sssss</label>
+                    <div>
+                        <span class="text-muted"><i class="glyphicon glyphicon-time"></i> 2017-4-4</span>
+                        <div class="pull-right">
+                            <button class="btn btn-default btn-xs">受理</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bs-callout bs-callout-warning">
+                    <label>sssss</label>
+                    <div>
+                        <span class="text-muted"><i class="glyphicon glyphicon-time"></i> 2017-4-4</span>
+                        <div class="pull-right">
+                            <button class="btn btn-default btn-xs">受理</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bs-callout bs-callout-primary">
+                    <label>sssss</label>
+                    <div>
+                        <span class="text-muted"><i class="glyphicon glyphicon-time"></i> 2017-4-4</span>
+                        <div class="pull-right">
+                            <button class="btn btn-default btn-xs">确认</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bs-callout bs-callout-warning">
+                    <label>sssss</label>
+                    <div>
+                        <span class="text-muted"><i class="glyphicon glyphicon-time"></i> 2017-4-4</span>
+                        <div class="pull-right">
+                            <button class="btn btn-default btn-xs">受理</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

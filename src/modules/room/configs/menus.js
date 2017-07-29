@@ -22,15 +22,15 @@ define('modules.room.configs.menus', [
                     icon: 'fa fa-comments fa-fw'
                 })
                 .add({
-                    id: 'roommanage_search',
-                    text: '事件查询',
-                    templateUrl: 'views/room/manage/EventLog.html',
-                    dependencies: ['modules.room.requires']
-                })
-                .add({
                     id: 'roommanage_infomanage',
                     text: '消息管理',
                     templateUrl: 'views/room/manage/Message.html',
+                    dependencies: ['modules.room.requires']
+                })
+                .add({
+                    id: 'roommanage_search',
+                    text: '事件查询',
+                    templateUrl: 'views/room/manage/EventLog.html',
                     dependencies: ['modules.room.requires']
                 });
 
