@@ -193,6 +193,10 @@
     background-color: #CCCCCC;
 }
 
+.roomstate .state-container {
+    padding: 0;
+}
+
 .roomstate .state img {
     width: 100%
 }

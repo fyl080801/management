@@ -6,9 +6,9 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid roomstate panel-body row">
-        <div class="col-md-1" ng-repeat="room in me.rooms">
-            <div class="panel panel-primary">
+    <div class="container-fluid roomstate panel-body">
+        <div class="col-md-1 state-container" ng-repeat="room in me.rooms">
+            <div class="panel panel-primary" style="margin: 0">
                 <div class="panel-heading">
                     {{room.Temperature}} ℃
                 </div>
