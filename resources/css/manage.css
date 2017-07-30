@@ -183,13 +183,13 @@
 }
 
 .roomstate .state {
-    padding: 0 18px;
+    padding: 0 16px;
 }
 
 .roomstate .state .statebg {
-    margin-bottom: 4px;
-    margin-left: -13px;
-    margin-right: -13px;
+    margin-bottom: 2px;
+    margin-left: -14px;
+    margin-right: -14px;
     background-color: #CCCCCC;
 }
 
@@ -198,7 +198,7 @@
 }
 
 .roomstate .roomnum a {
-    font-size: 40px;
+    font-size: 30px;
     color: orange;
 }
 

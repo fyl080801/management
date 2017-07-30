@@ -109,6 +109,36 @@
         "RoomStatus": "nil.png",
         "AlertStatus": "SosGrey.png",
         "StrongStatus": "safeboxGrey.png"
+    }, {
+        "Id": 1,
+        "RoomNumber": "0001",
+        "Temperature": 20,
+        "DoorStatus": "DoorClose.png",
+        "PersonalStatus": "normal.png",
+        "CallStatus": "CallColor.png",
+        "RoomStatus": "nil.png",
+        "AlertStatus": "SosGrey.png",
+        "StrongStatus": "safeboxGrey.png"
+    }, {
+        "Id": 1,
+        "RoomNumber": "0001",
+        "Temperature": 20,
+        "DoorStatus": "DoorClose.png",
+        "PersonalStatus": "normal.png",
+        "CallStatus": "CallColor.png",
+        "RoomStatus": "nil.png",
+        "AlertStatus": "SosGrey.png",
+        "StrongStatus": "safeboxGrey.png"
+    }, {
+        "Id": 1,
+        "RoomNumber": "0001",
+        "Temperature": 20,
+        "DoorStatus": "DoorClose.png",
+        "PersonalStatus": "normal.png",
+        "CallStatus": "CallColor.png",
+        "RoomStatus": "nil.png",
+        "AlertStatus": "SosGrey.png",
+        "StrongStatus": "safeboxGrey.png"
     }],
     "Success": true
 }
