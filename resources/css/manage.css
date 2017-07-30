@@ -8,7 +8,7 @@
 }
 
 .manage-bar {
-    margin-left: 220px
+    margin-left: 220px;
 }
 
 .manage-content {
@@ -114,7 +114,7 @@
 }
 
 .nav-header {
-    background: url(../images/header-profile.png) no-repeat
+    background: url(../images/header-profile.png) no-repeat;
 }
 
 .nav-header a {
@@ -124,13 +124,13 @@
 .manage-nav .nav>li>a {
     color: #a7b1c2;
     font-weight: 600;
-    padding: 14px 20px 14px 25px
+    padding: 14px 20px 14px 25px;
 }
 
 .manage-nav .nav>li>a:focus,
 .manage-nav .nav>li>a:hover {
     background-color: #293846;
-    color: #fff
+    color: #fff;
 }
 
 .manage-nav .nav>li>a i {
@@ -139,21 +139,21 @@
 
 .manage-nav .nav>li.active {
     border-left: 4px solid #19aa8d;
-    background: #293846
+    background: #293846;
 }
 
 .manage-nav .nav.nav-second-level>li.active {
-    border: none
+    border: none;
 }
 
 .manage-nav .nav>li>.nav-second-level li a {
     font-size: 12px;
-    border-radius: 0 2px 2px 0
+    border-radius: 0 2px 2px 0;
 }
 
 .manage-nav .nav-second-level li,
 .manage-nav .nav-third-level li {
-    border-bottom: none!important
+    border-bottom: none !important;
 }
 
 .manage-nav .nav-second-level li a {
@@ -195,6 +195,13 @@
 
 .roomstate .state-container {
     padding: 0;
+}
+
+.roomstate .state-container .panel {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 2px;
 }
 
 .roomstate .state img {

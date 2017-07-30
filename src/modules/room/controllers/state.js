@@ -11,6 +11,8 @@ define('modules.room.controllers.state', [
         function ($scope, $modal, request, httpService) {
             var me = this;
 
+            this.builds = [];
+
             this.rooms = [];
 
             this.openControl = function (id) {
@@ -20,6 +22,16 @@ define('modules.room.controllers.state', [
                         size: 'lg'
                     });
             };
+
+            this.load = function () {
+                httpService
+                    .get(request.楼栋列表)
+                    .then(function (result) {
+                        me.builds = result.Data;
+                    });
+            };
+
+            $scope.current = null;
 
             httpService
                 .get(request.房间状态列表)
