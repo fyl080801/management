@@ -31,6 +31,13 @@ define('modules.room.controllers.state', [
                     });
             };
 
+            this.showComment = function (roomId) {
+                $modal
+                    .open({
+                        templateUrl: 'views/room/Comment.html'
+                    });
+            };
+
             $scope.current = null;
 
             httpService
