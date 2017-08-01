@@ -45,6 +45,16 @@ define('modules.manageui.configs.routes', [
                 });
 
             $stateProvider
+                .state('forgot', {
+                    url: '/forgot',
+                    templateUrl: 'views/manageui/Forgot.html',
+                    dependencies: ['modules.manageui.requires'],
+                    data: {
+                        title: '密码找回'
+                    }
+                });
+
+            $stateProvider
                 .state('main', {
                     url: '/main',
                     templateUrl: 'views/manageui/Main.html',
