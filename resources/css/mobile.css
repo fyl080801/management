@@ -24,3 +24,9 @@
     left: 0;
     right: 0;
 }
+
+.mobile-navbar {
+    background-image: url('../images/navbar.png');
+    background-repeat: repeat-x;
+    height: 91px;
+}
