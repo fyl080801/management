@@ -1,6 +1,14 @@
-<div class="layout">
-    <div class="mobile-navbar"></div>
-    <div class="mobile-content"></div>
+<div class="layout" ng-controller="modules.mobileui.controllers.mobilemain">
+    <div class="mobile-navbar">
+        <div class="navbar-header pull-left mobilenav-btn">
+            <a class="" href=""><img src="../images/btn-back.png"/></a>
+        </div>
+        <div class="mobile-title">
+            <h4 class="navbar-text text-center"><strong mobile-title></strong></h4>
+        </div>
+    </div>
+    <div class="mobile-content" ui-view></div>
+    <div class="mobile-bottom"></div>
     <!-- <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-header pull-left">
             <a class="navbar-brand" href=""><i class="glyphicon glyphicon-menu-hamburger"></i></a>

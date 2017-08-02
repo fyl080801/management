@@ -8,9 +8,9 @@ define('modules.mobileui.controllers.login', [
         '$state',
         function ($scope, $state) {
             var me = this;
-            
+
             this.login = function () {
-                $state.go('mobilemain');
+                $state.go('mobilemain.index');
             };
         }
     ]);

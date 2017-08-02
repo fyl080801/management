@@ -27,6 +27,15 @@ define('modules.mobileui.module', [
                     dependencies: ['modules.mobileui.requires']
                 });
 
+                $stateProvider.state('mobilemain.index', {
+                    url: '/index',
+                    templateUrl: 'views/mobileui/Index.html',
+                    dependencies: ['modules.mobileui.requires'],
+                    data: {
+                        title: '客房控制'
+                    }
+                });
+
                 $stateProvider.state('mobilemain.door', {
                     url: '/door',
                     templateUrl: 'views/mobileui/Door.html',
