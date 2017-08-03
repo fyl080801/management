@@ -42,7 +42,8 @@
 }
 
 .mobile-content {
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fefefe), to(#f2f2f2));
     position: absolute;
     top: 53px;
     bottom: 51px;
@@ -50,6 +51,57 @@
     right: 0;
 }
 
+.mobile-row {
+    margin-bottom: 15px;
+}
+
 .mobilenav-btn {
     padding: 6px 10px
+}
+
+.index-tmpbg {
+    background-image: url('../images/椭圆 1 副本 2.png');
+    background-position-x: center;
+    background-repeat: no-repeat;
+    height: 118px;
+    padding-top: 30px;
+}
+
+.index-temperature {
+    font-size: 30pt;
+    color: #298fed;
+}
+
+.index-value {
+    font-size: x-large;
+    margin-left: 5px;
+}
+
+.index-up {
+    position: relative;
+    height: 35%;
+    vertical-align: middle;
+}
+
+.index-up p {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.index-middle {
+    position: relative;
+    height: 35%
+}
+
+.index-bottom {
+    position: relative;
+    height: 30%
+}
+
+.mobile-btn-blue {
+    background-image: url('../images/btn-blue.png');
+    width: 222px;
+    height: 45px;
+    border: none;
+    color: white;
 }
