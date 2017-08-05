@@ -199,9 +199,9 @@
 
 .roomstate .state-container .panel {
     margin-top: 0;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 2px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 6px;
 }
 
 .roomstate .state img {
@@ -209,7 +209,7 @@
 }
 
 .roomstate .roomnum a {
-    font-size: 30px;
+    font-size: 30pt;
     color: orange;
 }
 

@@ -6,13 +6,13 @@
                 <form class="navbar-form navbar-left" style="padding-left: 0">
                     <button class="btn btn-default" ng-click="service.activeAll()">全部</button>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default" ng-class="{'active':service.actives.checkIn, 'btn-success':service.actives.checkIn}"
+                        <button type="button" class="btn btn-default" ng-class="{'active':service.actives.checkIn, 'btn-primary':service.actives.checkIn}"
                             ng-click="service.active('checkIn')"><i class="fa fa-address-card fa-fw"></i> 登记</button>
                         <button type="button" class="btn btn-default" ng-class="{'active':service.actives.room, 'btn-primary':service.actives.room}"
                             ng-click="service.active('room')"><i class="fa fa-bed fa-fw" aria-hidden="true"></i> 房态</button>
-                        <button type="button" class="btn btn-default" ng-class="{'active':service.actives.message, 'btn-info':service.actives.message}"
+                        <button type="button" class="btn btn-default" ng-class="{'active':service.actives.message, 'btn-primary':service.actives.message}"
                             ng-click="service.active('message')"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i> 信息</button>
-                        <button type="button" class="btn btn-default" ng-class="{'active':service.actives.call, 'btn-warning':service.actives.call}"
+                        <button type="button" class="btn btn-default" ng-class="{'active':service.actives.call, 'btn-primary':service.actives.call}"
                             ng-click="service.active('call')"><i class="fa fa-bell fa-fw" aria-hidden="true"></i> 呼叫</button>
                     </div>
                 </form>
@@ -27,7 +27,7 @@
             <div class="panel-body message-column">
 
                 <div class="row messagestore">
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="position: inherit">
                         <div class="bs-callout bs-callout-warning">
                             <label>sssss</label>
                             <div>
