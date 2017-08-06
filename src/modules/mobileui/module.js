@@ -39,16 +39,66 @@ define('modules.mobileui.module', [
                 $stateProvider.state('hotel', {
                     url: '/hotel',
                     templateUrl: 'views/mobileui/Hotel.html',
-                    dependencies: ['modules.mobileui.requires'],
-                    data: {
-                        title: '服务'
-                    }
+                    dependencies: ['modules.mobileui.requires']
                 });
 
                 $stateProvider.state('service', {
                     url: '/service',
                     templateUrl: 'views/mobileui/Service.html',
-                    dependencies: ['modules.mobileui.requires']
+                    dependencies: ['modules.mobileui.requires'],
+                    data: {
+                        title: '服 务'
+                    }
+                });
+
+                $stateProvider.state('mobilemain.air', {
+                    url: '/air',
+                    templateUrl: 'views/mobileui/Air.html',
+                    dependencies: ['modules.mobileui.requires'],
+                    data: {
+                        title: '空 调',
+                        back: 'hotel'
+                    }
+                });
+
+                $stateProvider.state('mobilemain.tv', {
+                    url: '/tv',
+                    templateUrl: 'views/mobileui/TV.html',
+                    dependencies: ['modules.mobileui.requires'],
+                    data: {
+                        title: '电 视',
+                        back: 'hotel'
+                    }
+                });
+
+                $stateProvider.state('mobilemain.curtains', {
+                    url: '/curtains',
+                    templateUrl: 'views/mobileui/Curtains.html',
+                    dependencies: ['modules.mobileui.requires'],
+                    data: {
+                        title: '窗 帘',
+                        back: 'hotel'
+                    }
+                });
+
+                $stateProvider.state('mobilemain.music', {
+                    url: '/music',
+                    templateUrl: 'views/mobileui/Music.html',
+                    dependencies: ['modules.mobileui.requires'],
+                    data: {
+                        title: '音 乐',
+                        back: 'hotel'
+                    }
+                });
+
+                $stateProvider.state('mobilemain.light', {
+                    url: '/light',
+                    templateUrl: 'views/mobileui/Light.html',
+                    dependencies: ['modules.mobileui.requires'],
+                    data: {
+                        title: '灯 光',
+                        back: 'hotel'
+                    }
                 });
 
                 $stateProvider.state('mobilemain.door', {

@@ -21,8 +21,8 @@
 
 .mobile-title {
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 57px;
+    right: 57px;
 }
 
 .mobile-navbar {
@@ -67,6 +67,11 @@
 
 .mobile-row {
     margin-bottom: 15px;
+}
+
+.mobile-row-flex {
+    margin-bottom: 15px;
+    display: flex;
 }
 
 .mobilenav-btn {
@@ -150,4 +155,138 @@
     left: 0;
     right: 0;
     bottom: 51px;
+}
+
+.btn-circle {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-top: 1px;
+    width: 45px;
+    height: 44px;
+}
+
+.btn-red {
+    background-image: url('../images/btn-cirle-orange.png');
+    color: white;
+}
+
+.btn-silver {
+    background-image: url('../images/btn-cirle.png');
+    color: #908f8f;
+}
+
+.btn-rectangle-sm {
+    background-image: url('../images/btn-rectangle.png');
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: #908f8f;
+    font-weight: bold;
+    font-size: medium;
+    width: 97px;
+    height: 39px;
+}
+
+.btn-ellipse-sm {
+    background-image: url('../images/btn-elipse.png');
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: #908f8f;
+    font-weight: bold;
+    width: 92px;
+    height: 34px;
+}
+
+.mobile-col {
+    float: left;
+    text-align: center;
+    text-align: -webkit-center;
+}
+
+.air-top {
+    position: relative;
+    text-align: right;
+    text-align: -webkit-right;
+    vertical-align: middle;
+    height: 20%;
+    padding: 30px;
+}
+
+.air-middle {
+    position: relative;
+    height: 55%;
+}
+
+.air-bottom {
+    position: relative;
+    height: 25%;
+}
+
+.tv-top {
+    position: relative;
+    vertical-align: middle;
+    height: 14%;
+    padding: 15px;
+}
+
+.tv-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.mobile-right {
+    text-align: right;
+    text-align: -webkit-right;
+}
+
+.mobile-center {
+    text-align: center;
+    text-align: -webkit-center;
+}
+
+.tv-verticalbtn {
+    background-image: url('../images/btn-vertical.png');
+    width: 54px;
+    height: 138px;
+    color: #908f8f;
+}
+
+.tv-verticalbtn a {
+    color: #908f8f;
+}
+
+.tv-verticalbtn div {
+    position: relative;
+    height: 33.3333333%;
+    vertical-align: middle;
+    padding-top: 12px;
+}
+
+.tv-control {
+    background-image: url('../images/btn-tv.png');
+    width: 151px;
+    height: 151px;
+    color: #908f8f;
+}
+
+.tv-control a {
+    color: #908f8f;
+}
+
+.control-row {
+    position: relative;
+    height: 33.3333333%;
+    vertical-align: middle;
+    padding-top: 13px;
+}
+
+.control-row-col {
+    float: left;
+    width: 33.3333333%;
+    text-align: center;
 }

@@ -1,7 +1,8 @@
 <div class="layout" ng-controller="modules.mobileui.controllers.mobilemain">
     <div class="mobile-navbar">
-        <div class="navbar-header pull-left mobilenav-btn">
-            <a class="" href=""><img src="../images/btn-back.png"/></a>
+        <!-- <div class="navbar-header pull-left mobilenav-btn" ng-show="$state.current.name.indexOf('mobilemain.')===0&&$state.current.name!=='mobilemain.index'"> -->
+        <div class="navbar-header pull-left mobilenav-btn" ng-show="$state.$current.data.back&&$state.$current.data.back!==''">
+            <a ng-click="$state.go($state.$current.data.back)"><img src="../images/btn-back.png"/></a>
         </div>
         <div class="mobile-title">
             <h4 class="navbar-text text-center"><strong mobile-title></strong></h4>
