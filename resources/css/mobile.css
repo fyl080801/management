@@ -41,6 +41,20 @@
     right: 0;
 }
 
+.mobile-bottom-nav {
+    float: left;
+    padding: 14px 0;
+}
+
+.mobile-bottom-btn {
+    float: left;
+}
+
+.mobile-bottom-nav a {
+    color: white;
+    font-size: medium;
+}
+
 .mobile-content {
     /* background-color: #f2f2f2; */
     background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fefefe), to(#f2f2f2));
@@ -104,4 +118,36 @@
     height: 45px;
     border: none;
     color: white;
+}
+
+.hotel-logo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 220px;
+    background-color: green;
+}
+
+.hotel-logo .hotel-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 0;
+}
+
+.hotel-title div {
+    color: white;
+    display: block;
+}
+
+.hotel-content {
+    position: absolute;
+    padding: 25px;
+    top: 221px;
+    left: 0;
+    right: 0;
+    bottom: 51px;
 }

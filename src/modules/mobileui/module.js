@@ -36,6 +36,21 @@ define('modules.mobileui.module', [
                     }
                 });
 
+                $stateProvider.state('hotel', {
+                    url: '/hotel',
+                    templateUrl: 'views/mobileui/Hotel.html',
+                    dependencies: ['modules.mobileui.requires'],
+                    data: {
+                        title: '服务'
+                    }
+                });
+
+                $stateProvider.state('service', {
+                    url: '/service',
+                    templateUrl: 'views/mobileui/Service.html',
+                    dependencies: ['modules.mobileui.requires']
+                });
+
                 $stateProvider.state('mobilemain.door', {
                     url: '/door',
                     templateUrl: 'views/mobileui/Door.html',
