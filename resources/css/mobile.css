@@ -86,6 +86,15 @@
     padding-top: 30px;
 }
 
+.index-content {
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fefefe), to(#f2f2f2));
+    position: absolute;
+    top: 53px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .index-temperature {
     font-size: 30pt;
     color: #298fed;
@@ -98,7 +107,7 @@
 
 .index-up {
     position: relative;
-    height: 35%;
+    height: 30%;
     vertical-align: middle;
 }
 
@@ -114,7 +123,7 @@
 
 .index-bottom {
     position: relative;
-    height: 30%
+    height: 35%
 }
 
 .mobile-btn-blue {
@@ -198,6 +207,17 @@
     font-weight: bold;
     width: 92px;
     height: 34px;
+}
+
+.btn-ellipse-orange {
+    background-image: url('../images/btn-orange.png');
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-weight: bold;
+    width: 107px;
+    height: 37px;
 }
 
 .mobile-col {
@@ -289,4 +309,69 @@
     float: left;
     width: 33.3333333%;
     text-align: center;
+}
+
+.light-sp {
+    background-image: url('../images/bar-light.png');
+    background-repeat: repeat-x;
+    line-height: 59px;
+    vertical-align: middle;
+    height: 59px;
+    color: #908f8f;
+}
+
+.light-col {
+    float: left;
+    width: 33.333333%;
+    text-align: center;
+    text-align: -webkit-center;
+}
+
+.light-panel {
+    width: 105px;
+}
+
+.light-panel .light-title {
+    background-image: url('../images/light-title.png');
+    background-repeat: no-repeat;
+    color: white;
+    line-height: 23px;
+    vertical-align: middle;
+    text-align: center;
+    height: 23px;
+}
+
+.light-panel .light-control {
+    height: 23px;
+    line-height: 23px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.light-panel .light-bar {
+    height: 35px;
+    line-height: 35px;
+    background-color: #f1f1f1;
+}
+
+.light-panel .light-btn {
+    background-color: #dbdbdb;
+    display: table-cell;
+    text-align: center;
+    width: 30px
+}
+
+.light-control span {
+    color: #908f8f;
+}
+
+.light-panel .light-btn-lg {
+    background-color: #dbdbdb;
+    display: table-cell;
+    text-align: center;
+    width: 26px;
+}
+
+.light-bar span {
+    color: #908f8f;
 }

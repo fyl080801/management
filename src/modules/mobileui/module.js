@@ -27,7 +27,7 @@ define('modules.mobileui.module', [
                     dependencies: ['modules.mobileui.requires']
                 });
 
-                $stateProvider.state('mobilemain.index', {
+                $stateProvider.state('index', {
                     url: '/index',
                     templateUrl: 'views/mobileui/Index.html',
                     dependencies: ['modules.mobileui.requires'],

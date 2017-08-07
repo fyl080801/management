@@ -10,7 +10,7 @@ define('modules.mobileui.controllers.login', [
             var me = this;
 
             this.login = function () {
-                $state.go('mobilemain.index');
+                $state.go('index');
             };
         }
     ]);
