@@ -8,7 +8,10 @@ define('modules.room.controllers.home', [
         '$state',
         '$appEnvironment',
         '$element',
-        function ($scope, $state, $appEnvironment, $element) {
+        'modules.manageui.configs.linkManager',
+        'modules.manageui.services.tabService',
+        'modules.room.services.messageService',
+        function ($scope, $state, $appEnvironment, $element, linkManager, tabService, messageService) {
             var me = this;
 
             $element.find('.widget-column')
@@ -18,7 +21,15 @@ define('modules.room.controllers.home', [
                     cancel: ".widget-toggle",
                     placeholder: 'widget-placeholder ui-corner-all'
                 });
+
             $element.disableSelection();
+
+            $scope.service = messageService;
+
+            this.openMessage = function (type) {
+                tabService.open(linkManager.get('roommanage').get('roommanage_infomanage'));
+                messageService.activeSingle(type);
+            };
         }
     ]);
 });
