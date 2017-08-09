@@ -140,7 +140,8 @@
     right: 0;
     top: 0;
     height: 220px;
-    background-color: green;
+    background-image: url('../images/background.jpg');
+    background-size: 100%;
 }
 
 .hotel-logo .hotel-title {
