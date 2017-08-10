@@ -1,0 +1,45 @@
+.manage-nav {
+    background-color: #367DA3;
+}
+
+.manage-nav-min {
+    background-color: #367DA3;
+}
+
+.manage-nav .nav>li>a {
+    color: #FFC37B;
+}
+
+.manage-nav-min .nav>li>a {
+    color: #FFC37B;
+}
+
+.manage-nav-min .nav>li>a:focus,
+.manage-nav-min .nav>li>a:hover {
+    background-color: #77C1EC;
+    color: #fff;
+}
+
+.manage-content .tab {
+    border-bottom-color: #1795D9;
+}
+
+.manage-content .tab .nav .active>a {
+    background: #1795D9;
+    color: #dfe4ed;
+}
+
+.manage-nav .nav>li>a:focus,
+.manage-nav .nav>li>a:hover {
+    background-color: #075E8D;
+    color: #fff;
+}
+
+.manage-nav .nav>li.active {
+    border-left-color: #0BE074;
+    background: #075E8D;
+}
+
+.nav-header {
+    background: url(../images/header-profile-skin-1.png);
+}

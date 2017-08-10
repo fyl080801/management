@@ -19,7 +19,8 @@ define('app.application', [
     'app.services.httpService',
     'app.services.popupService',
     'app.routes.run',
-    'app.directives.title'
+    'app.directives.title',
+    'app.directives.theme'
 ], function () {
     'use strict';
 
@@ -146,7 +147,8 @@ define('app.configs.appEnvironment', [
                     url: null,
                     method: null,
                     data: null
-                }
+                },
+                theme: null
             });
         }
     ]);
@@ -310,6 +312,35 @@ define('app.configs.rootScope', [
         }
     ]);
 });
+define('app.directives.theme', [
+    'app.directives'
+], function (module) {
+    'use strict';
+
+    module.directive('theme', [
+        function () {
+            var _link = function ($scope, $element, $attrs, $ctrl) {
+
+            };
+
+            var _controller = function ($scope, $element, $attrs, $appEnvironment) {
+                $scope.$appEnvironment = $appEnvironment;
+            };
+
+            return {
+                scope: {
+                    normal: '@',
+                    path: '@'
+                },
+                restrict: 'AE',
+                replace: true,
+                link: _link,
+                controller: ['$scope', '$element', '$attrs', '$appEnvironment', _controller],
+                template: '<link ng-href="{{path}}/{{$appEnvironment.theme?$appEnvironment.theme:normal}}.css" rel="stylesheet" />'
+            };
+        }
+    ]);
+});
 /**
  * Created by fyl08 on 2017/1/5.
  */
@@ -325,9 +356,8 @@ define('app.directives.title', [
             var _link = function (scope, element, attrs) {
                 $rootScope.$on('$stateChangeSuccess', function (event, toState) {
                     $timeout(function () {
-                        document.title = (toState.data && toState.data.title)
-                            ? toState.data.title
-                            : '';
+                        document.title = (toState.data && toState.data.title) ?
+                            toState.data.title : '';
                     });
                 });
             };
@@ -425,35 +455,6 @@ define('app.factories.httpState', [
                     };
                     return err;
                 }
-            };
-        }
-    ]);
-});
-/**
- * Created by fyl08 on 2017/2/22.
- */
-define('app.routes.run', [
-    'app.routes'
-], function (routes) {
-    'use strict';
-
-    routes.run([
-        '$rootScope',
-        '$state',
-        '$stateParams',
-        function ($rootScope, $state, $stateParams) {
-            $rootScope.$state = $state;
-            $rootScope.$stateParams = $stateParams;
-            $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-
-            });
-            $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-                $rootScope.$previous = fromState;
-                $rootScope.$previousParams = fromParams;
-            });
-            $state.back = function () {
-                if ($rootScope.$previous)
-                    $state.go($rootScope.$previous.name, $rootScope.$previousParams);
             };
         }
     ]);
@@ -626,6 +627,35 @@ define('app.services.popupService', [
                         defered.resolve(result);
                     });
                 return defered.promise;
+            };
+        }
+    ]);
+});
+/**
+ * Created by fyl08 on 2017/2/22.
+ */
+define('app.routes.run', [
+    'app.routes'
+], function (routes) {
+    'use strict';
+
+    routes.run([
+        '$rootScope',
+        '$state',
+        '$stateParams',
+        function ($rootScope, $state, $stateParams) {
+            $rootScope.$state = $state;
+            $rootScope.$stateParams = $stateParams;
+            $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+
+            });
+            $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+                $rootScope.$previous = fromState;
+                $rootScope.$previousParams = fromParams;
+            });
+            $state.back = function () {
+                if ($rootScope.$previous)
+                    $state.go($rootScope.$previous.name, $rootScope.$previousParams);
             };
         }
     ]);

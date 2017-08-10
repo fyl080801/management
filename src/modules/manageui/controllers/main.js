@@ -16,7 +16,24 @@ define('modules.manageui.controllers.main', [
         function ($scope, $state, $appEnvironment, $location, $tab, $modal, linkManager, popupService, sessionService) {
             var me = this;
 
+            this.menuCollapse = false;
+
+            this.themes = [{
+                name: '深色',
+                value: 'theme-dark'
+            }, {
+                name: '天蓝',
+                value: 'theme-blue'
+            }, {
+                name: '橘黄',
+                value: 'theme-orange'
+            }];
+
             this.links = linkManager.tree();
+
+            this.changeTheme = function (theme) {
+                $appEnvironment.theme = theme;
+            };
 
             this.logout = function () {
                 popupService

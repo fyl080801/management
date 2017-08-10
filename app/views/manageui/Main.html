@@ -1,5 +1,5 @@
 <div ng-controller="modules.manageui.controllers.main as me">
-    <div class="manage-nav">
+    <div class="manage-nav manage-nav-normal" ng-show="!me.menuCollapse">
         <div class="panel-body nav-header">
             <div class="pull-left">
                 <a href="" ng-click="me.editPicture()"><img class="img-circle" src="./images/profile_small.jpg" width="64px" height="64px" /></a>
@@ -24,11 +24,24 @@
         </div>
         <ul sys-links="me.links" class="metismenu nav"></ul>
     </div>
-    <div class="manage-content">
-        <div class="navbar navbar-default navbar-static-top" ui-view="bar">
-            <!-- <div class="navbar-form navbar-left">
-                <button class="btn btn-success"><i class="fa fa-bars"></i></button>
-            </div> -->
+    <div class="manage-nav-min" ng-show="me.menuCollapse">
+        <ul class="nav">
+            <li><a href=""><i class="fa fa-user fa-fw fa-2x" aria-hidden="true"></i></a></li>
+            <li ng-repeat="link in me.links"><a href=""><i class="{{link.icon}} fa-2x"></i></a></li>
+        </ul>
+    </div>
+    <div class="manage-content" ng-class="{'manage-content-normal': !me.menuCollapse, 'manage-content-min': me.menuCollapse}">
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="navbar-form navbar-left">
+                <button class="btn btn-success" ng-click="me.menuCollapse=me.menuCollapse?false:true"><i class="fa fa-bars fa-fw"></i></button>
+                <div class="input-group dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-paint-brush fa-fw" aria-hidden="true"></i> <span class="caret"></span></button>
+                    <ul class="dropdown-menu" style="z-index: 9999">
+                        <li ng-repeat="th in me.themes"><a href="" ng-click="me.changeTheme(th.value)">{{th.name}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navbar-right" ui-view="bar"></div>
         </div>
         <div class="manage-tab">
             <div class="tab">

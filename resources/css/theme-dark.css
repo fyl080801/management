@@ -1,0 +1,37 @@
+.manage-nav {
+    background-color: #232E37;
+}
+
+.manage-nav-min {
+    background-color: #232E37;
+}
+
+.manage-nav-min .nav>li>a:focus,
+.manage-nav-min .nav>li>a:hover {
+    background-color: #293846;
+    color: #fff;
+}
+
+.manage-content .tab {
+    border-bottom-color: #263949;
+}
+
+.manage-content .tab .nav .active>a {
+    background: #263949;
+    color: #dfe4ed;
+}
+
+.manage-nav .nav>li>a:focus,
+.manage-nav .nav>li>a:hover {
+    background-color: #0C202F;
+    color: #fff;
+}
+
+.manage-nav .nav>li.active {
+    border-left-color: #19aa8d;
+    background: #0C202F;
+}
+
+.nav-header {
+    background: url(../images/header-profile.png);
+}
