@@ -26,8 +26,24 @@
     </div>
     <div class="manage-nav-min" ng-show="me.menuCollapse">
         <ul class="nav">
-            <li><a href=""><i class="fa fa-user fa-fw fa-2x" aria-hidden="true"></i></a></li>
-            <li ng-repeat="link in me.links"><a href=""><i class="{{link.icon}} fa-2x"></i></a></li>
+            <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-caret-right fa-1x flag" aria-hidden="true"></i><i class="fa fa-user fa-fw fa-2x" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="" ng-click="me.showUser()">个人资料</a></li>
+                    <li><a href="" ng-click="me.editPicture()">修改头像</a></li>
+                    <li><a ng-href="#/lock">锁定</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="" ng-click="me.logout()">退出</a></li>
+                </ul>
+            </li>
+            <li ng-repeat="link in me.links" class="dropdown">
+                <a ng-if="!link.templateUrl&&!link.src" href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i ng-if="link.links.length>0" class="fa fa-caret-right fa-1x flag" aria-hidden="true"></i><i class="{{link.icon}} fa-2x"></i></a>
+                <a ng-if="link.templateUrl||link.src" href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+                    ng-click="me.tabService.open(link)"><i ng-if="link.links.length>0" class="fa fa-caret-right fa-1x flag" aria-hidden="true"></i><i class="{{link.icon}} fa-2x"></i></a>
+                <ul class="dropdown-menu" ng-if="link.links.length>0">
+                    <li ng-repeat="sub in link.links"><a href="" ng-click="me.tabService.open(sub)">{{sub.text}}</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
     <div class="manage-content" ng-class="{'manage-content-normal': !me.menuCollapse, 'manage-content-min': me.menuCollapse}">
@@ -37,7 +53,7 @@
                 <div class="input-group dropdown">
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-paint-brush fa-fw" aria-hidden="true"></i> <span class="caret"></span></button>
                     <ul class="dropdown-menu" style="z-index: 9999">
-                        <li ng-repeat="th in me.themes"><a href="" ng-click="me.changeTheme(th.value)">{{th.name}}</a></li>
+                        <li ng-repeat="th in me.themes" ng-class="{'active':$appEnvironment.theme===th.value}"><a href="" ng-click="me.changeTheme(th.value)">{{th.name}}</a></li>
                     </ul>
                 </div>
             </div>

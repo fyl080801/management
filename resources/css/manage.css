@@ -25,6 +25,23 @@
     color: #fff;
 }
 
+.manage-nav-min .dropdown-menu {
+    margin-left: 65px;
+    margin-top: -40px;
+}
+
+.manage-nav-min .nav>li>a>.flag {
+    position: absolute;
+    left: 0;
+    margin-top: 8px;
+}
+
+.manage-nav-min .nav .open>a,
+.manage-nav-min .nav .open>a:focus,
+.manage-nav-min .nav .open>a:hover {
+    background-color: inherit;
+}
+
 .manage-content {
     position: absolute;
     top: 0;

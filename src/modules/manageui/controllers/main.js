@@ -11,9 +11,10 @@ define('modules.manageui.controllers.main', [
         '$tab',
         '$modal',
         'modules.manageui.configs.linkManager',
+        'modules.manageui.services.tabService',
         'app.services.popupService',
         'modules.manageui.services.sessionService',
-        function ($scope, $state, $appEnvironment, $location, $tab, $modal, linkManager, popupService, sessionService) {
+        function ($scope, $state, $appEnvironment, $location, $tab, $modal, linkManager, tabService, popupService, sessionService) {
             var me = this;
 
             this.menuCollapse = false;
@@ -30,6 +31,8 @@ define('modules.manageui.controllers.main', [
             }];
 
             this.links = linkManager.tree();
+
+            this.tabService = tabService;
 
             this.changeTheme = function (theme) {
                 $appEnvironment.theme = theme;
