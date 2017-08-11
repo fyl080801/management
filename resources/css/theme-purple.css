@@ -1,17 +1,17 @@
 .nav-header {
-    background-color: #003466;
+    background-color: #79004F;
 }
 
 
 /*导航栏(小)*/
 
 .manage-nav-min {
-    background-color: #00284E;
+    background-color: #5D003D;
 }
 
 .manage-nav-min .nav>li>a:focus,
 .manage-nav-min .nav>li>a:hover {
-    background-color: #0E3255;
+    background-color: #651148;
     color: #fff;
 }
 
@@ -19,28 +19,28 @@
 /*导航栏(大)*/
 
 .manage-nav {
-    background-color: #00284E;
+    background-color: #5D003D;
 }
 
 .manage-nav .nav>li>a:focus,
 .manage-nav .nav>li>a:hover {
-    background-color: #0E3255;
+    background-color: #651148;
     color: #fff;
 }
 
 .manage-nav .nav>li.active {
-    border-left-color: #BD9738;
-    background: #0E3255;
+    border-left-color: #6BB235;
+    background: #651148;
 }
 
 
 /*标签页*/
 
 .manage-content .tab {
-    border-bottom-color: #003466;
+    border-bottom-color: #79004F;
 }
 
 .manage-content .tab .nav .active>a {
-    background: #003466;
+    background: #79004F;
     color: #dfe4ed;
 }

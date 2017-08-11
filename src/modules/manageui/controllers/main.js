@@ -19,14 +19,14 @@ define('modules.manageui.controllers.main', [
             this.menuCollapse = false;
 
             this.themes = [{
-                name: '深色',
+                name: '深蓝',
                 value: 'theme-dark'
             }, {
-                name: '天蓝',
-                value: 'theme-blue'
+                name: '紫红',
+                value: 'theme-purple'
             }, {
-                name: '橘黄',
-                value: 'theme-orange'
+                name: '军绿',
+                value: 'theme-green'
             }];
 
             this.links = linkManager.tree();
