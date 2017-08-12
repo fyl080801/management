@@ -11,6 +11,10 @@
       "./resources/images/room/*"
     ]
   },
+  "weather-images": {
+    "images": ["./resources/images/weather/*.svg"],
+    "imageTarget": "./app/images/weather"
+  },
   "bootstrap": {
     "css": [
       "./bower_components/bootstrap/dist/css/bootstrap.min.css",

@@ -6,20 +6,23 @@ define('modules.room.controllers.message', [
 
     module.controller('modules.room.controllers.message', [
         '$scope',
-        '$element',
+        'modules.manageui.factories.tableParameter',
+        'modules.setting.services.request',
         'modules.room.services.messageService',
-        function ($scope, $element, messageService) {
+        function ($scope, tableParameter, request, messageService) {
             $scope.service = messageService;
 
-            $element.find('.messagestore')
-                .sortable({
-                    connectWith: ".markstore"
-                });
+            this.tableParams = new tableParameter({});
 
-            $element.find('.markstore')
-                .sortable({
-                    connectWith: ".messagestore"
-                });
+            // $element.find('.messagestore')
+            //     .sortable({
+            //         connectWith: ".markstore"
+            //     });
+
+            // $element.find('.markstore')
+            //     .sortable({
+            //         connectWith: ".messagestore"
+            //     });
         }
     ]);
 });

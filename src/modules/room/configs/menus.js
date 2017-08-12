@@ -65,34 +65,6 @@ define('modules.room.configs.menus', [
                     dependencies: ['modules.room.requires']
                 });
 
-            // linkManagerProvider
-            //     .add({
-            //         id: 'rcusettings',
-            //         text: 'RCU设置',
-            //         icon: 'fa fa-server fa-fw'
-            //     })
-            //     .add({
-            //         id: 'rcusettings_project',
-            //         text: '工程设置',
-            //         templateUrl: 'views/room/rcu/Project.html',
-            //         dependencies: ['modules.room.requires']
-            //     })
-            //     .add({
-            //         id: 'rcusettings_parameters',
-            //         text: '参数设置',
-            //         templateUrl: 'views/room/rcu/RCU.html'
-            //     })
-            //     .add({
-            //         id: 'rcusettings_time',
-            //         text: '时间设置',
-            //         templateUrl: 'views/room/rcu/RCU.html'
-            //     })
-            //     .add({
-            //         id: 'rcusettings_resetupdate',
-            //         text: '复位升级',
-            //         templateUrl: 'views/room/rcu/RCU.html'
-            //     });
-
             linkManagerProvider
                 .add({
                     id: 'systemSettings',
@@ -121,6 +93,12 @@ define('modules.room.configs.menus', [
                     id: 'systemSettings_params',
                     text: '客房参数',
                     templateUrl: 'views/room/settings/Parameters.html',
+                    dependencies: ['modules.room.requires']
+                })
+                .add({
+                    id: 'systemSettings_mode',
+                    text: '设备模式',
+                    templateUrl: 'views/room/settings/Mode.html',
                     dependencies: ['modules.room.requires']
                 });
 

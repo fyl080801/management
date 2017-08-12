@@ -94,7 +94,7 @@ gulp.task('pack_reference', function () {
         doTarget(ref.js, jsTarget);
         doTarget(ref.css, cssTarget);
         doTarget(ref.fonts, fontTarget);
-        doTarget(ref.images, imgTarget);
+        doTarget(ref.images, ref.imageTarget ? ref.imageTarget : imgTarget);
     }
 
     function doTarget(lib, target) {

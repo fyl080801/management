@@ -21,7 +21,18 @@
         </div>
         <!-- /.container-fluid -->
     </div>
-    <div class="container-fluid row content content-body">
+    <table ng-table="me.tableParams" class="table table-striped">
+        <tr>
+            <td title="'操作'"></td>
+            <td title="'时间'"></td>
+            <td title="'消息类型'"></td>
+            <td title="'内容'"></td>
+            <td title="'优先级'"></td>
+            <td title="'时间'"></td>
+        </tr>
+    </table>
+    <div ng-pager="me.tableParams"></div>
+    <!-- <div class="container-fluid row content content-body">
         <div class="col-md-9 message-workplace">
             <h4 class="page-header"><i class="glyphicon glyphicon-edit"></i> <label>待处理</label></h4>
             <div class="panel-body message-column">
@@ -60,19 +71,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col-md-4">
-                    <div class="panel panel-info">
-                        <div class="panel-body bg-info">
-                            aaa
-                            <div>
-                                <span class="text-muted"><i class="glyphicon glyphicon-time"></i> 2017-4-4</span>
-                                <div class="pull-right">
-                                    <button class="btn btn-default btn-xs">受理</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                 </div>
 
             </div>
@@ -130,5 +128,5 @@
 
             </div>
         </div>
-    </div>
+    </div> -->
 </div>

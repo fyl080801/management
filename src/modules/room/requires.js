@@ -17,6 +17,7 @@ define('modules.room.requires', [
     'modules.room.controllers.identitySettings',
     'modules.room.controllers.parameterSettings',
     'modules.room.controllers.roomForm',
+    'modules.room.controllers.mode',
     'modules.room.factories.enumerate',
     'modules.room.filters.imagePath',
     'modules.room.filters.roomStatus'
