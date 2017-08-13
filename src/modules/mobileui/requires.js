@@ -4,7 +4,8 @@ define('modules.mobileui.requires', [
     'modules.mobileui.controllers.mobilemain',
     'modules.mobileui.controllers.service',
     'modules.mobileui.controllers.tv',
-    'modules.mobileui.controllers.index'
+    'modules.mobileui.controllers.index',
+    'modules.mobileui.controllers.air'
 ], function () {
     'use strict';
 

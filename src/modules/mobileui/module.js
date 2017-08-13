@@ -55,6 +55,7 @@ define('modules.mobileui.module', [
                     url: '/air',
                     templateUrl: 'views/mobileui/Air.html',
                     dependencies: ['modules.mobileui.requires'],
+                    css: ['css/mobiscroll.custom-2.5.2.min.css'],
                     data: {
                         title: '空 调',
                         back: 'hotel'

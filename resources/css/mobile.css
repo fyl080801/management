@@ -28,13 +28,13 @@
 .mobile-navbar {
     background-image: url('../images/navbar.png');
     background-repeat: repeat-x;
-    height: 53px;
+    height: 47px;
 }
 
 .mobile-bottom {
     background-image: url('../images/navbar-black.png');
     background-repeat: repeat-x;
-    height: 51px;
+    height: 44px;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -43,7 +43,7 @@
 
 .mobile-bottom-nav {
     float: left;
-    padding: 14px 0;
+    padding: 12px 0;
 }
 
 .mobile-bottom-btn {
@@ -59,8 +59,8 @@
     /* background-color: #f2f2f2; */
     background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fefefe), to(#f2f2f2));
     position: absolute;
-    top: 53px;
-    bottom: 51px;
+    top: 47px;
+    bottom: 44px;
     left: 0;
     right: 0;
 }
@@ -75,7 +75,7 @@
 }
 
 .mobilenav-btn {
-    padding: 6px 10px
+    padding: 4px 10px
 }
 
 .index-tmpbg {
@@ -89,7 +89,7 @@
 .index-content {
     background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fefefe), to(#f2f2f2));
     position: absolute;
-    top: 53px;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -118,12 +118,12 @@
 
 .index-middle {
     position: relative;
-    height: 20%
+    height: 30%
 }
 
 .index-bottom {
     position: relative;
-    height: 35%
+    height: 40%
 }
 
 .mobile-btn-blue {
@@ -173,8 +173,8 @@
     vertical-align: middle;
     font-size: 14pt;
     padding-top: 1px;
-    width: 45px;
-    height: 44px;
+    width: 39px;
+    height: 39px;
 }
 
 .btn-red {
@@ -195,8 +195,19 @@
     color: #908f8f;
     font-weight: bold;
     font-size: medium;
-    width: 97px;
-    height: 39px;
+    width: 85px;
+    height: 35px;
+}
+
+.btn-ellipse {
+    background-image: url('../images/btn-elipse-lg.png');
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: #908f8f;
+    font-weight: bold;
+    width: 107px;
+    height: 42px;
 }
 
 .btn-ellipse-sm {
@@ -206,8 +217,8 @@
     vertical-align: middle;
     color: #908f8f;
     font-weight: bold;
-    width: 92px;
-    height: 34px;
+    width: 79px;
+    height: 29px;
 }
 
 .btn-ellipse-orange {
@@ -232,13 +243,13 @@
     text-align: right;
     text-align: -webkit-right;
     vertical-align: middle;
-    height: 20%;
+    height: 16%;
     padding: 30px;
 }
 
 .air-middle {
     position: relative;
-    height: 55%;
+    height: 60%;
 }
 
 .air-bottom {
@@ -272,8 +283,8 @@
 
 .tv-verticalbtn {
     background-image: url('../images/btn-vertical.png');
-    width: 54px;
-    height: 138px;
+    width: 48px;
+    height: 120px;
     color: #908f8f;
 }
 
@@ -285,13 +296,13 @@
     position: relative;
     height: 33.3333333%;
     vertical-align: middle;
-    padding-top: 12px;
+    padding-top: 10px;
 }
 
 .tv-control {
     background-image: url('../images/btn-tv.png');
-    width: 151px;
-    height: 151px;
+    width: 137px;
+    height: 137px;
     color: #908f8f;
 }
 
@@ -375,4 +386,76 @@
 
 .light-bar span {
     color: #908f8f;
+}
+
+.air-number {
+    text-align: center;
+    text-align: -webkit-center;
+}
+
+.air-number .air-number-bg {
+    background-image: url('../images/air-number.png');
+    width: 206px;
+    height: 209px;
+}
+
+.air-number input {
+    display: none;
+}
+
+.air-number .dwi {
+    margin: 0;
+    position: inherit;
+}
+
+.air-number .dwbg {
+    background-color: transparent;
+}
+
+.air-number .android-ics .dw {
+    background-color: transparent;
+}
+
+.air-number .android-ics.light .dw {
+    background-color: transparent;
+}
+
+.air-number .android-ics .dwhl {
+    margin: 0;
+    padding: 0;
+}
+
+.air-number .android-ics .dwc {
+    margin: 0;
+    padding: 0;
+}
+
+.air-number .dwhl {
+    padding: 0;
+}
+
+.air-number .dwwc {
+    margin: 0;
+    padding: 0;
+}
+
+.air-number .android-ics.light .dwwo {
+    background-color: transparent;
+    background-image: none;
+}
+
+.air-number .dwwr {
+    text-align: center;
+}
+
+.air-number .dw {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.dwc {
+    width: 206px;
+    text-align: center;
+    text-align: -webkit-center;
 }

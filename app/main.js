@@ -189,12 +189,19 @@
         shim: {
             deps: ['app']
         }
+    },
+    'mobiscroll': {
+        path: 'js/mobiscroll.custom-2.5.2.min',
+        shim: {
+            deps: ['app']
+        }
     }
 }, {
     required: window.required,
     noDebugs: [
         'contabs',
         'hplus',
-        'layer'
+        'layer',
+        'mobiscroll'
     ]
 });
