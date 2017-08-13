@@ -1,5 +1,6 @@
 define('modules.mobileui.module', [
-    'app.application'
+    'app.application',
+    'angularjs-slider'
 ], function (application) {
     'use strict';
 
@@ -7,7 +8,8 @@ define('modules.mobileui.module', [
 
     return angular
         .module('modules.mobileui', [
-            'ui.router'
+            'ui.router',
+            'rzModule'
         ])
         .config([
             '$urlRouterProvider',
@@ -96,6 +98,7 @@ define('modules.mobileui.module', [
                     url: '/light',
                     templateUrl: 'views/mobileui/Light.html',
                     dependencies: ['modules.mobileui.requires'],
+                    css: ['css/rzslider.min.css'],
                     data: {
                         title: '灯 光',
                         back: 'hotel'

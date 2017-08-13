@@ -78,5 +78,12 @@
       "./bower_components/cropper/dist/cropper.min.js"
     ],
     "css": ["./bower_components/cropper/dist/cropper.min.css"]
+  },
+  "angularjs-slider": {
+    "js": [
+      "./bower_components/angularjs-slider/dist/rzslider.js",
+      "./bower_components/angularjs-slider/dist/rzslider.min.js"
+    ],
+    "css": ["./bower_components/angularjs-slider/dist/rzslider.min.css"]
   }
 }

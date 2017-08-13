@@ -195,6 +195,12 @@
         shim: {
             deps: ['app']
         }
+    },
+    'angularjs-slider': {
+        path: 'js/rzslider',
+        shim: {
+            deps: ['app']
+        }
     }
 }, {
     required: window.required,

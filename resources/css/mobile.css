@@ -459,3 +459,23 @@
     text-align: center;
     text-align: -webkit-center;
 }
+
+.light-panel .rzslider .rz-pointer {
+    width: 16px;
+    height: 16px;
+    top: -6px;
+}
+
+.light-panel .rzslider .rz-pointer:after {
+    top: 4px;
+    left: 4px;
+}
+
+.light-panel .rzslider {
+    margin: 0;
+}
+
+.light-panel .slider {
+    padding-left: 30px;
+    padding-right: 4px;
+}

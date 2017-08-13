@@ -1,4 +1,4 @@
-<div class="layout">
+<div class="layout" ng-controller="modules.mobileui.controllers.light as me">
     <div class="mobile-center" style="padding-top: 20px;">
         <a class="btn-ellipse-orange">总 控</a>
     </div>
@@ -42,7 +42,9 @@
                 <div class="light-title">左阅读</div>
                 <div class="light-bar">
                     <a class="light-btn-lg" style="float: left"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></a>
-                    <span>23</span>
+                    <div class="slider">
+                        <rzslider rz-slider-model="val1" rz-slider-options="opts"></rzslider>
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,7 +53,20 @@
                 <div class="light-title">右阅读</div>
                 <div class="light-bar">
                     <a class="light-btn-lg" style="float: left"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></a>
-                    <span>关闭</span>
+                    <div class="slider">
+                        <rzslider rz-slider-model="val1" rz-slider-options="opts"></rzslider>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="light-col">
+            <div class="light-panel">
+                <div class="light-title">走廊灯</div>
+                <div class="light-bar">
+                    <a class="light-btn-lg" style="float: left"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></a>
+                    <div class="slider">
+                        <rzslider rz-slider-model="val1" rz-slider-options="opts"></rzslider>
+                    </div>
                 </div>
             </div>
         </div>

@@ -5,7 +5,8 @@ define('modules.mobileui.requires', [
     'modules.mobileui.controllers.service',
     'modules.mobileui.controllers.tv',
     'modules.mobileui.controllers.index',
-    'modules.mobileui.controllers.air'
+    'modules.mobileui.controllers.air',
+    'modules.mobileui.controllers.light'
 ], function () {
     'use strict';
 

@@ -34,6 +34,7 @@
     "animate.css": "^3.5.2",
     "jquery-ui": "^1.12.1",
     "angular-ui-switch": "^0.1.1",
-    "cropper": "^2.3.4"
+    "cropper": "^2.3.4",
+    "angularjs-slider": "^6.4.0"
   }
 }
