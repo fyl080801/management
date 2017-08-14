@@ -5,15 +5,24 @@ define('modules.room.controllers.bar', [
 
     module.controller('modules.room.controllers.bar', [
         '$scope',
+        '$modal',
         'modules.manageui.configs.linkManager',
         'modules.manageui.services.tabService',
         'modules.room.services.messageService',
-        function ($scope, linkManager, tabService, messageService) {
+        function ($scope, $modal, linkManager, tabService, messageService) {
             $scope.service = messageService;
 
             this.openMessage = function (type) {
                 tabService.open(linkManager.get('roommanage').get('roommanage_infomanage'));
                 messageService.activeSingle(type);
+            };
+
+            this.checkIn = function () {
+                $modal
+                    .open({
+                        templateUrl: 'views/room/CheckIn.html',
+                        size: 'sm'
+                    });
             };
         }
     ]);
