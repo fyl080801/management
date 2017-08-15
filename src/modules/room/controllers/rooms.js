@@ -32,6 +32,17 @@ define('modules.room.controllers.rooms', [
                     });
             };
 
+            this.addRange = function () {
+                $modal
+                    .open({
+                        templateUrl: 'views/room/manage/RoomRange.html',
+                        data: {}
+                    }).result
+                    .then(function (data) {
+
+                    });
+            };
+
             this.reset = function () {
                 $modal
                     .open({
