@@ -36,7 +36,10 @@ define('modules.room.controllers.rooms', [
                 $modal
                     .open({
                         templateUrl: 'views/room/manage/RoomRange.html',
-                        data: {}
+                        data: {
+                            NumberStart: 1,
+                            NumberEnd: 50
+                        }
                     }).result
                     .then(function (data) {
 
