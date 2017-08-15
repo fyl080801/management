@@ -1,10 +1,17 @@
 <div ng-controller="modules.room.controllers.rooms as roomController">
     <div class="navbar navbar-default navbar-static-top" style="margin: 0">
-        <ul class="nav navbar-nav" role="tablist">
-            <li role="presentation" class="active"><a href="#rcu_project" aria-controls="rcu_project" role="tab" data-toggle="tab"><strong>工程设置</strong></a></li>
-            <li role="presentation"><a href="#rcu_param" aria-controls="rcu_param" role="tab" data-toggle="tab"><strong>参数设置</strong></a></li>
-            <li role="presentation"><a href="#rcu_time" aria-controls="rcu_time" role="tab" data-toggle="tab"><strong>时间设置</strong></a></li>
-        </ul>
+        <div class="navbar-left">
+            <ul class="nav navbar-nav" role="tablist">
+                <li role="presentation" class="active"><a href="#rcu_project" aria-controls="rcu_project" role="tab" data-toggle="tab"><strong>工程设置</strong></a></li>
+                <li role="presentation"><a href="#rcu_param" aria-controls="rcu_param" role="tab" data-toggle="tab"><strong>参数设置</strong></a></li>
+                <li role="presentation"><a href="#rcu_time" aria-controls="rcu_time" role="tab" data-toggle="tab"><strong>时间设置</strong></a></li>
+            </ul>
+        </div>
+        <div class="navbar-form navbar-right">
+            <div class="container-fluid">
+                <button class="btn btn-default" ng-click="roomController.reset()">复位升级</button>
+            </div>
+        </div>
     </div>
     <div class="panel-body row">
         <div class="col-md-2" ng-controller="modules.room.controllers.build as me">

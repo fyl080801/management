@@ -31,6 +31,13 @@ define('modules.room.controllers.rooms', [
 
                     });
             };
+
+            this.reset = function () {
+                $modal
+                    .open({
+                        templateUrl: 'views/room/rcu/Reset.html'
+                    });
+            };
         }
     ]);
 });
