@@ -93,9 +93,6 @@
     'modules.setting.module': {
         path: 'js/modules'
     },
-    'modules.mobileui.module': {
-        path: 'js/modules'
-    },
 
     // requires
     'modules.manageui.requires': {
@@ -114,12 +111,6 @@
         path: 'js/module.setting',
         shim: {
             deps: ['modules.setting.module']
-        }
-    },
-    'modules.mobileui.requires': {
-        path: 'js/module.mobileui',
-        shim: {
-            deps: ['modules.mobileui.module']
         }
     },
 
@@ -203,7 +194,11 @@
         }
     }
 }, {
-    required: window.required,
+    required: [
+        'modules.manageui.module',
+        'modules.room.module',
+        'modules.setting.module'
+    ],
     noDebugs: [
         'contabs',
         'hplus',

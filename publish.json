@@ -1,6 +1,8 @@
 {
-    "name": "basetest",
+    "name": "pc",
     "modules": [
-        "system"
+        "manageui",
+        "room",
+        "setting"
     ]
 }

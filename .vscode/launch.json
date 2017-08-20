@@ -1,6 +1,18 @@
 {
     "version": "0.2.0",
-    "configurations": [{
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Gulp task",
+            "program": "${workspaceRoot}/node_modules/gulp/bin/gulp.js",
+            "args": [
+                "pack_modules",
+                "-p",
+                "publish-mobile.json"
+            ]
+        },
+        {
         "type": "chrome",
         "request": "launch",
         "name": "Launch Chrome against localhost",
