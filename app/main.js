@@ -106,12 +106,6 @@
     },
 
     // third plugin
-    'metisMenu': {
-        path: 'js/metisMenu',
-        shim: {
-            deps: ['api-check']
-        }
-    },
     'api-check': {
         path: 'js/api-check'
     },
@@ -136,12 +130,6 @@
     'layer': {
         path: 'js/layer.min'
     },
-    'ng-table': {
-        path: 'js/ng-table',
-        shim: {
-            deps: ['app']
-        }
-    },
     'jquery-ui': {
         path: 'js/jquery-ui',
         shim: {
@@ -153,24 +141,6 @@
     },
     'transitionize': {
         path: 'js/transitionize'
-    },
-    'switchery': {
-        path: 'js/switchery',
-        shim: {
-            deps: ['fastclick', 'transitionize']
-        }
-    },
-    'ui-switch': {
-        path: 'js/angular-ui-switch',
-        shim: {
-            deps: ['app']
-        }
-    },
-    'cropper': {
-        path: 'js/cropper',
-        shim: {
-            deps: ['app']
-        }
     },
     'mobiscroll': {
         path: 'js/mobiscroll.custom-2.5.2.min',

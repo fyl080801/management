@@ -11,25 +11,12 @@
       "./resources/images/room/*"
     ]
   },
-  "weather-images": {
-    "images": ["./resources/images/weather/*.svg"],
-    "imageTarget": "./app/images/weather"
-  },
   "bootstrap": {
     "css": [
       "./bower_components/bootstrap/dist/css/bootstrap.min.css",
       "./bower_components/bootstrap/dist/css/bootstrap.min.css.map"
     ],
     "fonts": ["./bower_components/bootstrap/dist/fonts/*"]
-  },
-  "metisMenu": {
-    "js": [
-      "./bower_components/metisMenu/dist/metisMenu.js",
-      "./bower_components/metisMenu/dist/metisMenu.min.js"
-    ],
-    "css": [
-      "./bower_components/metisMenu/dist/metisMenu.min.css"
-    ]
   },
   "api-check": {
     "js": [
@@ -64,20 +51,6 @@
       "./bower_components/jquery-ui/jquery-ui.js",
       "./bower_components/jquery-ui/jquery-ui.min.js"
     ]
-  },
-  "ui-switch": {
-    "js": [
-      "./bower_components/angular-ui-switch/angular-ui-switch.js",
-      "./bower_components/angular-ui-switch/angular-ui-switch.min.js"
-    ],
-    "css": ["./bower_components/angular-ui-switch/angular-ui-switch.min.css"]
-  },
-  "cropper": {
-    "js": [
-      "./bower_components/cropper/dist/cropper.js",
-      "./bower_components/cropper/dist/cropper.min.js"
-    ],
-    "css": ["./bower_components/cropper/dist/cropper.min.css"]
   },
   "angularjs-slider": {
     "js": [
