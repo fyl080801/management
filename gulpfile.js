@@ -182,7 +182,7 @@ gulp.task('build', ['pack_require', 'pack_reference', 'pack_patch', 'pack_app', 
 gulp.task('start', function () {
     gulp.src(appRoot)
         .pipe(webserver({
-            fallback: '/pc.html',
+            fallback: '/index.html',
             livereload: false,
             port: 7998,
             directoryListing: false,

@@ -87,12 +87,6 @@
     'modules.manageui.module': {
         path: 'js/modules'
     },
-    'modules.room.module': {
-        path: 'js/modules'
-    },
-    'modules.setting.module': {
-        path: 'js/modules'
-    },
     'modules.mobileui.module': {
         path: 'js/modules'
     },
@@ -101,19 +95,7 @@
     'modules.manageui.requires': {
         path: 'js/module.manageui',
         shim: {
-            deps: ['modules.manageui.module', 'modules.setting.requires']
-        }
-    },
-    'modules.room.requires': {
-        path: 'js/module.room',
-        shim: {
-            deps: ['modules.room.module', 'modules.setting.requires']
-        }
-    },
-    'modules.setting.requires': {
-        path: 'js/module.setting',
-        shim: {
-            deps: ['modules.setting.module']
+            deps: ['modules.manageui.module']
         }
     },
     'modules.mobileui.requires': {
@@ -203,7 +185,11 @@
         }
     }
 }, {
-    required: window.required,
+    required: [
+        'modules.manageui.module',
+        'modules.mobileui.module',
+        'modules.setting.module'
+    ],
     noDebugs: [
         'contabs',
         'hplus',
