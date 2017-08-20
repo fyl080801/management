@@ -187,8 +187,7 @@
 }, {
     required: [
         'modules.manageui.module',
-        'modules.mobileui.module',
-        'modules.setting.module'
+        'modules.mobileui.module'
     ],
     noDebugs: [
         'contabs',
