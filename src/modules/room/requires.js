@@ -1,4 +1,5 @@
 define('modules.room.requires', [
+    'modules.room.directives.ngPager',
     'modules.room.services.messageService',
     'modules.room.controllers.test',
     'modules.room.controllers.bar',

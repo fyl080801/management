@@ -4,7 +4,6 @@ define('modules.manageui.requires', [
     'modules.manageui.directives.links',
     'modules.manageui.directives.linkSection',
     'modules.manageui.directives.linkItem',
-    'modules.manageui.directives.ngPager',
     'modules.manageui.factories.tabStack',
     'modules.manageui.factories.tableParameter',
     'modules.manageui.services.sessionService',
