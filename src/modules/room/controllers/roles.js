@@ -44,7 +44,7 @@ define('modules.room.controllers.roles', [
                     });
             };
 
-            this.delete = function (id) {
+            this.drop = function (id) {
                 popupService
                     .confirm('是否删除？')
                     .ok(function () {

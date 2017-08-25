@@ -37,7 +37,7 @@ define('modules.room.controllers.users', [
                     })
             };
 
-            this.delete = function (id) {
+            this.drop = function (id) {
                 popupService
                     .confirm('是否删除？')
                     .ok(function () {
