@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="container-fluid roomstate panel-body" style="padding: 0 15px">
-        <div class="state-container" style="width: 12.5%; float: left;" ng-repeat="room in me.rooms">
+        <div class="state-container" style="width: 12.5%; float: left;" ng-repeat="room in me.rooms track by $index">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     {{room.Temperature}} ℃
