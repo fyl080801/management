@@ -1,9 +1,5 @@
-# seed-ui-angular
+# management
 
-angular + requirejs
-
-根据路由按需加载按需执行模块
-
-模块化开发功能
+宾馆客房管理系统界面UI
 
 兼容ie8
