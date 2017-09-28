@@ -72,35 +72,14 @@
 })({
     app: document.getElementById('app'),
     references: {
+        'api-check': {
+            path: '../bower_components/api-check/dist/api-check'
+        },
         'metisMenu': {
             path: 'js/metisMenu',
             shim: {
                 deps: ['api-check']
             }
-        },
-        'api-check': {
-            path: '../bower_components/api-check/dist/api-check'
-        },
-        'jquery-slimscroll': {
-            path: '../bower_components/jquery-slimscroll/jquery.slimscroll',
-            shim: {
-                deps: ['app']
-            }
-        },
-        'pace': {
-            path: '../bower_components/PACE/pace'
-        },
-        'contabs': {
-            path: 'js/contabs.min'
-        },
-        'hplus': {
-            path: 'js/hplus.min',
-            shim: {
-                deps: ['layer']
-            }
-        },
-        'layer': {
-            path: 'js/layer.min'
         },
         'ng-table': {
             path: 'js/ng-table',
@@ -126,12 +105,6 @@
                 deps: ['app']
             }
         },
-        'mobiscroll': {
-            path: 'js/mobiscroll.custom-2.5.2.min',
-            shim: {
-                deps: ['app']
-            }
-        },
         'angularjs-slider': {
             path: '../bower_components/angularjs-slider/dist/rzslider',
             shim: {
@@ -140,14 +113,11 @@
         }
     },
     requires: [
-        'rcss!css/metisMenu.min.css',
         'rcss!../bower_components/font-awesome/css/font-awesome.min.css',
-        'modules'
+        'rcss!css/metisMenu.min.css',
+        'rcss!css/ng-table.min.css',
+        'rcss!css/angular-ui-switch.min.css',
+        'web'
     ],
-    noDebugs: [
-        'contabs',
-        'hplus',
-        'layer',
-        'mobiscroll'
-    ]
+    noDebugs: []
 });

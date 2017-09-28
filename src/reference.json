@@ -12,21 +12,9 @@
       "./bower_components/api-check/dist/api-check.min.js"
     ]
   },
-  "jquery-slimscroll": {
-    "js": [
-      "./bower_components/jquery-slimscroll/jquery.slimscroll.js",
-      "./bower_components/jquery-slimscroll/jquery.slimscroll.min.js"
-    ]
-  },
   "font-awesome": {
     "css": ["./bower_components/font-awesome/css/*.css"],
     "fonts": ["./bower_components/font-awesome/fonts/*"]
-  },
-  "animate.css": {
-    "css": [
-      "./bower_components/animate.css/animate.css",
-      "./bower_components/animate.css/animate.min.css"
-    ]
   },
   "jquery-ui": {
     "js": [

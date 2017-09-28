@@ -2,126 +2,126 @@
  * 基本路径
  */
 var jsTarget = 'dist/js',
-cssTarget = 'dist/css',
-fontTarget = 'dist/fonts',
-imgTarget = 'dist/images';
+    cssTarget = 'dist/css',
+    fontTarget = 'dist/fonts',
+    imgTarget = 'dist/images';
 
 /**
-* 模块定义
-*/
+ * 模块定义
+ */
 var gulp = require('gulp'),
-rimraf = require('rimraf'),
-concat = require('gulp-concat'),
-cssmin = require('gulp-cssmin'),
-uglify = require('gulp-uglify'),
-ngmin = require('gulp-ngmin'),
-minimist = require('minimist'),
-amdOptimize = require('amd-optimize'),
-webserver = require('gulp-webserver'),
-fs = require('fs');
+    rimraf = require('rimraf'),
+    concat = require('gulp-concat'),
+    cssmin = require('gulp-cssmin'),
+    uglify = require('gulp-uglify'),
+    ngmin = require('gulp-ngmin'),
+    minimist = require('minimist'),
+    amdOptimize = require('amd-optimize'),
+    webserver = require('gulp-webserver'),
+    fs = require('fs');
 
 /**
-* 打包require
-*/
+ * 打包require
+ */
 gulp.task('pack_require', function () {
-gulp.src('bower_components/requirejs/require.js')
-    .pipe(concat('require.js'))
-    .pipe(gulp.dest(jsTarget))
-    .pipe(concat('require.min.js'))
-    .pipe(uglify({
-        outSourceMap: false
-    }))
-    .pipe(gulp.dest(jsTarget));
-});
-
-/**
-* 打包静态文件
-*/
-gulp.task('pack_resources', function () {
-gulp.src([
-        'resources/**/*',
-        'src/**/*',
-        '!src/modules/**/*',
-        '!src/app',
-        '!src/index.html',
-        '!src/reference.json',
-        '!src/modules.build.js',
-        '!src/requires.build.js',
-        '!src/main.js',
-        '!src/modules.js'
-    ])
-    .pipe(gulp.dest('dist'));
-
-var reference = JSON.parse(fs.readFileSync('src/reference.json'));
-
-for (var name in reference) {
-    var ref = reference[name];
-    doTarget(ref.js, jsTarget);
-    doTarget(ref.css, cssTarget);
-    doTarget(ref.fonts, fontTarget);
-    doTarget(ref.images, imgTarget);
-}
-
-function doTarget(lib, target) {
-    if (!lib || !target) return;
-    gulp.src(lib)
-        .pipe(gulp.dest(target));
-}
-});
-
-/**
-* 打包模块
-*/
-gulp.task('pack_modules', function () {
-var modules = fs.readdirSync('src/modules');
-
-for (var idx in modules) {
-    var requiresPath = 'modules/' + modules[idx] + '/requires';
-    var requiresName = 'modules.' + modules[idx];
-
-    gulp.src('src/**/*.js')
-        .pipe(amdOptimize(requiresPath, {
-            configFile: 'src/requires.build.js',
-            baseUrl: 'src'
-        }))
-        .pipe(concat(requiresName + '.js'))
-        .pipe(gulp.dest('dist/js'))
-        .pipe(concat(requiresName + '.min.js'))
+    gulp.src('bower_components/requirejs/require.js')
+        .pipe(concat('require.js'))
+        .pipe(gulp.dest(jsTarget))
+        .pipe(concat('require.min.js'))
         .pipe(uglify({
             outSourceMap: false
         }))
         .pipe(gulp.dest(jsTarget));
-}
-
-gulp.src('src/**/*.js')
-    .pipe(amdOptimize('modules', {
-        configFile: 'src/modules.build.js',
-        baseUrl: 'src'
-    }))
-    .pipe(concat('modules.js'))
-    .pipe(gulp.dest(jsTarget))
-    .pipe(concat('modules.min.js'))
-    .pipe(uglify({
-        outSourceMap: false
-    }))
-    .pipe(gulp.dest(jsTarget));
 });
 
 /**
-* 执行build
-*/
+ * 打包静态文件
+ */
+gulp.task('pack_resources', function () {
+    gulp.src([
+            'resources/**/*',
+            'src/**/*',
+            '!src/modules/**/*',
+            '!src/app',
+            '!src/index.html',
+            '!src/reference.json',
+            '!src/web.build.js',
+            '!src/requires.build.js',
+            '!src/main.js',
+            '!src/web.js'
+        ])
+        .pipe(gulp.dest('dist'));
+
+    var reference = JSON.parse(fs.readFileSync('src/reference.json'));
+
+    for (var name in reference) {
+        var ref = reference[name];
+        doTarget(ref.js, jsTarget);
+        doTarget(ref.css, cssTarget);
+        doTarget(ref.fonts, fontTarget);
+        doTarget(ref.images, imgTarget);
+    }
+
+    function doTarget(lib, target) {
+        if (!lib || !target) return;
+        gulp.src(lib)
+            .pipe(gulp.dest(target));
+    }
+});
+
+/**
+ * 打包模块
+ */
+gulp.task('pack_modules', function () {
+    var modules = fs.readdirSync('src/modules');
+
+    for (var idx in modules) {
+        var requiresPath = 'modules/' + modules[idx] + '/requires';
+        var requiresName = 'modules.' + modules[idx];
+
+        gulp.src('src/**/*.js')
+            .pipe(amdOptimize(requiresPath, {
+                configFile: 'src/requires.build.js',
+                baseUrl: 'src'
+            }))
+            .pipe(concat(requiresName + '.js'))
+            .pipe(gulp.dest('dist/js'))
+            .pipe(concat(requiresName + '.min.js'))
+            .pipe(uglify({
+                outSourceMap: false
+            }))
+            .pipe(gulp.dest(jsTarget));
+    }
+
+    gulp.src('src/**/*.js')
+        .pipe(amdOptimize('web', {
+            configFile: 'src/web.build.js',
+            baseUrl: 'src'
+        }))
+        .pipe(concat('web.js'))
+        .pipe(gulp.dest(jsTarget))
+        .pipe(concat('web.min.js'))
+        .pipe(uglify({
+            outSourceMap: false
+        }))
+        .pipe(gulp.dest(jsTarget));
+});
+
+/**
+ * 执行build
+ */
 gulp.task('build', ['pack_require', 'pack_resources', 'pack_modules']);
 
 /**
-* 启动server
-*/
+ * 启动server
+ */
 gulp.task('start', function () {
-gulp.src('')
-    .pipe(webserver({
-        fallback: 'src/index.html',
-        livereload: false,
-        port: 8997,
-        directoryListing: false,
-        open: false
-    }));
+    gulp.src('')
+        .pipe(webserver({
+            fallback: 'src/index.html',
+            livereload: false,
+            port: 8997,
+            directoryListing: false,
+            open: false
+        }));
 });
