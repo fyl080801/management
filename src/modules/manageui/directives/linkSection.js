@@ -1,5 +1,5 @@
-define('modules.manageui.directives.linkSection', [
-    'modules.manageui.module'
+define([
+    'modules/manageui/module'
 ], function (module) {
     'use strict';
 

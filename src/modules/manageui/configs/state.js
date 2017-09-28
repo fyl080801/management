@@ -1,8 +1,5 @@
-/**
- * Created by fyl08 on 2017/2/15.
- */
-define('modules.manageui.configs.state', [
-    'modules.manageui.configs'
+define([
+    'modules/manageui/configs'
 ], function (configs) {
     'use strict';
 

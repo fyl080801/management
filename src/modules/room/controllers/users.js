@@ -1,5 +1,5 @@
-define('modules.room.controllers.users', [
-    'modules.room.module'
+define([
+    'modules/room/module'
 ], function (module) {
     'use strict';
 
@@ -12,7 +12,7 @@ define('modules.room.controllers.users', [
         'app.services.httpService',
         function ($scope, $modal, NgTableParams, request, popupService, httpService) {
             var me = this;
-            
+
             this.tableParams = new NgTableParams();
 
             this.list = [];

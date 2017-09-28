@@ -1,5 +1,5 @@
-define('modules.room.configs.menus', [
-    'modules.room.configs'
+define([
+    'modules/room/configs'
 ], function (configs) {
     'use strict';
 
@@ -12,7 +12,7 @@ define('modules.room.configs.menus', [
                     text: '房态显示',
                     icon: 'fa fa-camera fa-fw',
                     templateUrl: 'views/room/State.html',
-                    dependencies: ['modules.room.requires']
+                    dependencies: ['modules/room/requires']
                 });
 
             linkManagerProvider
@@ -25,13 +25,13 @@ define('modules.room.configs.menus', [
                     id: 'roommanage_infomanage',
                     text: '消息管理',
                     templateUrl: 'views/room/manage/Message.html',
-                    dependencies: ['modules.room.requires']
+                    dependencies: ['modules/room/requires']
                 })
                 .add({
                     id: 'roommanage_search',
                     text: '事件查询',
                     templateUrl: 'views/room/manage/EventLog.html',
-                    dependencies: ['modules.room.requires']
+                    dependencies: ['modules/room/requires']
                 });
 
             linkManagerProvider
@@ -44,25 +44,25 @@ define('modules.room.configs.menus', [
                     id: 'roomsettings_build',
                     text: '楼栋',
                     templateUrl: 'views/room/manage/Build.html',
-                    dependencies: ['modules.room.requires']
+                    dependencies: ['modules/room/requires']
                 })
                 .add({
                     id: 'roomsettings_category',
                     text: '房间类型',
                     templateUrl: 'views/room/manage/RoomTypes.html',
-                    dependencies: ['modules.room.requires']
+                    dependencies: ['modules/room/requires']
                 })
                 .add({
                     id: 'roomsettings_no',
                     text: '房间设置',
                     templateUrl: 'views/room/manage/Room.html',
-                    dependencies: ['modules.room.requires']
+                    dependencies: ['modules/room/requires']
                 })
                 .add({
                     id: 'roomsettings_rcusettings',
                     text: 'RCU设置',
                     templateUrl: 'views/room/rcu/RCU.html',
-                    dependencies: ['modules.room.requires']
+                    dependencies: ['modules/room/requires']
                 });
 
             linkManagerProvider
@@ -75,31 +75,31 @@ define('modules.room.configs.menus', [
                     id: 'systemSettings_role',
                     text: '人员类别管理',
                     templateUrl: 'views/room/personal/Roles.html',
-                    dependencies: ['modules.room.requires']
+                    dependencies: ['modules/room/requires']
                 })
                 .add({
                     id: 'systemSettings_user',
                     text: '人员管理',
                     templateUrl: 'views/room/personal/Users.html',
-                    dependencies: ['modules.room.requires']
+                    dependencies: ['modules/room/requires']
                 })
                 .add({
                     id: 'systemSettings_identity',
                     text: '身份识别设置',
                     templateUrl: 'views/room/settings/Identity.html',
-                    dependencies: ['modules.room.requires']
+                    dependencies: ['modules/room/requires']
                 })
                 .add({
                     id: 'systemSettings_params',
                     text: '客房参数',
                     templateUrl: 'views/room/settings/Parameters.html',
-                    dependencies: ['modules.room.requires']
+                    dependencies: ['modules/room/requires']
                 })
                 .add({
                     id: 'systemSettings_mode',
                     text: '设备模式',
                     templateUrl: 'views/room/settings/Mode.html',
-                    dependencies: ['modules.room.requires']
+                    dependencies: ['modules/room/requires']
                 });
 
             linkManagerProvider

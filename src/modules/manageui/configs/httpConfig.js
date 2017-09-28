@@ -1,8 +1,5 @@
-/**
- * Created by fyl08 on 2017/3/4.
- */
-define('modules.manageui.configs.httpConfig', [
-    'modules.manageui.configs'
+define([
+    'modules/manageui/configs'
 ], function (configs) {
     'use strict';
 

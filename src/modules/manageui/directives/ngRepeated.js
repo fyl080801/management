@@ -1,5 +1,5 @@
-define('modules.manageui.directives.ngRepeated', [
-    'modules.manageui.module'
+define([
+    'modules/manageui/module'
 ], function (module) {
     'use strict';
 
@@ -12,10 +12,6 @@ define('modules.manageui.directives.ngRepeated', [
                         scope.$emit('ngRepeated');
                     });
                 }
-
-                // if (scope.$last === true) {
-                //     eval(attr.ngRepeated);
-                // }
             };
 
             return {

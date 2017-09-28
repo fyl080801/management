@@ -1,12 +1,12 @@
-define('modules.manageui.directives.linkItem', [
-    'modules.manageui.module'
+define([
+    'modules/manageui/module'
 ], function (module) {
     'use strict';
 
     module.directive('sysLinkItem', [
         function () {
             var _link = function ($scope, $element, $attrs, $ctrl) {
-                
+
             };
 
             var _controller = function ($scope, $element, $attrs, $tab, $tabStore) {

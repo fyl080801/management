@@ -1,20 +1,4 @@
 {
-  "resources": {
-    "js": ["./resources/js/*.js"],
-    "css": [
-      "./resources/css/*.css",
-      "./resources/css/patterns/*"
-    ],
-    "images": [
-      "./resources/images/*.jpg",
-      "./resources/images/*.png",
-      "./resources/images/room/*"
-    ]
-  },
-  "weather-images": {
-    "images": ["./resources/images/weather/*.svg"],
-    "imageTarget": "./app/images/weather"
-  },
   "bootstrap": {
     "css": [
       "./bower_components/bootstrap/dist/css/bootstrap.min.css",

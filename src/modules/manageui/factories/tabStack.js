@@ -1,5 +1,5 @@
-define('modules.manageui.factories.tabStack', [
-    'modules.manageui.module'
+define([
+    'modules/manageui/module'
 ], function (module) {
     'use strict';
 

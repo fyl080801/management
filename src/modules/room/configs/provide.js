@@ -1,5 +1,5 @@
-define('modules.room.configs.provide', [
-    'modules.room.configs'
+define([
+    'modules/room/configs'
 ], function (configs) {
     'use strict';
 

@@ -1,5 +1,5 @@
-define('modules.room.controllers.buildForm', [
-    'modules.room.module'
+define([
+    'modules/room/module'
 ], function (module) {
     'use strict';
 

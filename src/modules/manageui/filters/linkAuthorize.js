@@ -1,5 +1,5 @@
-define('modules.manageui.filters.linkAuthorize', [
-    'modules.manageui.module'
+define([
+    'modules/manageui/module'
 ], function (module) {
     'use strict';
 

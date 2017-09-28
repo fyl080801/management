@@ -1,5 +1,5 @@
-define('modules.manageui.services.tabService', [
-    'modules.manageui.module'
+define([
+    'modules/manageui/module'
 ], function (module) {
     'use strict';
 

@@ -1,8 +1,5 @@
-/**
- * Created by fyl08 on 2017/3/2.
- */
-define('modules.manageui.configs.linkManager', [
-    'modules.manageui.configs'
+define([
+    'modules/manageui/configs'
 ], function (configs) {
     'use strict';
 

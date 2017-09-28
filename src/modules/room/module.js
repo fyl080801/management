@@ -1,7 +1,7 @@
-define('modules.room.module', [
-    'app.application',
-    'modules.room.configs.menus',
-    'modules.room.configs.provide',
+define([
+    'app/application',
+    'modules/room/configs/menus',
+    'modules/room/configs/provide',
     'ui-switch',
     'ng-table'
 ], function (application) {
@@ -26,7 +26,7 @@ define('modules.room.module', [
                 $stateProvider
                     .state('main.roomhome', {
                         url: '/roomhome',
-                        dependencies: ['modules.room.requires'],
+                        dependencies: ['modules/room/requires', 'modules/setting/requires'],
                         views: {
                             'home': {
                                 templateUrl: 'views/room/Home.html'

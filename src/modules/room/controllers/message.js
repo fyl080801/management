@@ -1,5 +1,5 @@
-define('modules.room.controllers.message', [
-    'modules.room.module',
+define([
+    'modules/room/module',
     'jquery-ui'
 ], function (module) {
     'use strict';

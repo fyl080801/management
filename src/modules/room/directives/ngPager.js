@@ -1,5 +1,5 @@
-define('modules.room.directives.ngPager', [
-    'modules.room.module'
+define([
+    'modules/room/module'
 ], function (module) {
     'use strict';
 

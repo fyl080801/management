@@ -1,5 +1,5 @@
-define('modules.room.configs', [
-    'app.application'
+define([
+    'app/application'
 ], function (application) {
     'use strict';
 

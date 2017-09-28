@@ -1,8 +1,5 @@
-/**
- * Created by fyl08 on 2017/1/4.
- */
-define('modules.manageui.services.sessionService', [
-    'modules.manageui.module'
+define([
+    'modules/manageui/module'
 ], function (module) {
     'use strict';
 

@@ -1,12 +1,12 @@
-define('modules.manageui.module', [
-    'app.application',
-    'modules.manageui.configs.factories',
-    'modules.manageui.configs.provide',
-    'modules.manageui.configs.state',
-    'modules.manageui.configs.routes',
-    'modules.manageui.configs.linkManager',
-    'modules.manageui.configs.tab',
-    'modules.manageui.configs.httpConfig'
+define([
+    'app/application',
+    'modules/manageui/configs/factories',
+    'modules/manageui/configs/provide',
+    'modules/manageui/configs/state',
+    'modules/manageui/configs/routes',
+    'modules/manageui/configs/linkManager',
+    'modules/manageui/configs/tab',
+    'modules/manageui/configs/httpConfig'
 ], function (application) {
     'use strict';
 

@@ -1,5 +1,5 @@
-define('modules.manageui.configs.tab', [
-    'modules.manageui.configs'
+define([
+    'modules/manageui/configs'
 ], function (configs) {
     'use strict';
 
