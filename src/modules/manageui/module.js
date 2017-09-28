@@ -6,7 +6,8 @@ define([
     'modules/manageui/configs/routes',
     'modules/manageui/configs/linkManager',
     'modules/manageui/configs/tab',
-    'modules/manageui/configs/httpConfig'
+    'modules/manageui/configs/httpConfig',
+    'modules/manageui/configs/popupConfig'
 ], function (application) {
     'use strict';
 
