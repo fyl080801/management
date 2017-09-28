@@ -142,7 +142,6 @@
     requires: [
         'rcss!css/metisMenu.min.css',
         'rcss!../bower_components/font-awesome/css/font-awesome.min.css',
-        'rcss!css/manage.css',
         'modules'
     ],
     noDebugs: [

@@ -18,12 +18,6 @@
       "./bower_components/jquery-slimscroll/jquery.slimscroll.min.js"
     ]
   },
-  "pace": {
-    "js": [
-      "./bower_components/pace/pace.js",
-      "./bower_components/pace/pace.min.js"
-    ]
-  },
   "font-awesome": {
     "css": ["./bower_components/font-awesome/css/*.css"],
     "fonts": ["./bower_components/font-awesome/fonts/*"]

@@ -3,9 +3,8 @@ require.config({
     fileExclusionRegExp: /^\./,
     paths: {
         'api-check': '../bower_components/api-check/dist/api-check.min',
-        'ng-table': '../bower_components/ng-table/dist/ng-table.min',
+        'ng-table': 'js/ng-table.min',
         'jquery-slimscroll': '../bower_components/jquery-slimscroll/jquery.slimscroll.min',
-        'pace': '../bower_components/pace/pace.min',
         'metisMenu': 'js/metisMenu.min',
         'cropper': '../bower_components/cropper/dist/cropper.min',
         'angularjs-slider': '../bower_components/angularjs-slider/dist/rzslider.min',
@@ -27,7 +26,6 @@ require.config({
         'api-check',
         'ng-table',
         'jquery-slimscroll',
-        'pace',
         'metisMenu',
         'cropper',
         'angularjs-slider',
