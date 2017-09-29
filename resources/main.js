@@ -88,8 +88,8 @@
     app: document.getElementById('app'),
     references: {
         // modules
-        'web': {
-            path: 'js/web',
+        'web.modules': {
+            path: 'js/web.modules',
             shim: {
                 deps: ['app/application']
             }
@@ -99,19 +99,19 @@
         'modules/manageui/requires': {
             path: 'js/modules.manageui',
             shim: {
-                deps: ['web']
+                deps: ['web.modules']
             }
         },
         'modules/room/requires': {
             path: 'js/modules.room',
             shim: {
-                deps: ['web', 'modules/manageui/requires', 'modules/setting/requires']
+                deps: ['web.modules', 'modules/manageui/requires', 'modules/setting/requires']
             }
         },
         'modules/setting/requires': {
             path: 'js/modules.setting',
             shim: {
-                deps: ['web']
+                deps: ['web.modules']
             }
         },
 
@@ -161,7 +161,7 @@
         'rcss!css/metisMenu.min.css',
         'rcss!css/ng-table.min.css',
         'rcss!css/angular-ui-switch.min.css',
-        'web'
+        'web.modules'
     ],
     noDebugs: []
 });

@@ -42,13 +42,12 @@ gulp.task('pack_resources', function () {
             'resources/**/*',
             'src/**/*',
             '!src/modules/**/*',
+            '!src/*.build.js',
+            '!src/*.modules.js',
             '!src/app',
             '!src/index.html',
             '!src/reference.json',
-            '!src/web.build.js',
-            '!src/requires.build.js',
-            '!src/main.js',
-            '!src/web.js'
+            '!src/main.js'
         ])
         .pipe(gulp.dest('dist'));
 
@@ -74,6 +73,10 @@ gulp.task('pack_resources', function () {
  */
 gulp.task('pack_modules', function () {
     var modules = fs.readdirSync('src/modules');
+    var builds = fs.readdirSync('src')
+        .filter(function (file) {
+            return file.endsWith('.build.js') && !file.startsWith('requires.');
+        });
 
     for (var idx in modules) {
         var requiresPath = 'modules/' + modules[idx] + '/requires';
@@ -93,18 +96,23 @@ gulp.task('pack_modules', function () {
             .pipe(gulp.dest(jsTarget));
     }
 
-    gulp.src('src/**/*.js')
-        .pipe(amdOptimize('web', {
-            configFile: 'src/web.build.js',
-            baseUrl: 'src'
-        }))
-        .pipe(concat('web.js'))
-        .pipe(gulp.dest(jsTarget))
-        .pipe(concat('web.min.js'))
-        .pipe(uglify({
-            outSourceMap: false
-        }))
-        .pipe(gulp.dest(jsTarget));
+    for (var bidx in builds) {
+        var buildFile = builds[bidx];
+        var buildName = buildFile.replace('.build.js', '');
+
+        gulp.src('src/**/*.js')
+            .pipe(amdOptimize(buildName + '.modules', {
+                configFile: 'src/' + buildFile,
+                baseUrl: 'src'
+            }))
+            .pipe(concat(buildName + '.modules.js'))
+            .pipe(gulp.dest(jsTarget))
+            .pipe(concat(buildName + '.modules.min.js'))
+            .pipe(uglify({
+                outSourceMap: false
+            }))
+            .pipe(gulp.dest(jsTarget));
+    }
 });
 
 /**

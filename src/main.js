@@ -117,7 +117,7 @@
         'rcss!css/metisMenu.min.css',
         'rcss!css/ng-table.min.css',
         'rcss!css/angular-ui-switch.min.css',
-        'web'
+        'web.modules'
     ],
     noDebugs: []
 });
