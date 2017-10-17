@@ -22,7 +22,11 @@ define([
                         data: {}
                     }).result
                     .then(function (data) {
-
+                        httpService
+                            .post('/buildinghotel/addBuildingHotel', data)
+                            .then(function (result) {
+                                me.load();
+                            });
                     });
             };
 
@@ -36,7 +40,11 @@ define([
                                 data: result
                             }).result
                             .then(function (data) {
-
+                                httpService
+                                    .post('/buildinghotel/modifyBuildingHotel', data)
+                                    .then(function (result) {
+                                        me.load();
+                                    });
                             });
                     });
             };
@@ -45,15 +53,26 @@ define([
                 popupService
                     .confirm('是否删除？')
                     .ok(function () {
-
+                        httpService
+                            .post('/buildinghotel/delBuildingHotel', {
+                                buildingId: id
+                            })
+                            .then(function (result) {
+                                popupService.information();
+                                me.load();
+                            });
                     });
             };
 
-            httpService
-                .get(request.楼栋列表)
-                .then(function (result) {
-                    $scope.$globalStore.builds = result.Data;
-                });
+            this.load = function () {
+                httpService
+                    .post('/buildinghotel/findBuildingHotel', {})
+                    .then(function (result) {
+                        $scope.$globalStore.builds = result;
+                    });
+            };
+
+            this.load();
         }
     ]);
 });

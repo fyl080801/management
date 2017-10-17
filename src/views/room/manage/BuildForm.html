@@ -7,31 +7,31 @@
     </div>
     <div class="modal-body">
         <form name="form" role="form" class="row">
-            <div class="form-group col-md-12" ng-class="{'has-error':form.BuildName.$invalid}">
+            <div class="form-group col-md-12" ng-class="{'has-error':form.buildingName.$invalid}">
                 <div>
                     <label>楼栋名称</label>
-                    <span class="text-danger pull-right" ng-show="form.BuildName.$invalid">*名称不能为空</span>
+                    <span class="text-danger pull-right" ng-show="form.buildingName.$invalid">*名称不能为空</span>
                 </div>
                 <div>
-                    <input class="form-control" name="BuildName" ng-model="$data.BuildName" placeholder="输入名称" required/>
+                    <input class="form-control" name="buildingName" ng-model="$data.buildingName" placeholder="输入名称" required/>
                 </div>
             </div>
-            <div class="form-group col-md-6" ng-class="{'has-error':form.Floors.$invalid}">
+            <div class="form-group col-md-6" ng-class="{'has-error':form.floor.$invalid}">
                 <div>
                     <label>楼层数</label>
-                    <span class="text-danger pull-right" ng-show="form.Floors.$invalid">*楼层数不正确</span>
+                    <span class="text-danger pull-right" ng-show="form.floor.$invalid">*楼层数不正确</span>
                 </div>
                 <div>
-                    <input class="form-control" type="number" name="Floors" ng-model="$data.Floors" placeholder="输入数字" min="1" required/>
+                    <input class="form-control" type="number" name="floor" ng-model="$data.floor" placeholder="输入数字" min="1" required/>
                 </div>
             </div>
-            <div class="form-group col-md-6" ng-class="{'has-error':form.BaseFloors.$invalid}">
+            <div class="form-group col-md-6" ng-class="{'has-error':form.subFloor.$invalid}">
                 <div>
                     <label>地下室数</label>
-                    <span class="text-danger pull-right" ng-show="form.BaseFloors.$invalid">*地下室数不正确</span>
+                    <span class="text-danger pull-right" ng-show="form.subFloor.$invalid">*地下室数不正确</span>
                 </div>
                 <div>
-                    <input class="form-control" type="number" name="BaseFloors" ng-model="$data.BaseFloors" placeholder="输入数字" min="0" required/>
+                    <input class="form-control" type="number" name="subFloor" ng-model="$data.subFloor" placeholder="输入数字" min="0" required/>
                 </div>
             </div>
             <div class="form-group col-md-12">
@@ -39,7 +39,7 @@
                     <label>地上</label>
                 </div>
                 <div class="container-fluid row">
-                    <button type="button" class="btn btn-success col-md-1" ng-repeat="num in ctl.floors($data.Floors)">{{num}}</button>
+                    <button type="button" class="btn btn-success col-md-1" ng-repeat="num in ctl.floors($data.floor)">{{num}}</button>
                 </div>
             </div>
             <div class="form-group col-md-12">
@@ -47,7 +47,7 @@
                     <label>地下室</label>
                 </div>
                 <div class="container-fluid row">
-                    <button type="button" class="btn btn-success col-md-1" ng-repeat="num in ctl.floors($data.BaseFloors)">{{num+1}}</button>
+                    <button type="button" class="btn btn-success col-md-1" ng-repeat="num in ctl.floors($data.subFloor)">{{num+1}}</button>
                 </div>
             </div>
         </form>

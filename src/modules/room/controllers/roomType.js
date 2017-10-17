@@ -31,8 +31,8 @@ define([
                             Lines: []
                         }
                     }).result
-                    .then(function () {
-
+                    .then(function (data) {
+                        console.log(data);
                     });
             };
 

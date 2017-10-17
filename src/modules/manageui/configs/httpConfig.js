@@ -16,8 +16,8 @@ define([
                     function errorModal(response, $rootScope, $modal) {
                         var scope = $rootScope.$new();
                         scope.$data = {};
-                        if (response.data.Message) {
-                            scope.$data.text = response.data.Message;
+                        if (response.data.message) {
+                            scope.$data.text = response.data.message;
                         } else {
                             scope.$data.text = '发生错误！';
                         }
@@ -29,25 +29,25 @@ define([
 
                     $delegate.doResponse = function (response, defer) {
                         response.data = response.data ? response.data : {};
-                        $appEnvironment.session = response.data.Session ? response.data.Session : {
+                        $appEnvironment.session = response.data.session ? response.data.session : {
                             Status: 'NoLogin',
                             Version: null
                         };
-                        if (response.data.Success === false) {
+                        if (response.data.success === false || response.data.success === 'false') {
                             $delegate.doError(response, defer);
                         } else {
-                            defer.resolve(response.data.Data ? response.data.Data : response.data);
+                            defer.resolve(response.data.data ? response.data.data : response.data);
                         }
                     };
 
                     $delegate.doError = function (response, defer) {
                         response.data = response.data ? response.data : {};
-                        $appEnvironment.session = response.data.Session ? response.data.Session : {
+                        $appEnvironment.session = response.data.session ? response.data.session : {
                             Status: 'NoLogin',
                             Version: null
                         };
                         errorModal(response, $rootScope, $modal);
-                        defer.reject(response.data.Message ? response.data.Message : response.data);
+                        defer.reject(response.data.message ? response.data.message : response.data);
                     };
 
                     return $delegate;
