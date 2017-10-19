@@ -4,14 +4,14 @@
             <div class="panel panel-default" ng-repeat="build in $globalStore.builds">
                 <div class="panel-heading" role="tab">
                     <span class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" ng-href="{{'#build_' + build.Id}}" aria-expanded="true">{{build.BuildName}}</a>
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" ng-href="{{'#build_' + build.buildingId}}" aria-expanded="true">{{build.buildingName}}</a>
                     </span>
                 </div>
-                <div id="{{'build_' + build.Id}}" class="panel-collapse collapse" ng-class="{'in':$index===0}" role="tabpanel">
+                <div id="{{'build_' + build.buildingId}}" class="panel-collapse collapse" ng-class="{'in':$index===0}" role="tabpanel">
                     <div class="panel-body" ng-controller="modules.room.controllers.buildForm as ctl">
                         <div class="container-fluid row">
-                            <button type="button" class="btn btn-success col-md-2" ng-class="{'active':current.BuildId===build.Id && current.Floor===num}"
-                                ng-repeat="num in ctl.floors(build.Floors)" ng-click="roomController.select(build,num)">{{num}}</button>
+                            <button type="button" class="btn btn-success col-md-3" ng-class="{'active':current.BuildId===build.buildingId && current.Floor===num}"
+                                ng-repeat="num in ctl.floors(build.floor)" ng-click="roomController.select(build,num)">{{num}}</button>
                         </div>
                     </div>
                 </div>
@@ -30,8 +30,10 @@
                 <div class="container-fluid">
                     <div class="navbar-collapse collapsed">
                         <div class="navbar-form navbar-right">
-                            <button class="btn btn-default" ng-click="roomController.add()"><i class="glyphicon glyphicon-plus-sign"></i> 添加</button>
-                            <button class="btn btn-default" ng-click="roomController.addRange()"><i class="glyphicon glyphicon-plus-sign"></i> 批量添加</button>
+                            <button class="btn btn-default" ng-click="roomController.add()">
+                                <i class="glyphicon glyphicon-plus-sign"></i> 添加</button>
+                            <button class="btn btn-default" ng-click="roomController.addRange()">
+                                <i class="glyphicon glyphicon-plus-sign"></i> 批量添加</button>
                         </div>
                     </div>
                 </div>
@@ -49,8 +51,12 @@
                     <td title="'IP'"></td>
                     <td title="'操作'">
                         <div class="btn-group btn-group-xs">
-                            <button class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button>
-                            <button class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
+                            <button class="btn btn-default">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </button>
+                            <button class="btn btn-danger">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
                         </div>
                     </td>
                 </tr>
