@@ -8,7 +8,7 @@ define([
         '$modal',
         'NgTableParams',
         'modules.setting.services.request',
-        'app.services.httpService',
+        'app.services.ajaxService',
         'app.services.popupService',
         function ($scope, $modal, NgTableParams, request, httpService, popupService) {
             var me = this;
@@ -59,11 +59,15 @@ define([
                     });
             };
 
-            httpService
-                .get(request.房间类型列表)
-                .then(function (result) {
-                    me.list = result.Data;
-                });
+            this.load = function () {
+                httpService
+                    .post('/roomtype/findRoomtypeHotel', {})
+                    .then(function (result) {
+                        me.list = result;
+                    });
+            };
+
+            this.load();
         }
     ]);
 });
