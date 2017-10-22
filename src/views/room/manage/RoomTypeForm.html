@@ -1,19 +1,20 @@
 <div ng-controller="modules.room.controllers.roomTypeForm as ctl">
     <div class="modal-header">
         <button type="button" class="close" ng-click="$dismiss()">
-            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
         </button>
         <h3 class="modal-title">类型信息</h3>
     </div>
     <div class="modal-body">
         <form name="form" role="form">
-            <div class="form-group" ng-class="{'has-error':form.Name.$invalid}">
+            <div class="form-group" ng-class="{'has-error':form.rmtypename.$invalid}">
                 <div>
                     <label>类型名称</label>
-                    <span class="text-danger pull-right" ng-show="form.Name.$invalid">*名称不能为空</span>
+                    <span class="text-danger pull-right" ng-show="form.rmtypename.$invalid">*名称不能为空</span>
                 </div>
                 <div>
-                    <input class="form-control" name="Name" ng-model="data.Name" placeholder="输入名称" required/>
+                    <input class="form-control" name="rmtypename" ng-model="data.rmtypename" placeholder="输入名称" required/>
                 </div>
             </div>
             <input type="hidden" ng-model="data.Id" />
@@ -32,12 +33,17 @@
                         </colgroup>
                         <tr class="ng-table-group info" ng-repeat-start="group in $groups" ng-init="group.$hideRows = false" ng-click="group.$hideRows = !group.$hideRows">
                             <td colspan="3">
-                                <a href=""><i class="glyphicon" ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></i> <strong>{{ ctl.groups[group.value] }}</strong></a>
+                                <a href="">
+                                    <i class="glyphicon" ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></i>
+                                    <strong>{{ ctl.groups[group.value] }}</strong>
+                                </a>
                             </td>
                         </tr>
                         <tr ng-hide="group.$hideRows" ng-repeat="row in group.data" ng-repeat-end>
                             <td title="'路数'">
-                                <input ng-show="ctl.editing===row.idx" type="text" ng-model="ctl.current.Number" class="form-control input-sm" />
+                                <!-- <input ng-show="ctl.editing===row.idx" type="text" ng-model="ctl.current.Number" class="form-control input-sm" /> -->
+                                <select ng-show="ctl.editing===row.idx" class="form-control input-sm" name="Number" ng-model="ctl.newLine.Number" required
+                                    ng-options="m.id as m.elename for m in electricRoads"></select>
                                 <span ng-show="ctl.editing!==row.idx" ng-bind="row.Number"></span>
                             </td>
                             <td title="'名称'">
@@ -46,26 +52,35 @@
                                         <input type="text" ng-model="ctl.current.Name" class="form-control input-sm" />
                                     </div>
                                     <div class="col-sm-6">
-                                        <select ng-model="ctl.current.GroupId" class="form-control input-sm" ng-options="m.Key as m.Name for m in groups"></select>
+                                        <select ng-model="ctl.current.GroupId" class="form-control input-sm" ng-options="m.id as m.equipmentname for m in groups"></select>
                                     </div>
                                 </div>
                                 <span ng-show="ctl.editing!==row.idx" ng-bind="row.Name"></span>
                             </td>
                             <td title="'操作'">
                                 <div ng-show="ctl.editing===row.idx" class="btn-group btn-group-sm">
-                                    <button class="btn btn-success" ng-click="ctl.applyEditing(row.idx)"><i class="glyphicon glyphicon-ok"></i></button>
-                                    <button class="btn btn-danger" ng-click="ctl.cancelEditing()"><i class="glyphicon glyphicon-remove"></i></button>
+                                    <button class="btn btn-success" ng-click="ctl.applyEditing(row.idx)">
+                                        <i class="glyphicon glyphicon-ok"></i>
+                                    </button>
+                                    <button class="btn btn-danger" ng-click="ctl.cancelEditing()">
+                                        <i class="glyphicon glyphicon-remove"></i>
+                                    </button>
                                 </div>
                                 <div ng-show="ctl.editing!==row.idx" class="btn-group btn-group-xs">
-                                    <button class="btn btn-default" ng-click="ctl.beginEditing(row.idx)"><i class="glyphicon glyphicon-pencil"></i></button>
-                                    <button class="btn btn-danger" ng-click="ctl.removeLine(row.idx)"><i class="glyphicon glyphicon-trash"></i></button>
+                                    <button class="btn btn-default" ng-click="ctl.beginEditing(row.idx)">
+                                        <i class="glyphicon glyphicon-pencil"></i>
+                                    </button>
+                                    <button class="btn btn-danger" ng-click="ctl.removeLine(row.idx)">
+                                        <i class="glyphicon glyphicon-trash"></i>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
                         <tfoot>
                             <tr>
                                 <td>
-                                    <input type="text" name="Number" ng-model="ctl.newLine.Number" class="form-control input-sm" placeholder="路数" required />
+                                    <!-- <input type="text" name="Number" ng-model="ctl.newLine.Number" class="form-control input-sm" placeholder="路数" required /> -->
+                                    <select class="form-control input-sm" name="Number" ng-model="ctl.newLine.Number" required ng-options="m.id as m.elename for m in electricRoads"></select>
                                 </td>
                                 <td>
                                     <div class="row">
@@ -73,12 +88,14 @@
                                             <input type="text" name="Name" ng-model="ctl.newLine.Name" class="form-control input-sm" placeholder="名称" required />
                                         </div>
                                         <div class="col-sm-6">
-                                            <select class="form-control input-sm" name="GroupId" ng-model="ctl.newLine.GroupId" required ng-options="m.Key as m.Name for m in groups"></select>
+                                            <select class="form-control input-sm" name="GroupId" ng-model="ctl.newLine.GroupId" required ng-options="m.id as m.equipmentname for m in groups"></select>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <button class="btn btn-success btn-sm" ng-disabled="lineform.$invalid" ng-click="ctl.addLine()"><i class="glyphicon glyphicon-ok"></i></button>
+                                    <button class="btn btn-success btn-sm" ng-disabled="lineform.$invalid" ng-click="ctl.addLine()">
+                                        <i class="glyphicon glyphicon-ok"></i>
+                                    </button>
                                 </td>
                             </tr>
                         </tfoot>
@@ -88,7 +105,9 @@
         </form>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="$close(data)" ng-disabled="form.$invalid"><i class="glyphicon glyphicon-ok-sign"></i> 确定</button>
-        <button class="btn btn-default" ng-click="$dismiss()"><i class="glyphicon glyphicon-remove-sign"></i> 取消</button>
+        <button class="btn btn-primary" ng-click="$close(data)" ng-disabled="form.$invalid">
+            <i class="glyphicon glyphicon-ok-sign"></i> 确定</button>
+        <button class="btn btn-default" ng-click="$dismiss()">
+            <i class="glyphicon glyphicon-remove-sign"></i> 取消</button>
     </div>
 </div>

@@ -9,8 +9,9 @@ define([
         'NgTableParams',
         'modules.setting.services.request',
         'app.services.ajaxService',
+        'app.services.httpService',
         'app.services.popupService',
-        function ($scope, $modal, NgTableParams, request, httpService, popupService) {
+        function ($scope, $modal, NgTableParams, request, ajaxService, httpService, popupService) {
             var me = this;
 
             this.list = [];
@@ -32,12 +33,20 @@ define([
                         }
                     }).result
                     .then(function (data) {
-                        console.log(data);
+                        var bean = {};
+                        bean.rmtypename = data.rmtypename;
+                        bean.roomtypeEquipmentVo = {};
+                        bean.roomElectricroadVo = [];
+                        ajaxService
+                            .json('/roomtype/addRoomType', JSON.stringify(bean))
+                            .then(function (result) {
+                                me.load();
+                            });
                     });
             };
 
             this.edit = function (id) {
-                httpService
+                ajaxService
                     .get(request.房间类型)
                     .then(function (result) {
                         $modal
@@ -60,7 +69,7 @@ define([
             };
 
             this.load = function () {
-                httpService
+                ajaxService
                     .post('/roomtype/findRoomtypeHotel', {})
                     .then(function (result) {
                         me.list = result;

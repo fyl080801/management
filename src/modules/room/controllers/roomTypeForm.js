@@ -6,11 +6,13 @@ define([
     module.controller('modules.room.controllers.roomTypeForm', [
         '$scope',
         'NgTableParams',
+        'app.services.ajaxService',
         'modules.room.factories.enumerate',
-        function ($scope, NgTableParams, enumerate) {
+        function ($scope, NgTableParams, ajaxService, enumerate) {
             var me = this;
 
-            $scope.groups = enumerate.LineGroups;
+            $scope.groups = []; //enumerate.LineGroups;
+            $scope.electricRoads = [];
             $scope.table = new NgTableParams({}, {
                 groupBy: 'GroupId',
                 getData: function () {
@@ -60,6 +62,18 @@ define([
             $.each($scope.groups, function (idx, item) {
                 me.groups[item.Key] = item.Name;
             });
+
+            ajaxService
+                .post('/equipment/findEquipmentHotel', {})
+                .then(function (result) {
+                    $scope.groups = result;
+                });
+
+            ajaxService
+                .post('/electric/findElectricRoad', {})
+                .then(function (result) {
+                    $scope.electricRoads = result;
+                });
         }
     ]);
 });

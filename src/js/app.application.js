@@ -265,6 +265,23 @@ define('app/services/ajaxService', ['app/services'], function (services) {
                 });
                 return defer.promise;
             };
+            this.json = function (url, params) {
+                var defer = $q.defer();
+                $.ajax({
+                    type: 'POST',
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    data: JSON.stringify(params),
+                    url: me.resolveUrl(url),
+                    success: function (response) {
+                        httpDataHandler.doResponse({ data: response }, defer);
+                    },
+                    error: function (response) {
+                        httpDataHandler.doError({ data: response }, defer);
+                    }
+                });
+                return defer.promise;
+            };
         }
     ]);
 });
