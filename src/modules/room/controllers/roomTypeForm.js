@@ -7,14 +7,15 @@ define([
         '$scope',
         'NgTableParams',
         'app.services.ajaxService',
-        'modules.room.factories.enumerate',
-        function ($scope, NgTableParams, ajaxService, enumerate) {
+        function ($scope, NgTableParams, ajaxService) {
             var me = this;
 
-            $scope.groups = []; //enumerate.LineGroups;
-            $scope.electricRoads = [];
+            $scope.equipments = [];
+            $scope.equipmentNames = {};
+            $scope.roads = [];
+            $scope.roadNames = {};
             $scope.table = new NgTableParams({}, {
-                groupBy: 'GroupId',
+                groupBy: 'equid',
                 getData: function () {
                     $.each($scope.data.Lines, function (idx, item) {
                         $scope.data.Lines[idx].idx = idx;
@@ -30,26 +31,11 @@ define([
             this.editing = -1;
 
             this.addLine = function () {
-                me.newLine.Group = me.groups[me.newLine.GroupId];
-                $scope.data.Lines.push($.extend({}, me.newLine));
+                $scope.data.Lines.push($.extend({
+                    equname: $scope.equipmentNames[me.newLine.equid]
+                }, me.newLine));
                 me.newLine = {};
                 $scope.table.reload();
-            };
-
-            this.applyEditing = function (idx) {
-                $scope.data.Lines[idx] = $.extend({}, me.current);
-                $scope.table.reload();
-                me.cancelEditing();
-            };
-
-            this.beginEditing = function (idx) {
-                me.editing = idx;
-                me.current = $.extend({}, $scope.data.Lines[idx]);
-            };
-
-            this.cancelEditing = function () {
-                me.editing = -1;
-                me.current = {};
             };
 
             this.removeLine = function (idx) {
@@ -57,22 +43,47 @@ define([
                 $scope.table.reload();
             };
 
-            this.groups = {};
+            this.beginEditing = function (idx) {
+                me.editing = idx;
+                me.current = $.extend({}, $scope.data.Lines[idx]);
+            };
 
-            $.each($scope.groups, function (idx, item) {
-                me.groups[item.Key] = item.Name;
-            });
+            this.applyEditing = function (idx) {
+                $scope.data.Lines[idx] = $.extend({
+                    equname: $scope.equipmentNames[me.current.equid]
+                }, me.current);
+                $scope.table.reload();
+                me.cancelEditing();
+            };
+
+            this.cancelEditing = function () {
+                me.editing = -1;
+                me.current = {};
+            };
+
+            this.getEquipment = function (eid) {
+                var query = $.grep($scope.equipments, function (item) {
+                    return item.id === eid;
+                });
+                return query.length > 0 ? query[0] : {};
+            };
 
             ajaxService
                 .post('/equipment/findEquipmentHotel', {})
                 .then(function (result) {
-                    $scope.groups = result;
+                    $scope.equipments = result;
+                    $.each(result, function (idx, item) {
+                        $scope.equipmentNames[item.id] = item.equipmentname;
+                    });
                 });
 
             ajaxService
                 .post('/electric/findElectricRoad', {})
                 .then(function (result) {
-                    $scope.electricRoads = result;
+                    $scope.roads = result;
+                    $.each(result, function (idx, item) {
+                        $scope.roadNames[item.id] = item.elename;
+                    });
                 });
         }
     ]);

@@ -35,10 +35,9 @@ define([
                     .then(function (data) {
                         var bean = {};
                         bean.rmtypename = data.rmtypename;
-                        bean.roomtypeEquipmentVo = {};
-                        bean.roomElectricroadVo = [];
+                        bean.roomtypeEquipmentVo = data.Lines;
                         ajaxService
-                            .json('/roomtype/addRoomType', JSON.stringify(bean))
+                            .json('/roomtype/addRoomType', bean)
                             .then(function (result) {
                                 me.load();
                             });

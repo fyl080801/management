@@ -30,21 +30,19 @@ define([
                     });
             };
 
-            this.edit = function (id) {
-                httpService
-                    .get(request.楼栋明细 + '?id=' + id)
-                    .then(function (result) {
-                        $modal
-                            .open({
-                                templateUrl: 'views/room/manage/BuildForm.html',
-                                data: result
-                            }).result
-                            .then(function (data) {
-                                httpService
-                                    .post('/buildinghotel/modifyBuildingHotel', data)
-                                    .then(function (result) {
-                                        me.load();
-                                    });
+            this.edit = function (build) {
+                $modal
+                    .open({
+                        templateUrl: 'views/room/manage/BuildForm.html',
+                        data: build
+                    }).result
+                    .then(function (data) {
+                        data.building_id = data.buildingId;
+                        delete data.buildingId;
+                        httpService
+                            .post('/buildinghotel/modifyBuildingHotel', data)
+                            .then(function (result) {
+                                me.load();
                             });
                     });
             };
