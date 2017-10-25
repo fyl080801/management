@@ -6,12 +6,13 @@ define([
     module.controller('modules.room.controllers.roomType', [
         '$scope',
         '$modal',
+        '$appConfig',
         'NgTableParams',
         'modules.setting.services.request',
         'app.services.ajaxService',
         'app.services.httpService',
         'app.services.popupService',
-        function ($scope, $modal, NgTableParams, request, ajaxService, httpService, popupService) {
+        function ($scope, $modal, $appConfig, NgTableParams, request, ajaxService, httpService, popupService) {
             var me = this;
 
             this.list = [];
