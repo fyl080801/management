@@ -38,7 +38,7 @@ define([
                         bean.rmtypename = data.rmtypename;
                         bean.roomtypeEquipmentVo = data.Lines;
                         ajaxService
-                            .json('/roomtype/addRoomType', bean)
+                            .json('/roomtype/addRoomType', JSON.stringify(bean))
                             .then(function (result) {
                                 me.load();
                             });
@@ -47,15 +47,24 @@ define([
 
             this.edit = function (id) {
                 ajaxService
-                    .get(request.房间类型)
+                    .post('/roomtype/findRoomtypeHotel', {
+                        rmtypeid: id
+                    })
                     .then(function (result) {
                         $modal
                             .open({
                                 templateUrl: 'views/room/manage/RoomTypeForm.html',
-                                data: result
+                                data: result[0]
                             }).result
                             .then(function (data) {
-
+                                var bean = {};
+                                bean.rmtypename = data.rmtypename;
+                                bean.roomtypeEquipmentVo = data.Lines;
+                                ajaxService
+                                    .json('/roomtype/modifyRoomTypeHotel', JSON.stringify(bean))
+                                    .then(function (result) {
+                                        me.load();
+                                    });
                             });
                     });
             };
@@ -65,12 +74,19 @@ define([
                     .confirm('是否删除？')
                     .ok(function () {
                         me.current = {};
+                        ajaxService
+                            .post('/roomtype/delRoomTypeHotel', {
+                                id: id
+                            })
+                            .then(function () {
+                                me.load();
+                            });
                     });
             };
 
             this.load = function () {
                 ajaxService
-                    .post('/roomtype/findRoomtypeHotel', {})
+                    .post('/roomtype/findRoomtypeHotels', {})
                     .then(function (result) {
                         me.list = result;
                     });
