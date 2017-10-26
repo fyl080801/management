@@ -37,10 +37,13 @@ define([
                         data: build
                     }).result
                     .then(function (data) {
-                        data.building_id = data.buildingId;
-                        delete data.buildingId;
                         httpService
-                            .post('/buildinghotel/modifyBuildingHotel', data)
+                            .post('/buildinghotel/modifyBuildingHotel', {
+                                buildingId: data.buildingId,
+                                buildingName: data.buildingName,
+                                floor: data.floor,
+                                subFloor: data.subFloor
+                            })
                             .then(function (result) {
                                 me.load();
                             });

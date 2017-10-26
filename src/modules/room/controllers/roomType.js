@@ -22,7 +22,13 @@ define([
             this.tableParams = new NgTableParams();
 
             this.select = function (row) {
-                me.current = $.extend({}, row);
+                ajaxService
+                    .post('/roomtype/findRoomtypeHotel', {
+                        rmtypeid: row.rmtypeid
+                    })
+                    .then(function (result) {
+                        me.current = $.extend({}, result[0]);
+                    });
             };
 
             this.add = function () {
@@ -51,13 +57,16 @@ define([
                         rmtypeid: id
                     })
                     .then(function (result) {
+                        var roomType = result[0];
+                        roomType.Lines = roomType.roomtypeEquipmentVo;
                         $modal
                             .open({
                                 templateUrl: 'views/room/manage/RoomTypeForm.html',
-                                data: result[0]
+                                data: roomType
                             }).result
                             .then(function (data) {
                                 var bean = {};
+                                bean.rmtypeid = data.rmtypeid;
                                 bean.rmtypename = data.rmtypename;
                                 bean.roomtypeEquipmentVo = data.Lines;
                                 ajaxService
