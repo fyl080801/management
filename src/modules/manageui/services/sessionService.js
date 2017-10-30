@@ -29,12 +29,12 @@ define([
                 };
 
                 httpService
-                    .post('/pa/v1/login', {
-                        loginName: username,
-                        pwd: password
+                    .post('/person/login', {
+                        LoginName: username,
+                        Pwd: password
                     })
                     .then(function (result) {
-                        if ($appEnvironment.session.Status === 'Logined') {
+                        if ($appEnvironment.session.Status === 'Logged') {
                             me
                                 .checkSession()
                                 .authenticated(function (session) {
