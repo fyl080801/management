@@ -125,6 +125,18 @@
                 deps: ['api-check']
             }
         },
+        'smalot-bootstrap-datetimepicker': {
+            path: 'js/bootstrap-datetimepicker',
+            shim: {
+                deps: ['app']
+            }
+        },
+        'smalot-bootstrap-datetimepicker-zhcn': {
+            path: 'js/bootstrap-datetimepicker.zh-CN',
+            shim: {
+                deps: ['app', 'smalot-bootstrap-datetimepicker']
+            }
+        },
         'ng-table': {
             path: 'js/ng-table',
             shim: {
@@ -158,10 +170,13 @@
     },
     requires: [
         'rcss!css/font-awesome.min.css',
+        'rcss!css/bootstrap-datetimepicker.min.css',
         'rcss!css/metisMenu.min.css',
         'rcss!css/ng-table.min.css',
         'rcss!css/angular-ui-switch.min.css',
         'web.modules'
     ],
-    noDebugs: []
+    noDebugs: [
+        'smalot-bootstrap-datetimepicker-zhcn'
+    ]
 });

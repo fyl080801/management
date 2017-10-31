@@ -30,13 +30,12 @@ define([
 
                 httpService
                     .post('/person/login', {
-                        LoginName: username,
-                        Pwd: password
+                        loginName: username,
+                        pwd: password
                     })
                     .then(function (result) {
-                        if ($appEnvironment.session.Status === 'Logged') {
-                            me
-                                .checkSession()
+                        if ($appEnvironment.session.status === 'Logged') {
+                            me.checkSession()
                                 .authenticated(function (session) {
                                     // 写用户信息
                                     $appEnvironment.user = result;
@@ -103,11 +102,11 @@ define([
                 });
 
                 httpService
-                    .get('/System/Information')
+                    .post('/person/checklogged', {})
                     .then(function (result) {
-                        if (result.data.Session.Vaild) {
-                            $appEnvironment.session = result.data.Session;
-                            defered.resolve(result.data.Session);
+                        if (result.data.session.vaild) {
+                            $appEnvironment.session = result.data.session;
+                            defered.resolve(result.data.session);
                         } else {
                             defered.reject();
                         }

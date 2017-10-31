@@ -7,7 +7,8 @@ define([
         '$scope',
         'modules.manageui.factories.tableParameter',
         'modules.setting.services.request',
-        function ($scope, tableParameter, request) {
+        'app.services.httpService',
+        function ($scope, tableParameter, request, httpService) {
             var me = this;
 
             this.list = [];

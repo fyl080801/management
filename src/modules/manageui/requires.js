@@ -1,5 +1,6 @@
 define([
     'modules/manageui/filters/linkAuthorize',
+    'modules/manageui/directives/datetimepicker',
     'modules/manageui/directives/ngRepeated',
     'modules/manageui/directives/links',
     'modules/manageui/directives/linkSection',

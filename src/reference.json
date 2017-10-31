@@ -35,5 +35,12 @@
       "./bower_components/angularjs-slider/dist/rzslider.min.js"
     ],
     "css": ["./bower_components/angularjs-slider/dist/rzslider.min.css"]
+  },
+  "smalot-bootstrap-datetimepicker": {
+    "js": [
+      "./bower_components/smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker.js",
+      "./bower_components/smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js",
+      "./bower_components/smalot-bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"
+    ]
   }
 }

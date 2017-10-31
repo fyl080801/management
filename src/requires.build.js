@@ -13,6 +13,8 @@ require.config({
         'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min',
         'ui-bootstrap-tpls': '../bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
+        'smalot-bootstrap-datetimepicker': '../bower_components/smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker',
+        'smalot-bootstrap-datetimepicker-zhcn': '../bower_components/smalot-bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN',
         'ui-switch': 'js/angular-ui-switch.min',
         'app/application': 'js/app.application.min'
     },
@@ -23,6 +25,8 @@ require.config({
         'metisMenu',
         'cropper',
         'angularjs-slider',
+        'smalot-bootstrap-datetimepicker',
+        'smalot-bootstrap-datetimepicker-zhcn',
         'angular',
         'jquery',
         'jquery-ui',

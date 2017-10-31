@@ -16,8 +16,8 @@ define([
             this.tableParams = new tableParameter({});
 
             this.select = function (build, floor) {
-                $scope.current.BuildId = build.Id;
-                $scope.current.BuildName = build.BuildName;
+                $scope.current.BuildId = build.buildingId;
+                $scope.current.BuildName = build.buildingName;
                 $scope.current.Floor = floor;
             };
 
