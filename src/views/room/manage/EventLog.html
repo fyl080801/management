@@ -18,7 +18,7 @@
             <div class="panel" ng-controller="modules.room.controllers.eventRoom as me">
                 <div class="panel-body">
                     <form class="row">
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-2">
                             <label>事件类型</label>
                             <div>
                                 <select class="form-control"></select>
@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-5">
                             <label>查询时间</label>
                             <div class="row">
                                 <div class="col-md-6">
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-2">
                             <label>&nbsp;</label>
                             <div class="text-right">
                                 <div class="btn-group">
@@ -60,7 +60,7 @@
                     </form>
                 </div>
                 <table ng-table="me.tableParams" class="table table-striped table-hover" ng-init="me.loadRoomEvent()">
-                    <tr ng-repeat="row in me.list">
+                    <tr ng-repeat="row in me.list track by $index">
                         <td title="'房间编号'">{{row.roomnum}}</td>
                         <td title="'楼栋名称'">{{row.buildingName}}</td>
                         <td title="'楼层'">{{row.floor}}</td>
