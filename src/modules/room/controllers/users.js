@@ -45,11 +45,13 @@ define([
                     });
             };
 
-            httpService
-                .get(request.用户列表)
-                .then(function (result) {
-                    me.list = result.Data;
-                });
+            this.load = function () {
+                httpService
+                    .post('')
+                    .then(function (result) {
+                        me.list = result;
+                    });
+            };
         }
     ]);
 });

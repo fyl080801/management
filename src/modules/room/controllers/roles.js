@@ -9,8 +9,9 @@ define([
         'NgTableParams',
         'modules.setting.services.request',
         'app.services.httpService',
+        'app.services.ajaxService',
         'app.services.popupService',
-        function ($scope, $modal, NgTableParams, request, httpService, popupService) {
+        function ($scope, $modal, NgTableParams, request, httpService, ajaxService, popupService) {
             var me = this;
 
             this.tableParams = new NgTableParams();
@@ -22,18 +23,27 @@ define([
                     .open({
                         templateUrl: 'views/room/personal/RoleForm.html'
                     }).result
-                    .then(function (result) {
-
+                    .then(function (data) {
+                        ajaxService
+                            .post('/roleauth/addRoleAuthority', data)
+                            .then(function () {
+                                me.load();
+                            });
                     });
             };
 
-            this.edit = function (id) {
+            this.edit = function (role) {
                 $modal
                     .open({
-                        templateUrl: 'views/room/personal/RoleForm.html'
+                        templateUrl: 'views/room/personal/RoleForm.html',
+                        data: $.extend({}, role)
                     }).result
-                    .then(function (result) {
-
+                    .then(function (data) {
+                        ajaxService
+                            .post('/roleauth/modifyRoleAuthority', data)
+                            .then(function () {
+                                me.load();
+                            });
                     });
             };
 
@@ -48,15 +58,23 @@ define([
                 popupService
                     .confirm('是否删除？')
                     .ok(function () {
-
+                        ajaxService
+                            .post('/roleauth/delRoleAuthority', {
+                                'id': id
+                            })
+                            .then(function () {
+                                me.load();
+                            });
                     });
             };
 
-            httpService
-                .get(request.人员类别列表)
-                .then(function (result) {
-                    me.list = result.Data;
-                });
+            this.load = function () {
+                httpService
+                    .post('/roleauth/findRoleAuthorityList', {})
+                    .then(function (result) {
+                        me.list = result;
+                    });
+            };
         }
     ]);
 });
