@@ -34,7 +34,7 @@ define([
                         pwd: password
                     })
                     .then(function (result) {
-                        if ($appEnvironment.session.status === 'Logged') {
+                        if ($appEnvironment.session.status === 'Logined') {
                             me.checkSession()
                                 .authenticated(function (session) {
                                     // 写用户信息
@@ -62,10 +62,22 @@ define([
                     return defered.promise;
                 };
 
+                var processModal = $modal.open({
+                    template: '<div><div class="modal-body"><p>退出中...</p></div></div>',
+                    size: 'sm',
+                    backdrop: 'static'
+                });
+                
+                $appEnvironment.session = null;
+
                 httpService
-                    .get('/Account/Logout')
+                    .get('/person/logout')
                     .then(function (result) {
                         defered.resolve();
+                        processModal.close();
+                    }, function () {
+                        defered.reject();
+                        processModal.close();
                     });
 
                 return defered.promise;
@@ -75,8 +87,8 @@ define([
                 var defered = $q.defer();
 
                 defered.promise.authenticated = function (fn) {
-                    defered.promise.then(function (session) {
-                        fn(session);
+                    defered.promise.then(function (result) {
+                        fn(result);
                     });
                     return defered.promise;
                 };
@@ -102,11 +114,10 @@ define([
                 });
 
                 httpService
-                    .post('/person/checklogged', {})
+                    .post('/person/checkloggedwithoutname', {})
                     .then(function (result) {
-                        if (result.data.session.vaild) {
-                            $appEnvironment.session = result.data.session;
-                            defered.resolve(result.data.session);
+                        if ($appEnvironment.session.status === 'Logined') {
+                            defered.resolve(result.data);
                         } else {
                             defered.reject();
                         }

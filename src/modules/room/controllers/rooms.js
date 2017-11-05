@@ -19,6 +19,13 @@ define([
                 $scope.current.BuildId = build.buildingId;
                 $scope.current.BuildName = build.buildingName;
                 $scope.current.Floor = floor;
+                httpService
+                    .post('/roomhotel/findRoomHotel', {
+                        floorid: build.buildingId
+                    })
+                    .then(function (result) {
+
+                    });
             };
 
             this.add = function () {

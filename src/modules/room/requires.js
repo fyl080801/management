@@ -1,5 +1,7 @@
 define([
     'modules/room/directives/ngPager',
+    'modules/room/factories/enumerate',
+    'modules/room/factories/stateAdapter',
     'modules/room/services/messageService',
     'modules/room/controllers/test',
     'modules/room/controllers/bar',
@@ -20,7 +22,6 @@ define([
     'modules/room/controllers/roomForm',
     'modules/room/controllers/mode',
     'modules/room/controllers/roomRange',
-    'modules/room/factories/enumerate',
     'modules/room/filters/imagePath',
     'modules/room/filters/roomStatus'
 ], function () {

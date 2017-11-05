@@ -30,8 +30,6 @@ define([
                 value: 'theme-green'
             }];
 
-            this.links = linkManager.tree();
-
             this.tabService = tabService;
 
             this.changeTheme = function (theme) {
@@ -42,7 +40,11 @@ define([
                 popupService
                     .confirm('是否退出？')
                     .ok(function () {
-                        $state.go('login');
+                        sessionService
+                            .logout()
+                            .then(function () {
+                                $state.go('login');
+                            });
                     });
             };
 
@@ -76,18 +78,20 @@ define([
             });
             $('[role="tablist"]').disableSelection();
 
-            // if (!$appEnvironment.session) {
-            //     sessionService
-            //         .checkSession()
-            //         .authenticated(function () {
-            //             me.links = linkManager.tree();
-            //         })
-            //         .unAuthenticated(function () {
-            //             $state.go('login');
-            //         });
-            // } else {
-            //     me.links = linkManager.tree();
-            // }
+            if ($appEnvironment.session && $appEnvironment.session.Status === 'Logined') {
+                me.links = linkManager.tree();
+            } else {
+                sessionService
+                    .checkSession()
+                    .authenticated(function () {
+                        me.links = linkManager.tree();
+                    })
+                    .unAuthenticated(function () {
+                        $state.go('login');
+                    });
+            }
+
+            // this.links = linkManager.tree();
         }
     ]);
 });
