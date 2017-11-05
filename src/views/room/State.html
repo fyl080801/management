@@ -35,37 +35,37 @@
                     <div class="col-sm-4">
                         <!--开门关门状态-->
                         <div class="statebg">
-                            <img ng-src="{{room.DoorStatus | imagePath}}" />
+                            <img ng-src="{{room.fangMenZhuangTai==='Close'?'DoorOpen.png':'DoorClose.png' | imagePath}}" />
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <!--开门的人员类别-->
                         <div class="statebg">
-                            <img ng-src="{{room.PersonalStatus | imagePath}}" />
+                            <img ng-src="{{room.headPicUrl}}" />
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <!--服务请求类型-->
                         <div class="statebg">
-                            <img ng-src="{{room.CallStatus | imagePath}}" />
+                            <img ng-src="{{me.getServicePic(room.huJiaoFuWu) | imagePath}}" />
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <!--房间状态，包括待租，租用，修理-->
                         <div class="statebg">
-                            <img ng-src="{{room.RoomStatus | imagePath}}" />
+                            <img ng-src="{{me.getRoomStatus(room.fangTai) | imagePath}}" />
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <!--告警和警告信息,标志地址定义的告警和警告内容，紧急呼叫 消防告警 温度异常 房门异常-->
                         <div class="statebg">
-                            <img ng-src="{{room.AlertStatus | imagePath}}" />
+                            <img ng-src="{{me.getAlertStatus(room.jinJiHuJiao) | imagePath}}" />
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <!--保险箱,开关-->
                         <div class="statebg">
-                            <img ng-src="{{room.StrongStatus | imagePath}}" />
+                            <img ng-src="{{room.baoXianGui==='Close'?'safeboxGrey.png':'safeboxColor.png' | imagePath}}" />
                         </div>
                     </div>
                 </div>

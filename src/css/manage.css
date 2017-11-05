@@ -238,7 +238,8 @@
 }
 
 .roomstate .state img {
-    width: 100%
+    width: 100%;
+    padding: 8px;
 }
 
 .roomstate .roomnum a {

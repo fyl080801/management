@@ -70,6 +70,45 @@ define([
                 }
             };
 
+            this.getServicePic = function (type) {
+                switch (type) {
+                    case 'Accepted':
+                        return 'null.png';
+                    case 'Close':
+                        return 'CallGrey.png';
+                    case 'Open':
+                        return 'CallColor.png';
+                }
+            };
+
+            this.getRoomStatus = function (type) {
+                switch (type) {
+                    case 'DaiZu':
+                        return 'null.png';
+                    case 'YiZu':
+                        return 'lease.png';
+                    case 'YuDing':
+                        return 'CheckoutColor.png';
+                    case 'WeiXiu':
+                        return 'Fix.png';
+                    case 'KongZhi':
+                        return 'unlease.png';
+                    case 'ZangFang':
+                        return 'unclearcolor.png';
+                }
+            };
+
+            this.getAlertStatus = function (type) {
+                switch (type) {
+                    case 'WuRao':
+                        return 'UndisturbColor.png';
+                    case 'QingLi':
+                        return 'ClearColor.png';
+                    case 'TuiFang':
+                        return 'CheckoutColor.png';
+                }
+            };
+
             $scope.current = null;
 
             $scope.selectedFloors = [];
@@ -79,8 +118,7 @@ define([
             }, function (newValue) {
                 if ($scope.current) {
                     toDoReceive({
-                            buildingId: $scope.current.buildingId,
-                            floors: $scope.selectedFloors
+                            buildingId: $scope.current.buildingId
                         })
                         .then(function (result) {
                             me.rooms = result;
