@@ -13,12 +13,12 @@ define([
             var me = this;
 
             this.login = function () {
-                // $state.go($('html').attr('data-index'));
-                sessionService
-                    .login(me.Username, me.Password)
-                    .success(function () {
-                        $state.go($('html').attr('data-index'));
-                    });
+                $state.go($('html').attr('data-index'));
+                // sessionService
+                //     .login(me.Username, me.Password)
+                //     .success(function () {
+                //         $state.go($('html').attr('data-index'));
+                //     });
             };
 
             this.register = function () {

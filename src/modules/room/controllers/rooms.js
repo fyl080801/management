@@ -11,23 +11,31 @@ define([
         'app.services.httpService',
         'app.services.popupService',
         function ($scope, $modal, tableParameter, request, httpService, popupService) {
+            var me = this;
+
             $scope.current = {};
 
-            this.tableParams = new tableParameter({
+            this.floorParams = {
 
+            };
+
+            this.tableParams = new tableParameter({
+                url: '/roomhotel/findRoomHotel',
+                data: floorParams
             });
 
             this.select = function (build, floor) {
                 $scope.current.BuildId = build.buildingId;
                 $scope.current.BuildName = build.buildingName;
                 $scope.current.Floor = floor;
-                httpService
-                    .post('/roomhotel/findRoomHotel', {
-                        floorid: build.buildingId
-                    })
-                    .then(function (result) {
 
-                    });
+                // httpService
+                //     .post('/roomhotel/findRoomHotel', {
+                //         floorid: build.buildingId
+                //     })
+                //     .then(function (result) {
+
+                //     });
             };
 
             this.add = function () {
