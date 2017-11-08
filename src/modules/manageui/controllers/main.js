@@ -78,20 +78,20 @@ define([
             });
             $('[role="tablist"]').disableSelection();
 
-            if ($appEnvironment.session && $appEnvironment.session.Status === 'Logined') {
-                me.links = linkManager.tree();
-            } else {
-                sessionService
-                    .checkSession()
-                    .authenticated(function () {
-                        me.links = linkManager.tree();
-                    })
-                    .unAuthenticated(function () {
-                        $state.go('login');
-                    });
-            }
+            // if ($appEnvironment.session && $appEnvironment.session.Status === 'Logined') {
+            //     me.links = linkManager.tree();
+            // } else {
+            //     sessionService
+            //         .checkSession()
+            //         .authenticated(function () {
+            //             me.links = linkManager.tree();
+            //         })
+            //         .unAuthenticated(function () {
+            //             $state.go('login');
+            //         });
+            // }
 
-            // this.links = linkManager.tree();
+            this.links = linkManager.tree();
         }
     ]);
 });

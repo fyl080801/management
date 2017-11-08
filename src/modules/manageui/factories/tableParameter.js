@@ -25,15 +25,15 @@ define([
                         if (!settings.url) return;
                         return httpService
                             .post(settings.url, $.extend({
-                                PageIndex: params.page(),
-                                PageSize: params.count() //,
-                                // Order: 'asc',
-                                // OrderBy: 'Age'
+                                page: {
+                                    page: params.page() - 1,
+                                    rows: params.count()
+                                }
                             }, settings.data))
                             .then(function (result) {
-                                params.total(result.Total);
+                                params.total(result.total);
                                 params.generatePagesArray();
-                                return result.Data;
+                                return result.resultlst;
                             }, function () {
                                 params.total(0);
                                 params.generatePagesArray();

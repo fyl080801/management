@@ -13,7 +13,9 @@ define([
         function ($scope, $modal, tableParameter, request, httpService, popupService) {
             $scope.current = {};
 
-            this.tableParams = new tableParameter({});
+            this.tableParams = new tableParameter({
+
+            });
 
             this.select = function (build, floor) {
                 $scope.current.BuildId = build.buildingId;

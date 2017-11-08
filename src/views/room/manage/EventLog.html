@@ -50,7 +50,7 @@
                             <label>&nbsp;</label>
                             <div class="text-right">
                                 <div class="btn-group">
-                                    <button class="btn btn-default" ng-click="me.queryRoomEvent()">
+                                    <button class="btn btn-default" ng-click="me.tableParams.reload()">
                                         <i class="glyphicon glyphicon-search"></i> 查询</button>
                                     <button class="btn btn-default">
                                         <i class="glyphicon glyphicon-export"></i> 导出</button>
@@ -59,8 +59,8 @@
                         </div>
                     </form>
                 </div>
-                <table ng-table="me.tableParams" class="table table-striped table-hover" ng-init="me.loadRoomEvent()">
-                    <tr ng-repeat="row in me.list track by $index">
+                <table ng-table="me.tableParams" class="table table-striped table-hover">
+                    <tr ng-repeat="row in $data track by $index">
                         <td title="'房间编号'">{{row.roomnum}}</td>
                         <td title="'楼栋名称'">{{row.buildingName}}</td>
                         <td title="'楼层'">{{row.floor}}</td>

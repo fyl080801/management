@@ -12,27 +12,36 @@ define([
             var me = this;
 
             this.roomQueries = {
-                warntype: '', //事件类型
-                warnStartTime: '',
-                warnEndTime: '',
-                buildingName: '' //楼栋名称
+                warntype: null, //事件类型
+                warnStartTime: null,
+                warnEndTime: null,
+                buildingName: null //楼栋名称
             };
 
             this.list = [];
 
-            this.tableParams = new tableParameter({});
+            this.tableParams = new tableParameter({
+                url: '/warning/findWarningList',
+                data: me.roomQueries
+            });
 
             this.queryRoomEvent = function () {
 
             };
 
-            this.loadRoomEvent = function () {
-                httpService
-                    .post('/warning/findWarningList', me.roomQueries)
-                    .then(function (result) {
-                        me.list = result;
-                    });
-            };
+            // this.loadRoomEvent = function () {
+            //     var query = $.extend({
+            //         page: {
+            //             page: 0,
+            //             rows: 10
+            //         }
+            //     }, me.roomQueries);
+            //     httpService
+            //         .post('/warning/findWarningList', query)
+            //         .then(function (result) {
+            //             me.list = result.resultlst;
+            //         });
+            // };
 
             httpService
                 .post('/buildinghotel/findBuildingHotel', {})
