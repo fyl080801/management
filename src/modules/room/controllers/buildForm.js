@@ -11,6 +11,18 @@ define([
         function ($scope, NgTableParams, request, httpService) {
             var me = this;
 
+            this.list = [];
+
+            this.loadFloors = function (buildId) {
+                httpService
+                    .post('/buildinghotel/selectFloorHotelList', {
+                        buildingId: buildId
+                    })
+                    .then(function (result) {
+                        me.list = result;
+                    });
+            };
+
             this.floors = function (n) {
                 var arr = [];
                 for (var i = 1; i <= n; i++) {

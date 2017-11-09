@@ -21,7 +21,7 @@ define([
 
             this.tableParams = new tableParameter({
                 url: '/roomhotel/findRoomHotel',
-                data: floorParams
+                data: me.floorParams
             });
 
             this.select = function (build, floor) {

@@ -8,10 +8,10 @@
                     </span>
                 </div>
                 <div id="{{'build_' + build.buildingId}}" class="panel-collapse collapse" ng-class="{'in':$index===0}" role="tabpanel">
-                    <div class="panel-body" ng-controller="modules.room.controllers.buildForm as ctl">
+                    <div class="panel-body" ng-controller="modules.room.controllers.buildForm as ctl" ng-init="ctl.loadFloors(build.buildingId)">
                         <div class="container-fluid row">
                             <button type="button" class="btn btn-success col-md-3" ng-class="{'active':current.BuildId===build.buildingId && current.Floor===num}"
-                                ng-repeat="num in ctl.floors(build.floor)" ng-click="roomController.select(build,num)">{{num}}</button>
+                                ng-repeat="num in ctl.list" ng-click="roomController.select(num.id)">{{num}}</button>
                         </div>
                     </div>
                 </div>
