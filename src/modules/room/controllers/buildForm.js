@@ -13,6 +13,8 @@ define([
 
             this.list = [];
 
+            this.excludes = [];
+
             this.loadFloors = function (buildId) {
                 httpService
                     .post('/buildinghotel/selectFloorHotelList', {
@@ -29,6 +31,12 @@ define([
                     arr.push(i);
                 }
                 return arr;
+            };
+
+            this.floorChange = function (num) {
+                if (me.excludes.indexOf(num) >= 0) {
+
+                }
             };
         }
     ]);
