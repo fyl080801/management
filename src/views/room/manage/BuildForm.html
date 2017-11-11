@@ -42,7 +42,8 @@
                     <label>地上</label>
                 </div>
                 <div class="container-fluid row">
-                    <button type="button" class="btn btn-success col-md-1" ng-click="ctl.floorChange(num)" ng-repeat="num in ctl.floors($data.floor)">{{num}}</button>
+                    <button type="button" class="btn col-md-1" ng-class="{'btn-default':$data.excludes.indexOf(num)>=0, 'btn-success':$data.excludes.indexOf(num)<0}"
+                        ng-click="ctl.floorChange(num)" ng-repeat="num in ctl.floors($data.floor)">{{num}}</button>
                 </div>
             </div>
             <div class="form-group col-md-12">
@@ -50,7 +51,8 @@
                     <label>地下室</label>
                 </div>
                 <div class="container-fluid row">
-                    <button type="button" class="btn btn-success col-md-1" ng-repeat="num in ctl.floors($data.subFloor)">{{num}}</button>
+                    <button type="button" class="btn col-md-1" ng-class="{'btn-default':$data.excsubs.indexOf(num)>=0, 'btn-success':$data.excsubs.indexOf(num)<0}"
+                        ng-click="ctl.subChange(num)" ng-repeat="num in ctl.floors($data.subFloor)">{{num}}</button>
                 </div>
             </div>
         </form>

@@ -8,12 +8,15 @@ define([
         'NgTableParams',
         'modules.setting.services.request',
         'app.services.httpService',
-        function ($scope, NgTableParams, request, httpService) {
+        'app.services.ajaxService',
+        function ($scope, NgTableParams, request, httpService, ajaxService) {
             var me = this;
 
-            this.list = [];
+            $scope.$data = $scope.$data ? $scope.$data : {};
+            $scope.$data.excludes = [];
+            $scope.$data.excsubs = [];
 
-            this.excludes = [];
+            this.list = [];
 
             this.loadFloors = function (buildId) {
                 httpService
@@ -34,8 +37,20 @@ define([
             };
 
             this.floorChange = function (num) {
-                if (me.excludes.indexOf(num) >= 0) {
+                var floorIndex = $scope.$data.excludes.indexOf(num);
+                if (floorIndex >= 0) {
+                    $scope.$data.excludes.splice(floorIndex, 1);
+                } else {
+                    $scope.$data.excludes.push(num);
+                }
+            };
 
+            this.subChange = function (num) {
+                var floorIndex = $scope.$data.excsubs.indexOf(num);
+                if (floorIndex >= 0) {
+                    $scope.$data.excsubs.splice(floorIndex, 1);
+                } else {
+                    $scope.$data.excsubs.push(num);
                 }
             };
         }

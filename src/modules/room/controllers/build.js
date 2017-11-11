@@ -22,6 +22,10 @@ define([
                         data: {}
                     }).result
                     .then(function (data) {
+                        data.extfloor = data.excludes.join(',');
+                        data.extsubfloor = data.excsubs.join(',');
+                        delete data.excludes;
+                        delete data.extsubfloor;
                         httpService
                             .post('/buildinghotel/addBuildingHotel', data)
                             .then(function (result) {
@@ -37,6 +41,10 @@ define([
                         data: build
                     }).result
                     .then(function (data) {
+                        data.extfloor = data.excludes.join(',');
+                        data.extsubfloor = data.excsubs.join(',');
+                        delete data.excludes;
+                        delete data.extsubfloor;
                         httpService
                             .post('/buildinghotel/modifyBuildingHotel', {
                                 buildingId: data.buildingId,
