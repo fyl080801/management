@@ -29,19 +29,40 @@ define([
                             .json('/personauth/addRoleAuthority', JSON.stringify(data))
                             .then(function () {
                                 popupService.information('添加成功');
-                                me.tableParams.reload();
+                                me.load();
                             });
                     });
             };
 
-            this.edit = function (id) {
+            this.edit = function (user) {
+                if (user.personRoleRelationAuthoritys && user.personRoleRelationAuthoritys.length > 0)
+                    user.roleId = user.personRoleRelationAuthoritys[0].roleCode;
                 $modal
                     .open({
-                        templateUrl: 'views/room/personal/UserForm.html'
+                        templateUrl: 'views/room/personal/UserForm.html',
+                        data: user
                     }).result
-                    .then(function (result) {
-
+                    .then(function (data) {
+                        data.personRoleRelationAuthoritys = [{
+                            roleCode: data.roleId
+                        }];
+                        ajaxService
+                            .json('/personauth/modifyPersonAuthority', JSON.stringify(data))
+                            .then(function () {
+                                popupService.information('添加成功');
+                                me.load();
+                            });
                     })
+            };
+
+            this.changePassword = function (id) {
+                $modal
+                    .open({
+                        templateUrl: 'views/room/personal/UserPassword.html'
+                    }).result
+                    .then(function (data) {
+
+                    });
             };
 
             this.drop = function (id) {
