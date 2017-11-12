@@ -8,22 +8,31 @@
     </div>
     <div class="modal-body">
         <form name="form" role="form">
-            <div class="form-group" ng-class="{'has-error':form.Name.$invalid}">
+            <div class="form-group" ng-class="{'has-error':form.name.$invalid}">
                 <div>
                     <label>人员名</label>
-                    <span class="text-danger pull-right" ng-show="form.Name.$invalid">*名称不能为空</span>
+                    <span class="text-danger pull-right" ng-show="form.name.$invalid">*名称不能为空</span>
                 </div>
                 <div>
-                    <input class="form-control" name="Name" ng-model="$data.Name" placeholder="输入名称" required/>
+                    <input class="form-control" name="name" ng-model="$data.name" placeholder="输入名称" required/>
                 </div>
             </div>
-            <div class="form-group" ng-class="{'has-error':form.Password.$invalid}">
+            <div class="form-group" ng-class="{'has-error':form.loginName.$invalid}">
                 <div>
-                    <label>密码</label>
-                    <span class="text-danger pull-right" ng-show="form.Password.$invalid">*密码不能为空</span>
+                    <label>登录名</label>
+                    <span class="text-danger pull-right" ng-show="form.loginName.$invalid">*登录名不能为空</span>
                 </div>
                 <div>
-                    <input class="form-control" type="password" name="Password" ng-model="$data.Password" placeholder="输入密码" required/>
+                    <input class="form-control" name="loginName" ng-model="$data.loginName" placeholder="输入名称" required/>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error':form.pwd.$invalid}">
+                <div>
+                    <label>密码</label>
+                    <span class="text-danger pull-right" ng-show="form.pwd.$invalid">*密码不能为空</span>
+                </div>
+                <div>
+                    <input class="form-control" type="password" name="pwd" ng-model="$data.pwd" placeholder="输入密码" required/>
                 </div>
             </div>
             <div class="form-group" ng-class="{'has-error':form.roleId.$invalid}" ng-controller="modules.room.controllers.roles as me">

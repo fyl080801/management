@@ -10,10 +10,9 @@ define([
         'modules.setting.services.request',
         'app.services.popupService',
         'app.services.httpService',
-        function ($scope, $modal, NgTableParams, request, popupService, httpService) {
+        'app.services.ajaxService',
+        function ($scope, $modal, tableParameter, request, popupService, httpService, ajaxService) {
             var me = this;
-
-            this.tableParams = new NgTableParams();
 
             this.list = [];
 
@@ -22,8 +21,16 @@ define([
                     .open({
                         templateUrl: 'views/room/personal/UserForm.html'
                     }).result
-                    .then(function (result) {
-
+                    .then(function (data) {
+                        data.personRoleRelationAuthoritys = [{
+                            roleCode: data.roleId
+                        }];
+                        ajaxService
+                            .json('/personauth/addRoleAuthority', JSON.stringify(data))
+                            .then(function () {
+                                popupService.information('添加成功');
+                                me.tableParams.reload();
+                            });
                     });
             };
 
@@ -41,13 +48,20 @@ define([
                 popupService
                     .confirm('是否删除？')
                     .ok(function () {
-
+                        ajaxService
+                            .post('/personauth/delPersonAuthority', {
+                                id: id
+                            })
+                            .then(function () {
+                                popupService.information('删除成功');
+                                me.load();
+                            });
                     });
             };
 
             this.load = function () {
                 httpService
-                    .post('')
+                    .post('/personauth/findPersonAuthorityList', {})
                     .then(function (result) {
                         me.list = result;
                     });
