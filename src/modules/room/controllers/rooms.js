@@ -13,7 +13,7 @@ define([
         function ($scope, $modal, tableParameter, request, httpService, popupService) {
             var me = this;
 
-            $scope.current = {};
+            $scope.current = null;
 
             this.floorParams = {
 
@@ -24,18 +24,12 @@ define([
                 data: me.floorParams
             });
 
-            this.select = function (build, floor) {
-                $scope.current.BuildId = build.buildingId;
-                $scope.current.BuildName = build.buildingName;
-                $scope.current.Floor = floor;
-
-                // httpService
-                //     .post('/roomhotel/findRoomHotel', {
-                //         floorid: build.buildingId
-                //     })
-                //     .then(function (result) {
-
-                //     });
+            this.select = function (build) {
+                $scope.current = build;
+                me.floorParams = {
+                    floorid: build.buildingId
+                };
+                me.tableParams.reload();
             };
 
             this.add = function () {

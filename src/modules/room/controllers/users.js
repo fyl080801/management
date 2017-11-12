@@ -58,7 +58,8 @@ define([
             this.changePassword = function (id) {
                 $modal
                     .open({
-                        templateUrl: 'views/room/personal/UserPassword.html'
+                        templateUrl: 'views/room/personal/UserPassword.html',
+                        size: 'sm'
                     }).result
                     .then(function (data) {
 

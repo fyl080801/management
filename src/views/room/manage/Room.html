@@ -5,7 +5,7 @@
                 <div class="panel-heading" role="tab">
                     <span class="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#accordion" ng-href="{{'#build_' + build.buildingId}}" aria-expanded="true">{{build.buildingName}}</a>
-                        <a role="button" class="close">
+                        <a role="button" class="close" ng-click="roomController.select(build)">
                             <i class="glyphicon glyphicon-list-alt"></i>
                         </a>
                     </span>
@@ -25,12 +25,6 @@
                             <div class="col-md-6">{{build.subFloor}}</div>
                         </fieldset>
                     </div>
-                    <!-- <div class="panel-body" ng-controller="modules.room.controllers.buildForm as ctl" ng-init="ctl.loadFloors(build.buildingId)">
-                        <div class="container-fluid row">
-                            <button type="button" class="btn btn-success col-md-3" ng-class="{'active':current.BuildId===build.buildingId && current.Floor.id===floor.id}"
-                                ng-repeat="floor in ctl.list" ng-click="roomController.select(floor.id)">{{floor.floor}}</button>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -41,9 +35,9 @@
                 <span class="panel-title">请选择楼栋</span>
             </div>
             <div class="panel-heading" ng-show="current.Floor">
-                <span class="panel-title">{{current.BuildName}}</span>
+                <span class="panel-title">{{current.buildingName}}</span>
             </div>
-            <div class="navbar navbar-default navbar-static-top" ng-show="current.Floor" style="margin:0">
+            <div class="navbar navbar-default navbar-static-top" ng-show="current" style="margin:0">
                 <div class="container-fluid">
                     <div class="navbar-collapse collapsed">
                         <div class="navbar-form navbar-right">
