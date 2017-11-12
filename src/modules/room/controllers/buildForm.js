@@ -13,16 +13,16 @@ define([
             var me = this;
 
             $scope.$data = $scope.$data ? $scope.$data : {};
-            $scope.$data.excludes = [];
-            $scope.$data.excsubs = [];
+            $scope.$data.excludes = $scope.$data.excludes ? $scope.$data.excludes : [];
+            $scope.$data.excsubs = $scope.$data.excsubs ? $scope.$data.excsubs : [];
 
             this.list = [];
 
             this.loadFloors = function (buildId) {
-                httpService
-                    .post('/buildinghotel/selectFloorHotelList', {
+                ajaxService
+                    .json('/buildinghotel/selectFloorHotelList', JSON.stringify({
                         buildingId: buildId
-                    })
+                    }))
                     .then(function (result) {
                         me.list = result;
                     });
@@ -31,7 +31,7 @@ define([
             this.floors = function (n) {
                 var arr = [];
                 for (var i = 1; i <= n; i++) {
-                    arr.push(i);
+                    arr.push(i + '');
                 }
                 return arr;
             };

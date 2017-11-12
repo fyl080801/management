@@ -5,15 +5,32 @@
                 <div class="panel-heading" role="tab">
                     <span class="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#accordion" ng-href="{{'#build_' + build.buildingId}}" aria-expanded="true">{{build.buildingName}}</a>
+                        <a role="button" class="close">
+                            <i class="glyphicon glyphicon-list-alt"></i>
+                        </a>
                     </span>
                 </div>
                 <div id="{{'build_' + build.buildingId}}" class="panel-collapse collapse" ng-class="{'in':$index===0}" role="tabpanel">
-                    <div class="panel-body" ng-controller="modules.room.controllers.buildForm as ctl" ng-init="ctl.loadFloors(build.buildingId)">
-                        <div class="container-fluid row">
-                            <button type="button" class="btn btn-success col-md-3" ng-class="{'active':current.BuildId===build.buildingId && current.Floor===num}"
-                                ng-repeat="num in ctl.list" ng-click="roomController.select(num.id)">{{num}}</button>
-                        </div>
+                    <div class="panel-body">
+                        <fieldset class="form-group">
+                            <div class="col-md-4">
+                                <label>地上：</label>
+                            </div>
+                            <div class="col-md-6">{{build.floor}}</div>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <div class="col-md-4">
+                                <label>地下：</label>
+                            </div>
+                            <div class="col-md-6">{{build.subFloor}}</div>
+                        </fieldset>
                     </div>
+                    <!-- <div class="panel-body" ng-controller="modules.room.controllers.buildForm as ctl" ng-init="ctl.loadFloors(build.buildingId)">
+                        <div class="container-fluid row">
+                            <button type="button" class="btn btn-success col-md-3" ng-class="{'active':current.BuildId===build.buildingId && current.Floor.id===floor.id}"
+                                ng-repeat="floor in ctl.list" ng-click="roomController.select(floor.id)">{{floor.floor}}</button>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -21,10 +38,10 @@
     <div class="col-md-9">
         <div class="panel panel-info">
             <div class="panel-heading" ng-show="!current.Floor">
-                <span class="panel-title">请选择楼层</span>
+                <span class="panel-title">请选择楼栋</span>
             </div>
             <div class="panel-heading" ng-show="current.Floor">
-                <span class="panel-title">{{current.BuildName}} - {{current.Floor}} 层</span>
+                <span class="panel-title">{{current.BuildName}}</span>
             </div>
             <div class="navbar navbar-default navbar-static-top" ng-show="current.Floor" style="margin:0">
                 <div class="container-fluid">

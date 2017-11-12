@@ -35,6 +35,10 @@ define([
             };
 
             this.edit = function (build) {
+                if (build.extfloor)
+                    build.excludes = build.extfloor.split(',');
+                if (build.extsubfloor)
+                    build.excsubs = build.extsubfloor.split(',');
                 $modal
                     .open({
                         templateUrl: 'views/room/manage/BuildForm.html',
@@ -44,13 +48,15 @@ define([
                         data.extfloor = data.excludes.join(',');
                         data.extsubfloor = data.excsubs.join(',');
                         delete data.excludes;
-                        delete data.extsubfloor;
+                        delete data.excsubs;
                         httpService
                             .post('/buildinghotel/modifyBuildingHotel', {
                                 buildingId: data.buildingId,
                                 buildingName: data.buildingName,
                                 floor: data.floor,
-                                subFloor: data.subFloor
+                                subFloor: data.subFloor,
+                                extfloor: data.extfloor,
+                                extsubfloor: data.extsubfloor
                             })
                             .then(function (result) {
                                 me.load();

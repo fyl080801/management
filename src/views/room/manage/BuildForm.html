@@ -42,7 +42,7 @@
                     <label>地上</label>
                 </div>
                 <div class="container-fluid row">
-                    <button type="button" class="btn col-md-1" ng-class="{'btn-default':$data.excludes.indexOf(num)>=0, 'btn-success':$data.excludes.indexOf(num)<0}"
+                    <button type="button" class="btn col-md-1" ng-class="{'btn-default':$data.excludes.indexOf(num+'')>=0, 'btn-success':$data.excludes.indexOf(num+'')<0}"
                         ng-click="ctl.floorChange(num)" ng-repeat="num in ctl.floors($data.floor)">{{num}}</button>
                 </div>
             </div>
