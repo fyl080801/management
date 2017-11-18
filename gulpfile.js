@@ -41,7 +41,7 @@ gulp.task('pack_resources', function () {
     gulp.src([
             'resources/**/*',
             'src/**/*',
-            '!src/modules/**/*',
+            '!src/modules/**/*.js',
             '!src/*.build.js',
             '!src/*.modules.js',
             '!src/app',
