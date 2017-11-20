@@ -6,6 +6,7 @@ define([
     module.controller('modules.manageui.controllers.main', [
         '$scope',
         '$state',
+        '$appConfig',
         '$appEnvironment',
         '$location',
         '$tab',
@@ -14,7 +15,7 @@ define([
         'modules.manageui.services.tabService',
         'app.services.popupService',
         'modules.manageui.services.sessionService',
-        function ($scope, $state, $appEnvironment, $location, $tab, $modal, linkManager, tabService, popupService, sessionService) {
+        function ($scope, $state, $appConfig, $appEnvironment, $location, $tab, $modal, linkManager, tabService, popupService, sessionService) {
             var me = this;
 
             this.menuCollapse = false;
@@ -78,20 +79,22 @@ define([
             });
             $('[role="tablist"]').disableSelection();
 
-            if ($appEnvironment.session && $appEnvironment.session.Status === 'Logined') {
-                me.links = linkManager.tree();
-            } else {
-                sessionService
-                    .checkSession()
-                    .authenticated(function () {
-                        me.links = linkManager.tree();
-                    })
-                    .unAuthenticated(function () {
-                        $state.go('login');
-                    });
+            if ($appConfig.session)
+                this.links = linkManager.tree();
+            else {
+                if ($appEnvironment.session && $appEnvironment.session.Status === 'Logined') {
+                    me.links = linkManager.tree();
+                } else {
+                    sessionService
+                        .checkSession()
+                        .authenticated(function () {
+                            me.links = linkManager.tree();
+                        })
+                        .unAuthenticated(function () {
+                            $state.go('login');
+                        });
+                }
             }
-
-            // this.links = linkManager.tree();
         }
     ]);
 });

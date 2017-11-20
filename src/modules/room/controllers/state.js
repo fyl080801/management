@@ -5,15 +5,16 @@ define([
 
     module.controller('modules.room.controllers.state', [
         '$scope',
+        '$timeout',
         '$modal',
         '$q',
         'modules.setting.services.request',
         'modules.room.factories.stateAdapter',
         'app.services.httpService',
         'app.services.popupService',
-        function ($scope, $modal, $q, request, stateAdapter, httpService, popupService) {
+        function ($scope, $timeout, $modal, $q, request, stateAdapter, httpService, popupService) {
 
-            function toDoReceive(data) {
+            function toDoReceive(data, obj) {
                 var defer = $q.defer();
                 stateAdapter
                     .connect('/h5ws')
@@ -25,8 +26,11 @@ define([
                     })
                     .onreceived(function (result) {
                         var jsonResult = JSON.parse(result);
-                        if (jsonResult)
+                        if (jsonResult) {
                             defer.resolve(jsonResult.data);
+                            obj.rooms = jsonResult.data;
+                            $scope.$apply();
+                        }
                     })
                     .onerror(function () {
                         popupService.error('房间状态服务异常');
@@ -35,6 +39,8 @@ define([
             }
 
             var me = this;
+
+            $scope.$controller = this;
 
             this.rooms = [];
 
@@ -119,7 +125,7 @@ define([
                 if ($scope.current) {
                     toDoReceive({
                             buildingId: $scope.current.buildingId
-                        })
+                        }, $scope.$controller)
                         .then(function (result) {
                             me.rooms = result;
                         });
@@ -135,12 +141,12 @@ define([
                     toDoReceive({
                             buildingId: $scope.current.buildingId,
                             floors: $scope.selectedFloors
-                        })
+                        }, $scope.$controller)
                         .then(function (result) {
                             me.rooms = result;
                         });
                 } else if (!$scope.current) {
-                    toDoReceive({})
+                    toDoReceive({}, $scope.$controller)
                         .then(function (result) {
                             me.rooms = result;
                         });

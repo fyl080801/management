@@ -16,7 +16,7 @@ define([
             $scope.current = null;
 
             this.floorParams = {
-
+                buildingId: null
             };
 
             this.tableParams = new tableParameter({
@@ -26,9 +26,7 @@ define([
 
             this.select = function (build) {
                 $scope.current = build;
-                me.floorParams = {
-                    floorid: build.buildingId
-                };
+                me.floorParams.buildingId = build.buildingId;
                 me.tableParams.reload();
             };
 

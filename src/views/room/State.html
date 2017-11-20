@@ -17,8 +17,8 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid roomstate panel-body" style="padding: 0 15px">
-        <div class="state-container" style="width: 12.5%; float: left;" ng-repeat="room in me.rooms">
+    <div class="container-fluid roomstate panel-body" style="padding: 15px; overflow: auto; position: absolute; top: 50px; bottom: 0">
+        <div class="state-container" style="width: 12.5%; float: left;" ng-repeat="room in $controller.rooms">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     {{room.temperature}} ℃
