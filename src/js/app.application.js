@@ -103,9 +103,10 @@ define('app/configs/dependencyLoader', [
         function ($stateProvider) {
             var stateFn = $stateProvider.state;
             $stateProvider.state = function (state, config) {
-                if (config.dependencies) {
+                var lazyArray = config.requires ? config.requires : config.dependencies ? config.dependencies : [];
+                if (lazyArray.length > 0) {
                     var resolve = config.resolve || {};
-                    resolve.$deps = resolveDependencies(config.dependencies);
+                    resolve.$deps = resolveDependencies(lazyArray);
                     config.resolve = resolve;
                 }
                 return stateFn(state, config);
@@ -391,7 +392,7 @@ define('app/services/popupService', ['app/services'], function (services) {
                 var _data = {};
                 if (text === null || text === undefined) {
                     _data.text = '发生错误';
-                } else if (Object.prototype.toString.call(text) == '[object Array]') {
+                } else if (Object.prototype.toString.call(text) === '[object Array]') {
                     _data.contents = text;
                 } else {
                     _data.text = text;
@@ -459,6 +460,27 @@ define('app/directives/theme', ['app/directives'], function (module) {
             };
         }]);
 });
+define('app/directives/equals', ['app/directives'], function (directives) {
+    'use strict';
+    directives.directive('equals', [function () {
+            function _link($scope, $element, $attrs, $ctrl) {
+                function validator(inputValue) {
+                    var valid = inputValue === $scope.$eval($attrs.equals);
+                    $ctrl.$setValidity('equal', valid);
+                    return valid ? inputValue : null;
+                }
+                $ctrl.$parsers.push(validator);
+                $ctrl.$formatters.push(validator);
+                $scope.$watch($attrs.equals, function () {
+                    $ctrl.$setViewValue($ctrl.$viewValue);
+                });
+            }
+            return {
+                require: 'ngModel',
+                link: _link
+            };
+        }]);
+});
 define('app/routes', ['angular-ui-router'], function () {
     'use strict';
     return angular.module('app.routes', ['ui.router']).config([
@@ -508,6 +530,7 @@ define('app/application', [
     'app/services/popupService',
     'app/directives/title',
     'app/directives/theme',
+    'app/directives/equals',
     'app/routes/run'
 ], function () {
     'use strict';

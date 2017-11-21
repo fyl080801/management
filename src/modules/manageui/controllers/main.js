@@ -52,7 +52,7 @@ define([
             this.showUser = function () {
                 $modal
                     .open({
-                        templateUrl: 'views/manageui/UserDetails.html',
+                        templateUrl: 'modules/manageui/views/UserDetails.html',
                         size: 'sm',
                         data: {
                             Id: $appEnvironment.user.Id
@@ -63,7 +63,7 @@ define([
             this.editPicture = function () {
                 $modal
                     .open({
-                        templateUrl: 'views/manageui/UserPicture.html'
+                        templateUrl: 'modules/manageui/views/UserPicture.html'
                     });
             };
 

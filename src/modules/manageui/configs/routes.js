@@ -7,62 +7,56 @@ define([
         '$urlRouterProvider',
         '$stateProvider',
         function ($urlRouterProvider, $stateProvider) {
-            $stateProvider
-                .state('session', {
-                    url: '/session',
-                    templateUrl: 'views/manageui/Session.html',
-                    dependencies: ['modules/manageui/requires']
-                });
+            $stateProvider.state('session', {
+                url: '/session',
+                templateUrl: 'modules/manageui/views/Session.html',
+                requires: ['modules/manageui/requires']
+            });
 
-            $stateProvider
-                .state('login', {
-                    url: '/login',
-                    templateUrl: 'views/manageui/Login.html',
-                    dependencies: ['modules/manageui/requires'],
-                    data: {
-                        title: '登录'
-                    }
-                });
+            $stateProvider.state('login', {
+                url: '/login',
+                templateUrl: 'modules/manageui/views/Login.html',
+                requires: ['modules/manageui/requires'],
+                data: {
+                    title: '登录'
+                }
+            });
 
-            $stateProvider
-                .state('lock', {
-                    url: '/lock',
-                    templateUrl: 'views/manageui/Lock.html',
-                    dependencies: ['modules/manageui/requires'],
-                    data: {
-                        title: '锁定'
-                    }
-                });
+            $stateProvider.state('lock', {
+                url: '/lock',
+                templateUrl: 'modules/manageui/views/Lock.html',
+                requires: ['modules/manageui/requires'],
+                data: {
+                    title: '锁定'
+                }
+            });
 
-            $stateProvider
-                .state('register', {
-                    url: '/register',
-                    templateUrl: 'views/manageui/Register.html',
-                    dependencies: ['modules/manageui/requires'],
-                    data: {
-                        title: '注册'
-                    }
-                });
+            $stateProvider.state('register', {
+                url: '/register',
+                templateUrl: 'modules/manageui/views/Register.html',
+                requires: ['modules/manageui/requires'],
+                data: {
+                    title: '注册'
+                }
+            });
 
-            $stateProvider
-                .state('forgot', {
-                    url: '/forgot',
-                    templateUrl: 'views/manageui/Forgot.html',
-                    dependencies: ['modules/manageui/requires'],
-                    data: {
-                        title: '密码找回'
-                    }
-                });
+            $stateProvider.state('forgot', {
+                url: '/forgot',
+                templateUrl: 'modules/manageui/views/Forgot.html',
+                requires: ['modules/manageui/requires'],
+                data: {
+                    title: '密码找回'
+                }
+            });
 
-            $stateProvider
-                .state('main', {
-                    url: '/main',
-                    templateUrl: 'views/manageui/Main.html',
-                    dependencies: ['jquery-ui', 'metisMenu', 'modules/manageui/requires'],
-                    data: {
-                        title: '管理系统'
-                    }
-                });
+            $stateProvider.state('main', {
+                url: '/main',
+                templateUrl: 'modules/manageui/views/Main.html',
+                requires: ['jquery-ui', 'metisMenu', 'modules/manageui/requires'],
+                data: {
+                    title: '管理系统'
+                }
+            });
         }
     ]);
 });
