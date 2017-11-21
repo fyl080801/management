@@ -1,7 +1,6 @@
 define([
     'modules/manageui/module',
-    'modules/room/module',
-    'modules/setting/module'
+    'modules/room/module'
 ], function () {
     'use strict';
 });

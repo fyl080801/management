@@ -20,7 +20,7 @@ define([
             this.checkIn = function () {
                 $modal
                     .open({
-                        templateUrl: 'views/room/CheckIn.html',
+                        templateUrl: 'modules/room/views/CheckIn.html',
                         size: 'sm'
                     });
             };

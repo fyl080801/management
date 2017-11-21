@@ -7,10 +7,9 @@ define([
         '$scope',
         '$modal',
         'modules.manageui.factories.tableParameter',
-        'modules.setting.services.request',
         'app.services.httpService',
         'app.services.popupService',
-        function ($scope, $modal, tableParameter, request, httpService, popupService) {
+        function ($scope, $modal, tableParameter, httpService, popupService) {
             var me = this;
 
             $scope.current = null;

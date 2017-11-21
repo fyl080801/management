@@ -6,10 +6,9 @@ define([
     module.controller('modules.room.controllers.buildForm', [
         '$scope',
         'NgTableParams',
-        'modules.setting.services.request',
         'app.services.httpService',
         'app.services.ajaxService',
-        function ($scope, NgTableParams, request, httpService, ajaxService) {
+        function ($scope, NgTableParams, httpService, ajaxService) {
             var me = this;
 
             $scope.$data = $scope.$data ? $scope.$data : {};

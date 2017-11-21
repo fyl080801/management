@@ -7,10 +7,9 @@ define([
         '$scope',
         '$modal',
         'NgTableParams',
-        'modules.setting.services.request',
         'app.services.popupService',
         'app.services.ajaxService',
-        function ($scope, $modal, NgTableParams, request, popupService, httpService) {
+        function ($scope, $modal, NgTableParams, popupService, httpService) {
             var me = this;
 
             this.tableParams = new NgTableParams();

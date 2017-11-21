@@ -8,11 +8,10 @@ define([
         '$timeout',
         '$modal',
         '$q',
-        'modules.setting.services.request',
         'modules.room.factories.stateAdapter',
         'app.services.httpService',
         'app.services.popupService',
-        function ($scope, $timeout, $modal, $q, request, stateAdapter, httpService, popupService) {
+        function ($scope, $timeout, $modal, $q, stateAdapter, httpService, popupService) {
 
             function toDoReceive(data, obj) {
                 var defer = $q.defer();
@@ -47,7 +46,7 @@ define([
             this.openControl = function (id) {
                 $modal
                     .open({
-                        templateUrl: 'views/room/RoomControl.html',
+                        templateUrl: 'modules/room/views/RoomControl.html',
                         size: 'lg'
                     });
             };
@@ -63,7 +62,7 @@ define([
             this.showComment = function (roomId) {
                 $modal
                     .open({
-                        templateUrl: 'views/room/Comment.html'
+                        templateUrl: 'modules/room/views/Comment.html'
                     });
             };
 

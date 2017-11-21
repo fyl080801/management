@@ -7,11 +7,10 @@ define([
         '$scope',
         '$modal',
         'NgTableParams',
-        'modules.setting.services.request',
         'app.services.popupService',
         'app.services.httpService',
         'app.services.ajaxService',
-        function ($scope, $modal, tableParameter, request, popupService, httpService, ajaxService) {
+        function ($scope, $modal, tableParameter, popupService, httpService, ajaxService) {
             var me = this;
 
             this.list = [];

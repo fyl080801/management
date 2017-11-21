@@ -6,9 +6,8 @@ define([
     module.controller('modules.room.controllers.eventSystem', [
         '$scope',
         'modules.manageui.factories.tableParameter',
-        'modules.setting.services.request',
         'app.services.httpService',
-        function ($scope, tableParameter, request, httpService) {
+        function ($scope, tableParameter, httpService) {
             var me = this;
 
             this.list = [];

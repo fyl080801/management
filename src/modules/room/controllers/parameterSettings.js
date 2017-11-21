@@ -5,9 +5,8 @@ define([
 
     module.controller('modules.room.controllers.parameterSettings', [
         '$scope',
-        'modules.setting.services.request',
         'app.services.httpService',
-        function ($scope, request, httpService) {
+        function ($scope, httpService) {
 
         }
     ]);

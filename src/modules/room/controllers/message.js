@@ -7,9 +7,8 @@ define([
     module.controller('modules.room.controllers.message', [
         '$scope',
         'modules.manageui.factories.tableParameter',
-        'modules.setting.services.request',
         'modules.room.services.messageService',
-        function ($scope, tableParameter, request, messageService) {
+        function ($scope, tableParameter, messageService) {
             $scope.service = messageService;
 
             this.tableParams = new tableParameter({});

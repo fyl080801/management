@@ -11,7 +11,7 @@ define([
                     id: 'roomstate',
                     text: '房态显示',
                     icon: 'fa fa-camera fa-fw',
-                    templateUrl: 'views/room/State.html',
+                    templateUrl: 'modules/room/views/State.html',
                     dependencies: ['modules/room/requires']
                 });
 
