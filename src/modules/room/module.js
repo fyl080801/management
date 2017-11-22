@@ -26,7 +26,7 @@ define([
                 $stateProvider
                     .state('main.roomhome', {
                         url: '/roomhome',
-                        dependencies: ['modules/room/requires', 'modules/setting/requires'],
+                        dependencies: ['modules/room/requires'],
                         views: {
                             'home': {
                                 templateUrl: 'modules/room/views/Home.html'

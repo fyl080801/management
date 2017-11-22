@@ -105,13 +105,7 @@
         'modules/room/requires': {
             path: 'js/modules.room',
             shim: {
-                deps: ['web.modules', 'modules/manageui/requires', 'modules/setting/requires']
-            }
-        },
-        'modules/setting/requires': {
-            path: 'js/modules.setting',
-            shim: {
-                deps: ['web.modules']
+                deps: ['web.modules', 'modules/manageui/requires']
             }
         },
 

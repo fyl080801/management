@@ -36,7 +36,6 @@ require.config({
         'ui-switch',
         'app/application',
         'modules/manageui/module',
-        'modules/room/module',
-        'modules/setting/module'
+        'modules/room/module'
     ]
 });
