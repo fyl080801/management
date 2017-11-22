@@ -37,10 +37,18 @@ define([
                 $modal
                     .open({
                         templateUrl: 'views/room/manage/RoomForm.html',
-                        data: {}
+                        data: {
+                            floorid: $scope.current.id,
+                            buildingName: $scope.current.buildingName,
+                            floorname: $scope.current.floorname
+                        }
                     }).result
                     .then(function (data) {
-
+                        httpService
+                            .post('/roomhotel/addRoomHotel', data)
+                            .then(function (result) {
+                                me.tableParams.reload();
+                            });
                     });
             };
 

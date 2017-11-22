@@ -1,7 +1,8 @@
 <div ng-controller="modules.room.controllers.roomTypeForm as me">
     <div class="modal-header">
         <button type="button" class="close" ng-click="$dismiss()">
-            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
         </button>
         <h3 class="modal-title">房间信息</h3>
     </div>
@@ -12,7 +13,7 @@
                     <label>楼栋</label>
                 </div>
                 <div>
-                    <span class="form-control-static"></span>
+                    <span class="form-control-static" ng-bind="data.buildingName"></span>
                 </div>
             </div>
             <div class="form-group col-md-6">
@@ -20,25 +21,25 @@
                     <label>楼层</label>
                 </div>
                 <div>
-                    <span class="form-control-static"></span>
+                    <span class="form-control-static" ng-bind="data.floorname"></span>
                 </div>
             </div>
-            <div class="form-group col-md-12" ng-class="{'has-error':form.Name.$invalid}">
+            <div class="form-group col-md-12" ng-class="{'has-error':form.roomnum.$invalid}">
                 <div>
                     <label>房号</label>
-                    <span class="text-danger pull-right" ng-show="form.Name.$invalid">*房号不能为空</span>
+                    <span class="text-danger pull-right" ng-show="form.roomnum.$invalid">*房号不能为空</span>
                 </div>
                 <div>
-                    <input class="form-control" name="Name" ng-model="data.Name" placeholder="输入房号" required/>
+                    <input class="form-control" name="roomnum" ng-model="data.roomnum" placeholder="输入房号" required/>
                 </div>
             </div>
-            <div class="form-group col-md-6" ng-class="{'has-error':form.RoomType.$invalid}">
+            <div class="form-group col-md-6" ng-class="{'has-error':form.roomtypeid.$invalid}">
                 <div>
                     <label>房间类型</label>
-                    <span class="text-danger pull-right" ng-show="form.RoomType.$invalid">*类型不能为空</span>
+                    <span class="text-danger pull-right" ng-show="form.roomtypeid.$invalid">*类型不能为空</span>
                 </div>
                 <div>
-                    <select class="form-control" name="RoomType" ng-model="data.RoomType" ng-options="type.Id as type.Name for type in roomTypes"
+                    <select class="form-control" name="roomtypeid" ng-model="data.roomtypeid" ng-options="type.rmtypeid as type.rmtypename for type in roomTypes"
                         required></select>
                 </div>
             </div>
@@ -55,10 +56,10 @@
                     <label>IP</label>
                 </div>
                 <div>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" ng-model="data.roomip" />
                 </div>
             </div>
-            <input type="hidden" ng-model="data.Id" />
+            <input type="hidden" ng-model="data.id" />
         </form>
         <!-- <form name="lineform" role="form">
             <div class="form-group">
@@ -130,7 +131,9 @@
         </form> -->
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="$close(data)" ng-disabled="form.$invalid"><i class="glyphicon glyphicon-ok-sign"></i> 确定</button>
-        <button class="btn btn-default" ng-click="$dismiss()"><i class="glyphicon glyphicon-remove-sign"></i> 取消</button>
+        <button class="btn btn-primary" ng-click="$close(data)" ng-disabled="form.$invalid">
+            <i class="glyphicon glyphicon-ok-sign"></i> 确定</button>
+        <button class="btn btn-default" ng-click="$dismiss()">
+            <i class="glyphicon glyphicon-remove-sign"></i> 取消</button>
     </div>
 </div>

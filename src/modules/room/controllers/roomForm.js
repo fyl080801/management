@@ -9,10 +9,11 @@ define([
         'modules.room.factories.enumerate',
         function ($scope, httpService, enumerate) {
             $scope.roomTypes = [];
+
             httpService
-                .get(request.房间类型列表)
+                .post('/roomtype/findRoomtypeHotels', {})
                 .then(function (result) {
-                    $scope.roomTypes = result.Data;
+                    $scope.roomTypes = result;
                 });
         }
     ]);
