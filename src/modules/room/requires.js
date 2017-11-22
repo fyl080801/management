@@ -22,6 +22,7 @@ define([
     'modules/room/controllers/roomForm',
     'modules/room/controllers/mode',
     'modules/room/controllers/roomRange',
+    'modules/room/filters/floorFilter',
     'modules/room/filters/imagePath',
     'modules/room/filters/roomStatus'
 ], function () {

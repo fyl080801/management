@@ -12,7 +12,11 @@ define([
         function ($scope, $modal, tableParameter, httpService, popupService) {
             var me = this;
 
+            $scope.$controller = this;
+
             $scope.current = null;
+
+            $scope.builds = [];
 
             this.floorParams = {
                 buildingId: null
@@ -23,9 +27,9 @@ define([
                 data: me.floorParams
             });
 
-            this.select = function (build) {
-                $scope.current = build;
-                me.floorParams.buildingId = build.buildingId;
+            this.select = function (floor) {
+                $scope.current = floor;
+                me.floorParams.buildingId = floor.id;
                 me.tableParams.reload();
             };
 
@@ -60,6 +64,28 @@ define([
                         templateUrl: 'views/room/rcu/Reset.html'
                     });
             };
+
+            this.load = function () {
+                $scope.builds = [];
+                httpService
+                    .post('/floor/allfloor', {})
+                    .then(function (result) {
+                        $.each(result, function (idx, item) {
+                            var addedbuild = $.grep($scope.builds, function (value) {
+                                return value.buildingId === item.buildingId;
+                            });
+                            if (addedbuild.length > 0) {
+                                addedbuild[0].floors.push(item);
+                            } else {
+                                $scope.builds.push({
+                                    buildingId: item.buildingId,
+                                    buildingName: item.buildingName,
+                                    floors: [item]
+                                });
+                            }
+                        });
+                    });
+            }
         }
     ]);
 });

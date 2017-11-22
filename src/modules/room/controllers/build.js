@@ -85,8 +85,6 @@ define([
                         $scope.$globalStore.builds = result;
                     });
             };
-
-            this.load();
         }
     ]);
 });
