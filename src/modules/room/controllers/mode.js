@@ -6,10 +6,13 @@ define([
     module.controller('modules.room.controllers.mode', [
         '$scope',
         '$modal',
-        'NgTableParams',
-        function ($scope, $modal, NgTableParams) {
+        'modules.manageui.factories.tableParameter',
+        'app.services.httpService',
+        function ($scope, $modal, tableParameter, httpService) {
             this.list = [];
-            this.tableParams = new NgTableParams();
+            this.tableParams = new tableParameter({
+                url: '/defaultval/findDefaultvalList'
+            });
             this.add = function () {
                 $modal
                     .open({
