@@ -8,8 +8,9 @@ define([
         '$modal',
         'modules.manageui.factories.tableParameter',
         'app.services.httpService',
+        'app.services.ajaxService',
         'app.services.popupService',
-        function ($scope, $modal, tableParameter, httpService, popupService) {
+        function ($scope, $modal, tableParameter, httpService, ajaxService, popupService) {
             var me = this;
 
             $scope.$controller = this;
@@ -44,6 +45,7 @@ define([
                         }
                     }).result
                     .then(function (data) {
+                        delete data.buildingName;
                         httpService
                             .post('/roomhotel/addRoomHotel', data)
                             .then(function (result) {
