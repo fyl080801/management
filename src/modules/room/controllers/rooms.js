@@ -68,6 +68,20 @@ define([
                     });
             };
 
+            this.drop = function (id) {
+                popupService
+                    .confirm('是否删除？')
+                    .ok(function () {
+                        ajaxService
+                            .post('/roomhotel/delRoomHotel', {
+                                id: id
+                            })
+                            .then(function () {
+                                me.tableParams.reload();
+                            });
+                    });
+            };
+
             this.reset = function () {
                 $modal
                     .open({
