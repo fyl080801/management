@@ -68,6 +68,22 @@ define([
                     });
             };
 
+            this.edit = function (room) {
+                $modal
+                    .open({
+                        templateUrl: 'views/room/manage/RoomForm.html',
+                        data: $.extend({}, room)
+                    }).result
+                    .then(function (data) {
+                        delete data.buildingName;
+                        httpService
+                            .post('/roomhotel/modifyRoomHotel', data)
+                            .then(function (result) {
+                                me.tableParams.reload();
+                            });
+                    });
+            };
+
             this.drop = function (id) {
                 popupService
                     .confirm('是否删除？')
