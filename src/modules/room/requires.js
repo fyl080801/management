@@ -10,6 +10,7 @@ define([
     'modules/room/controllers/roles',
     'modules/room/controllers/rooms',
     'modules/room/controllers/message',
+    'modules/room/controllers/rcu',
     'modules/room/controllers/users',
     'modules/room/controllers/home',
     'modules/room/controllers/state',

@@ -98,13 +98,6 @@ define([
                     });
             };
 
-            this.reset = function () {
-                $modal
-                    .open({
-                        templateUrl: 'views/room/rcu/Reset.html'
-                    });
-            };
-
             this.load = function () {
                 $scope.builds = [];
                 httpService

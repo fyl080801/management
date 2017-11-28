@@ -61,7 +61,7 @@ define([
                 .add({
                     id: 'roomsettings_rcusettings',
                     text: 'RCU设置',
-                    templateUrl: 'views/room/rcu/RCU.html',
+                    templateUrl: 'modules/room/views/rcu/RCU.html',
                     dependencies: ['modules/room/requires']
                 });
 
