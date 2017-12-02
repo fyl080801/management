@@ -14,7 +14,8 @@
                 </form>
                 <form class="navbar-form navbar-right">
                     <div class="form-group">
-                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> 保存</button>
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> 保存</button>
                     </div>
                 </form>
             </div>
@@ -29,9 +30,13 @@
                 <col />
                 <col />
                 <col />
+                <col />
                 <col width="50px" />
             </colgroup>
             <tr ng-repeat="row in me.list">
+                <td title="'取电开关'">
+                    <select class="form-control input-sm"></select>
+                </td>
                 <td title="'卡类型号'">
                     <input type="text" class="form-control input-sm" ng-model="row.CardTypeCode" />
                 </td>
@@ -51,45 +56,48 @@
                 </td>
                 <td>
                     <div class="btn-group btn-group-sm">
-                        <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i></button>
+                        <button class="btn btn-danger" type="button">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </button>
                     </div>
                 </td>
             </tr>
-        </table>
-    </form>
-    <form name="newform" role="form">
-        <table class="table">
-            <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col width="50px" />
-            </colgroup>
             <tr>
+                <td title="'取电开关'">
+                    <select class="form-control input-sm" ng-model="me.newItem.onoffType"></select>
+                </td>
                 <td title="'卡类型号'">
-                    <input type="text" class="form-control input-sm" />
+                    <input type="text" class="form-control input-sm" ng-model="me.newItem.cardType" />
                 </td>
                 <td title="'类型名称'">
-                    <input type="text" class="form-control input-sm" />
+                    <input type="text" class="form-control input-sm" ng-model="me.newItem.typeName" />
                 </td>
                 <td title="'图像'">
                     <div class="input-group input-group-sm">
-                        <input type="text" class="form-control input-sm" />
+                        <input type="text" class="form-control input-sm" ng-model="me.newItem.Img" />
                         <div class="input-group-btn">
                             <button class="btn btn-default" ng-click="me.selectImage()">选择</button>
                         </div>
                     </div>
                 </td>
                 <td title="'身份描述'">
-                    <input type="text" class="form-control input-sm" />
+                    <input type="text" class="form-control input-sm" ng-model="me.newitem.iddetail" />
                 </td>
                 <td>
                     <div class="btn-group btn-group-sm">
-                        <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-ok"></i></button>
+                        <button class="btn btn-success" type="button" ng-disabled="newform.$invalid" ng-click="me.add()">
+                            <i class="glyphicon glyphicon-ok"></i>
+                        </button>
                     </div>
                 </td>
             </tr>
         </table>
+    </form>
+    <form name="newform" role="form">
+        <input type="hidden" required ng-model="me.newItem.onoffType">
+        <input type="hidden" required ng-model="me.newItem.cardType" />
+        <input type="hidden" required ng-model="me.newItem.typeName" />
+        <input type="hidden" ng-model="me.newItem.Img" />
+        <input type="hidden" required ng-model="me.newitem.iddetail" />
     </form>
 </div>
