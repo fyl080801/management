@@ -6,8 +6,9 @@ define([
     module.controller('modules.room.controllers.identitySettings', [
         '$scope',
         'modules.manageui.factories.tableParameter',
+        'app.services.popupService',
         'app.services.httpService',
-        function ($scope, tableParameter, httpService) {
+        function ($scope, tableParameter, popupService, httpService) {
             var me = this;
 
             this.newItem = {};
@@ -27,7 +28,17 @@ define([
                     });
             };
             this.drop = function (row) {
-
+                popupService
+                    .confirm('是否删除？')
+                    .ok(function () {
+                        httpService
+                            .post('/identifier/delIdentifierSet', {
+                                id: row.id
+                            })
+                            .then(function () {
+                                me.tableParams.reload();
+                            });
+                    });
             };
         }
     ]);

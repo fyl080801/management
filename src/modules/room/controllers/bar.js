@@ -24,6 +24,14 @@ define([
                         size: 'sm'
                     });
             };
+
+            this.checkOut = function () {
+                $modal
+                    .open({
+                        templateUrl: 'modules/room/views/CheckOut.html',
+                        size: 'sm'
+                    });
+            };
         }
     ]);
 });
