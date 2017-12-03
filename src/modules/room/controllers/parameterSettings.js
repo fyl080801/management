@@ -6,10 +6,13 @@ define([
     module.controller('modules.room.controllers.parameterSettings', [
         '$scope',
         'app.services.httpService',
-        function ($scope, httpService) {
+        'app.services.popupService',
+        function ($scope, httpService, popupService) {
             var me = this;
 
             this.list = [];
+
+            this.orgList = [];
 
             this.add = function () {
 
@@ -33,10 +36,19 @@ define([
                 return result - 1;
             };
 
+            this.save = function () {
+                httpService
+                    .post('/setval/modifyEquipmentSetval', me.orgList)
+                    .then(function (result) {
+                        popupService.information('保存成功');
+                    });
+            };
+
             this.load = function () {
                 httpService
                     .post('/setval/findEquipmentSetval')
                     .then(function (result) {
+                        me.orgList = result;
                         var categories = [];
                         $.each(result, function (idx, item) {
                             if (categories.indexOf(item.topparamtype) < 0) {
