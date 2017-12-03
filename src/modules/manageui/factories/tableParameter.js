@@ -31,7 +31,7 @@ define([
                                 }
                             }, settings.data))
                             .then(function (result) {
-                                params.total(result.total);
+                                params.total(result.page.total);
                                 params.generatePagesArray();
                                 return result.resultlst;
                             }, function () {

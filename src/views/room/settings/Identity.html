@@ -23,7 +23,7 @@
         </div>
         <!-- /.container-fluid -->
     </div>
-    <form name="listform" role="form">
+    <form name="listform" role="form" style="position: absolute;top:50px;bottom: 0; left: 0;right: 0; overflow: auto">
         <table ng-table="me.tableParams" class="table" style="margin: 0">
             <colgroup>
                 <col />
@@ -33,30 +33,30 @@
                 <col />
                 <col width="50px" />
             </colgroup>
-            <tr ng-repeat="row in me.list">
+            <tr ng-repeat="row in $data">
                 <td title="'取电开关'">
-                    <select class="form-control input-sm"></select>
+                    <select class="form-control input-sm" ng-model="row.onoffType" ng-options="def for def in me.onoffTypes"></select>
                 </td>
                 <td title="'卡类型号'">
-                    <input type="text" class="form-control input-sm" ng-model="row.CardTypeCode" />
+                    <input type="text" class="form-control input-sm" ng-model="row.cardType" />
                 </td>
                 <td title="'类型名称'">
-                    <input type="text" class="form-control input-sm" ng-model="row.CardTypeName" />
+                    <input type="text" class="form-control input-sm" ng-model="row.typeName" />
                 </td>
                 <td title="'图像'">
                     <div class="input-group input-group-sm">
-                        <input type="text" class="form-control input-sm" ng-model="row.Image" />
+                        <input type="text" class="form-control input-sm" ng-model="row.Img" />
                         <div class="input-group-btn">
                             <button class="btn btn-default" ng-click="me.selectImage(row)">选择</button>
                         </div>
                     </div>
                 </td>
                 <td title="'身份描述'">
-                    <input type="text" class="form-control input-sm" />
+                    <input type="text" class="form-control input-sm" ng-model="row.iddetail" />
                 </td>
                 <td>
                     <div class="btn-group btn-group-sm">
-                        <button class="btn btn-danger" type="button">
+                        <button class="btn btn-danger" type="button" ng-click="me.drop(row)">
                             <i class="glyphicon glyphicon-remove"></i>
                         </button>
                     </div>
@@ -64,7 +64,7 @@
             </tr>
             <tr>
                 <td title="'取电开关'">
-                    <select class="form-control input-sm" ng-model="me.newItem.onoffType"></select>
+                    <select class="form-control input-sm" ng-model="me.newItem.onoffType" ng-options="def for def in me.onoffTypes"></select>
                 </td>
                 <td title="'卡类型号'">
                     <input type="text" class="form-control input-sm" ng-model="me.newItem.cardType" />
@@ -92,6 +92,7 @@
                 </td>
             </tr>
         </table>
+        <div ng-pager="me.tableParams"></div>
     </form>
     <form name="newform" role="form">
         <input type="hidden" required ng-model="me.newItem.onoffType">

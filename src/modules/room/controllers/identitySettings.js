@@ -5,21 +5,17 @@ define([
 
     module.controller('modules.room.controllers.identitySettings', [
         '$scope',
-        'NgTableParams',
+        'modules.manageui.factories.tableParameter',
         'app.services.httpService',
-        function ($scope, NgTableParams, httpService) {
+        function ($scope, tableParameter, httpService) {
             var me = this;
 
             this.newItem = {};
             this.list = [];
-            this.tableParams = new NgTableParams();
-            this.load = function () {
-                // httpService
-                //     .post('/identifier/addIdentifierSet', {})
-                //     .then(function (result) {
-                //         me.list = result.Data;
-                //     });
-            };
+            this.onoffTypes = ['红外感应', 'TIMIC', 'MIFARE'];
+            this.tableParams = new tableParameter({
+                url: '/identifier/findIdentifierSet'
+            });
             this.selectImage = function (row) {
 
             };
@@ -27,8 +23,11 @@ define([
                 httpService
                     .post('/identifier/addIdentifierSet', me.newItem)
                     .then(function () {
-
+                        me.tableParams.reload();
                     });
+            };
+            this.drop = function (row) {
+
             };
         }
     ]);
