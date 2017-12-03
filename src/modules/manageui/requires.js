@@ -1,4 +1,5 @@
 define([
+    'modules/manageui/filters/integer',
     'modules/manageui/filters/linkAuthorize',
     'modules/manageui/directives/datetimepicker',
     'modules/manageui/directives/ngRepeated',

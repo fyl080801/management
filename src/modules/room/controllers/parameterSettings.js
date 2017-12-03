@@ -28,7 +28,7 @@ define([
 
             this.valueUp = function (val) {
                 var result = $.isNumeric(val) ? val : parseInt(val, 10);
-                return result + 1;
+                return result - (-1);
             };
 
             this.valueDown = function (val) {
