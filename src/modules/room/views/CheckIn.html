@@ -10,13 +10,13 @@
     </div>
     <div class="modal-body">
         <form name="form" role="form" class="row">
-            <div class="form-group col-md-12" ng-class="{'has-error':form.BuildName.$invalid}">
+            <div class="form-group col-md-12" ng-class="{'has-error':form.roomId.$invalid}">
                 <div>
                     <label>房间号</label>
-                    <span class="text-danger pull-right" ng-show="form.BuildName.$invalid">*房间号不能为空</span>
+                    <span class="text-danger pull-right" ng-show="form.roomId.$invalid">*房间号不能为空</span>
                 </div>
                 <div>
-                    <input class="form-control" name="BuildName" ng-model="$data.BuildName" placeholder="输入名称" required/>
+                    <input class="form-control" name="roomId" ng-model="$data.roomId" placeholder="输入名称" required/>
                 </div>
             </div>
             <div class="form-group col-md-12">
@@ -25,25 +25,25 @@
                     <!-- <span class="text-danger pull-right" ng-show="form.BuildName.$invalid">*名称不能为空</span> -->
                 </div>
                 <div>
-                    <input datetimepicker name="CheckInTime" ng-model="$data.CheckInTime" placeholder="入住时间" />
+                    <input datetimepicker name="entertime" ng-model="$data.entertime" placeholder="入住时间" />
                 </div>
             </div>
-            <div class="form-group col-md-12" ng-class="{'has-error':form.BuildName.$invalid}">
+            <div class="form-group col-md-12" ng-class="{'has-error':form.guestname.$invalid}">
                 <div>
                     <label>客人姓名</label>
-                    <span class="text-danger pull-right" ng-show="form.BuildName.$invalid">*客人姓名不能为空</span>
+                    <span class="text-danger pull-right" ng-show="form.guestname.$invalid">*客人姓名不能为空</span>
                 </div>
                 <div>
-                    <input class="form-control" name="BuildName" ng-model="$data.BuildName" placeholder="客人姓名" required/>
+                    <input class="form-control" name="guestname" ng-model="$data.guestname" placeholder="客人姓名" required/>
                 </div>
             </div>
-            <div class="form-group col-md-12" ng-class="{'has-error':form.BuildName.$invalid}">
+            <div class="form-group col-md-12" ng-class="{'has-error':form.cardno.$invalid}">
                 <div>
                     <label>身份证信息</label>
-                    <span class="text-danger pull-right" ng-show="form.BuildName.$invalid">*身份证信息不能为空</span>
+                    <span class="text-danger pull-right" ng-show="form.cardno.$invalid">*身份证信息不能为空</span>
                 </div>
                 <div>
-                    <input class="form-control" name="BuildName" ng-model="$data.BuildName" placeholder="身份证信息" required/>
+                    <input class="form-control" name="cardno" ng-model="$data.cardno" placeholder="身份证信息" required/>
                 </div>
             </div>
         </form>

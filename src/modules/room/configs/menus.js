@@ -22,6 +22,12 @@ define([
                     icon: 'fa fa-comments fa-fw'
                 })
                 .add({
+                    id: 'roommanage_registers',
+                    text: '登记管理',
+                    templateUrl: 'modules/room/views/manage/Registers.html',
+                    dependencies: ['modules/room/requires']
+                })
+                .add({
                     id: 'roommanage_infomanage',
                     text: '消息管理',
                     templateUrl: 'views/room/manage/Message.html',

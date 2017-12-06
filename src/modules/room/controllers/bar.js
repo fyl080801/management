@@ -9,7 +9,10 @@ define([
         'modules.manageui.configs.linkManager',
         'modules.manageui.services.tabService',
         'modules.room.services.messageService',
-        function ($scope, $modal, linkManager, tabService, messageService) {
+        'modules/room/services/registerService',
+        'app.services.httpService',
+        'app.services.popupService',
+        function ($scope, $modal, linkManager, tabService, messageService, registerService, httpService, popupService) {
             $scope.service = messageService;
 
             this.openMessage = function (type) {
@@ -22,6 +25,14 @@ define([
                     .open({
                         templateUrl: 'modules/room/views/CheckIn.html',
                         size: 'sm'
+                    }).result
+                    .then(function (data) {
+                        httpService
+                            .post('/enter/addEnterup', data)
+                            .then(function () {
+                                popupService.information('登记成功');
+                                registerService.load();
+                            });
                     });
             };
 

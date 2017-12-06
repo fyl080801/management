@@ -1,0 +1,17 @@
+<div ng-controller="modules/room/controllers/registers as me" ng-init="me.tableParams.reload()">
+    <div ng-pager="me.tableParams"></div>
+    <div>
+        <div class="col-md-4" ng-repeat="rec in me.tableParams.data">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>房间号</label>
+                        <div>
+                            <span class="form-control-static" ng-bind="rec.roomid"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
