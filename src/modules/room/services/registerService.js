@@ -14,7 +14,7 @@ define([
 
             this.load = function () {
                 me.tableParams.reload();
-            }
+            };
         }
     ]);
 });
