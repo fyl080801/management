@@ -9,7 +9,9 @@ define([
             var me = this;
 
             this.tableParams = new tableParameter({
-                url: '/enter/findEnterup'
+                url: '/enter/findEnterup',
+                count: 9,
+                counts: [9, 18]
             });
 
             this.load = function () {

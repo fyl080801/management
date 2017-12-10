@@ -24,6 +24,11 @@ define([
                 data: me.floorParams
             });
 
+            // this.paramTable = new tableParameter({
+            //     url: '/rcuSetparam/findRcuSetparam',
+            //     data: me.floorParams
+            // });
+
             this.upgrade = function () {
 
             };
