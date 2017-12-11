@@ -10,6 +10,7 @@ define([
     'modules/manageui/factories/tableParameter',
     'modules/manageui/services/sessionService',
     'modules/manageui/services/tabService',
+    'modules/manageui/controllers/register',
     'modules/manageui/controllers/main',
     'modules/manageui/controllers/session',
     'modules/manageui/controllers/login'
