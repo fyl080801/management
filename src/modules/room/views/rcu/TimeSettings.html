@@ -15,18 +15,8 @@
         </div>
     </div> -->
     <div class="table-condensed">
-        <table ng-table="rcu.timeTable" class="table table-striped table-hover" ng-show="current.Floor">
+        <table ng-table="rcu.timeTable" class="table table-striped table-hover" ng-show="rcu.current">
             <tr ng-repeat="row in $data">
-                <!-- <td>
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <label>房间号</label>
-                                <span class="form-control-static" ng-bind=""></span>
-                            </div>
-                        </div>
-                    </div>
-                </td> -->
                 <td title="'房间号'">{{row.roomid}}</td>
                 <td title="'房间类型'">{{row.roomtype}}</td>
                 <td title="'连接'">{{row.link}}</td>

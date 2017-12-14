@@ -20,9 +20,14 @@ define([
             };
 
             this.timeTable = new tableParameter({
-                url: '/rcuSettime/findRcuSettime',
+                url: '/rcuSettime/findRunTimeRcu',
                 data: me.floorParams
             });
+
+            // this.paramTable = new tableParameter({
+            //     url: '/rcuSetparam/findRcuSetparam',
+            //     data: me.floorParams
+            // });
 
             // this.paramTable = new tableParameter({
             //     url: '/rcuSetparam/findRcuSetparam',
@@ -44,6 +49,7 @@ define([
                 me.current = floor;
                 me.floorParams.floorid = floor.id;
                 me.timeTable.reload();
+                //me.paramTable.reload();
             };
         }
     ]);
