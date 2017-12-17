@@ -7,7 +7,7 @@ define([
         function () {
             return {
                 request: function (configs) {
-                    configs.withCredentials = true;
+                    configs.withCredentials = configs.method.toUpperCase() === 'POST';
                     return configs;
                 },
                 requestError: function (err) {
