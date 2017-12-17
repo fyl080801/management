@@ -5,7 +5,7 @@ define([
     'modules/room/services/registerService',
     'modules/room/services/messageService',
     'modules/room/controllers/test',
-    'modules/room/controllers/registers',
+    'modules/room/components/manage/registers',
     'modules/room/controllers/bar',
     'modules/room/components/manage/build',
     'modules/room/components/manage/buildForm',

@@ -3,7 +3,7 @@ define([
 ], function (module) {
     'use strict';
 
-    module.controller('modules/room/controllers/registers', [
+    module.controller('modules/room/components/manage/registers', [
         '$scope',
         'modules/room/services/registerService',
         'modules.manageui.factories.tableParameter',

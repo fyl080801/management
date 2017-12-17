@@ -24,7 +24,7 @@ define([
                 .add({
                     id: 'roommanage_registers',
                     text: '登记管理',
-                    templateUrl: 'modules/room/views/manage/Registers.html',
+                    templateUrl: 'modules/room/components/manage/registers.html',
                     dependencies: ['modules/room/requires']
                 })
                 .add({
