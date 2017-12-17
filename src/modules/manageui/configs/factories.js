@@ -7,6 +7,7 @@ define([
         function () {
             return {
                 request: function (configs) {
+                    configs.withCredentials = true;
                     return configs;
                 },
                 requestError: function (err) {

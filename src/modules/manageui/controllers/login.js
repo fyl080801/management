@@ -14,15 +14,16 @@ define([
             var me = this;
 
             this.login = function () {
-                if ($appConfig.session) {
-                    $state.go($('html').attr('data-index'));
-                } else {
-                    sessionService
-                        .login(me.Username, me.Password)
-                        .success(function () {
-                            $state.go($('html').attr('data-index'));
-                        });
-                }
+                // if ($appConfig.session) {
+                //     $state.go($('html').attr('data-index'));
+                // } else {
+
+                // }
+                sessionService
+                    .login(me.Username, me.Password)
+                    .success(function () {
+                        $state.go($('html').attr('data-index'));
+                    });
             };
 
             this.register = function () {
