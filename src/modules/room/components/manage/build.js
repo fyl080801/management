@@ -3,7 +3,7 @@ define([
 ], function (module) {
     'use strict';
 
-    module.controller('modules.room.controllers.build', [
+    module.controller('modules.room.components.manage.build', [
         '$scope',
         '$modal',
         'NgTableParams',
@@ -17,7 +17,7 @@ define([
             this.add = function () {
                 $modal
                     .open({
-                        templateUrl: 'views/room/manage/BuildForm.html',
+                        templateUrl: 'modules/room/components/manage/buildForm.html',
                         data: {}
                     }).result
                     .then(function (data) {
@@ -40,7 +40,7 @@ define([
                     build.excsubs = build.extsubfloor.split(',');
                 $modal
                     .open({
-                        templateUrl: 'views/room/manage/BuildForm.html',
+                        templateUrl: 'modules/room/components/manage/buildForm.html',
                         data: build
                     }).result
                     .then(function (data) {

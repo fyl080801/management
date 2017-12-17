@@ -3,7 +3,7 @@ define([
 ], function (module) {
     'use strict';
 
-    module.controller('modules.room.controllers.roomType', [
+    module.controller('modules.room.components.manage.roomTypes', [
         '$scope',
         '$modal',
         '$appConfig',
@@ -33,7 +33,7 @@ define([
             this.add = function () {
                 $modal
                     .open({
-                        templateUrl: 'views/room/manage/RoomTypeForm.html',
+                        templateUrl: 'modules/room/components/manage/roomTypeForm.html',
                         data: {
                             Lines: []
                         }
@@ -60,7 +60,7 @@ define([
                         roomType.Lines = roomType.roomtypeEquipmentVo;
                         $modal
                             .open({
-                                templateUrl: 'views/room/manage/RoomTypeForm.html',
+                                templateUrl: 'modules/room/components/manage/roomTypeForm.html',
                                 data: roomType
                             }).result
                             .then(function (data) {

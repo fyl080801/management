@@ -49,13 +49,13 @@ define([
                 .add({
                     id: 'roomsettings_build',
                     text: '楼栋',
-                    templateUrl: 'views/room/manage/Build.html',
+                    templateUrl: 'modules/room/components/manage/build.html',
                     dependencies: ['modules/room/requires']
                 })
                 .add({
                     id: 'roomsettings_category',
                     text: '房间类型',
-                    templateUrl: 'views/room/manage/RoomTypes.html',
+                    templateUrl: 'modules/room/components/manage/roomTypes.html',
                     dependencies: ['modules/room/requires']
                 })
                 .add({

@@ -3,7 +3,7 @@ define([
 ], function (module) {
     'use strict';
 
-    module.controller('modules.room.controllers.roomTypeForm', [
+    module.controller('modules.room.components.manage.roomTypeForm', [
         '$scope',
         'NgTableParams',
         'app.services.ajaxService',

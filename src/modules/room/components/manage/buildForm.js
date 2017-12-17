@@ -3,7 +3,7 @@ define([
 ], function (module) {
     'use strict';
 
-    module.controller('modules.room.controllers.buildForm', [
+    module.controller('modules.room.components.manage.buildForm', [
         '$scope',
         'NgTableParams',
         'app.services.httpService',
