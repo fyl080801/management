@@ -11,7 +11,7 @@ define([
                     id: 'roomstate',
                     text: '房态显示',
                     icon: 'fa fa-camera fa-fw',
-                    templateUrl: 'modules/room/views/State.html',
+                    templateUrl: 'modules/room/components/system/state.html',
                     dependencies: ['modules/room/requires']
                 });
 
@@ -67,7 +67,7 @@ define([
                 .add({
                     id: 'roomsettings_rcusettings',
                     text: 'RCU设置',
-                    templateUrl: 'modules/room/views/rcu/RCU.html',
+                    templateUrl: 'modules/room/components/rcu/rcu.html',
                     dependencies: ['modules/room/requires']
                 });
 

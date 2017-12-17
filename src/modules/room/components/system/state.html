@@ -1,4 +1,4 @@
-<div ng-controller="modules.room.controllers.state as me">
+<div ng-controller="modules/room/components/system/state as me">
     <div class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
             <div class="collapse navbar-collapse">
@@ -8,7 +8,7 @@
                     </button>
                     <select class="form-control" ng-init="me.load()" ng-model="current" ng-options="build.buildingName for build in $globalStore.builds"></select>
                 </form>
-                <div class="navbar-form navbar-left" style="padding-left: 0" ng-controller="modules.room.controllers.buildForm as ctl">
+                <div class="navbar-form navbar-left" style="padding-left: 0" ng-controller="modules/room/components/manage/buildForm as ctl">
                     <div class="btn-group">
                         <button class="btn btn-success" ng-class="{'active':selectedFloors.indexOf(num)>=0}" ng-click="me.selectFloor(num)" style="width: 42px"
                             ng-repeat="num in ctl.floors(current.floor)">{{num}}</button>

@@ -3,7 +3,7 @@ define([
 ], function (module) {
     'use strict';
 
-    module.controller('modules.room.controllers.home', [
+    module.controller('modules/room/components/system/home', [
         '$scope',
         '$state',
         '$appEnvironment',

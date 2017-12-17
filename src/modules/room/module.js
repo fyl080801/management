@@ -29,10 +29,10 @@ define([
                         dependencies: ['modules/room/requires'],
                         views: {
                             'home': {
-                                templateUrl: 'modules/room/views/Home.html'
+                                templateUrl: 'modules/room/components/system/home.html'
                             },
                             'bar': {
-                                templateUrl: 'modules/room/views/Bar.html'
+                                templateUrl: 'modules/room/components/system/bar.html'
                             }
                         }
                     });

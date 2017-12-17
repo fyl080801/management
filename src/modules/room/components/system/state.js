@@ -3,7 +3,7 @@ define([
 ], function (module) {
     'use strict';
 
-    module.controller('modules.room.controllers.state', [
+    module.controller('modules/room/components/system/state', [
         '$scope',
         '$timeout',
         '$modal',
@@ -46,7 +46,7 @@ define([
             this.openControl = function (id) {
                 $modal
                     .open({
-                        templateUrl: 'modules/room/views/RoomControl.html',
+                        templateUrl: 'modules/room/components/system/roomControl.html',
                         size: 'lg'
                     });
             };
@@ -62,7 +62,7 @@ define([
             this.showComment = function (roomId) {
                 $modal
                     .open({
-                        templateUrl: 'modules/room/views/Comment.html'
+                        templateUrl: 'modules/room/components/system/comment.html'
                     });
             };
 

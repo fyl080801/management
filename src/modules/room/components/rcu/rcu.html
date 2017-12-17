@@ -1,4 +1,4 @@
-<div ng-controller="modules.room.controllers.rcu as rcu" style="overflow: auto">
+<div ng-controller="modules/room/components/rcu/rcu as rcu" style="overflow: auto">
     <div class="navbar navbar-default navbar-static-top" style="margin: 0">
         <div class="navbar-left">
             <ul class="nav navbar-nav" role="tablist">
@@ -57,11 +57,11 @@
         </div>
         <div class="col-md-9">
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="rcu_project" ng-include="'modules/room/views/rcu/Project.html'">
+                <div role="tabpanel" class="tab-pane active" id="rcu_project" ng-include="'modules/room/components/rcu/project.html'">
                 </div>
-                <div role="tabpanel" class="tab-pane" id="rcu_param" ng-include="'modules/room/views/rcu/Parameters.html'">
+                <div role="tabpanel" class="tab-pane" id="rcu_param" ng-include="'modules/room/components/rcu/parameters.html'">
                 </div>
-                <div role="tabpanel" class="tab-pane" id="rcu_time" ng-include="'modules/room/views/rcu/TimeSettings.html'"></div>
+                <div role="tabpanel" class="tab-pane" id="rcu_time" ng-include="'modules/room/components/rcu/timeSettings.html'"></div>
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@ define([
 ], function (module) {
     'use strict';
 
-    module.controller('modules.room.controllers.bar', [
+    module.controller('modules/room/components/system/bar', [
         '$scope',
         '$modal',
         'modules.manageui.configs.linkManager',
@@ -23,7 +23,7 @@ define([
             this.checkIn = function () {
                 $modal
                     .open({
-                        templateUrl: 'modules/room/views/CheckIn.html',
+                        templateUrl: 'modules/room/components/system/checkIn.html',
                         size: 'sm'
                     }).result
                     .then(function (data) {
@@ -39,7 +39,7 @@ define([
             this.checkOut = function () {
                 $modal
                     .open({
-                        templateUrl: 'modules/room/views/CheckOut.html',
+                        templateUrl: 'modules/room/components/system/checkOut.html',
                         size: 'sm'
                     });
             };
