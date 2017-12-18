@@ -11,6 +11,7 @@ define([
     'modules/room/components/system/bar',
     'modules/room/components/system/home',
     'modules/room/components/system/state',
+    'modules/room/components/system/comment',
     'modules/room/components/rcu/rcu',
     'modules/room/components/manage/registers',
     'modules/room/components/manage/build',

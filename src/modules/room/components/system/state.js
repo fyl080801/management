@@ -62,7 +62,10 @@ define([
             this.showComment = function (roomId) {
                 $modal
                     .open({
-                        templateUrl: 'modules/room/components/system/comment.html'
+                        templateUrl: 'modules/room/components/system/comment.html',
+                        data: {
+                            roomId: roomId
+                        }
                     });
             };
 
